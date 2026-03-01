@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import com.naturalsmp.wildtools.api.WildToolsAPI;
-import com.naturalsmp.wildtools.api.objects.tools.Tool;
+import com.bgsoftware.wildtools.api.WildToolsAPI;
+import com.bgsoftware.wildtools.api.objects.tools.Tool;
 import org.bukkit.enchantments.Enchantment;
 import org.bukkit.inventory.ItemStack;
 
