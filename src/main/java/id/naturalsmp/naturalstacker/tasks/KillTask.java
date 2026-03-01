@@ -9,7 +9,7 @@ import org.bukkit.scheduler.BukkitTask;
 
 public final class KillTask extends BukkitRunnable {
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private static BukkitTask task = null;
     private static long timeLeft;

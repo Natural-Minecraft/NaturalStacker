@@ -5,7 +5,7 @@ import org.bukkit.block.CreatureSpawner;
 
 public interface SyncedCreatureSpawner extends CreatureSpawner {
 
-    NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     static SyncedCreatureSpawner of(CreatureSpawner creatureSpawner) {
         return creatureSpawner instanceof SyncedCreatureSpawner ? (SyncedCreatureSpawner) creatureSpawner :

@@ -8,7 +8,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class ItemModifiers {
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     public static ItemModifierFunction countModifier(int min, int max, int limit) {
         return (lootItem, itemStack, itemMeta, amountOfItems, lootBonusLevel) -> {

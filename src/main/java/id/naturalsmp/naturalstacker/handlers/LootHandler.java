@@ -87,7 +87,7 @@ public final class LootHandler {
     }
 
     public static void reload() {
-        NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+        NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
         plugin.setLootHandler(new LootHandler(plugin));
     }
 

@@ -20,7 +20,7 @@ import java.util.regex.Pattern;
 public final class StackService {
 
     private static final Map<String, StackServiceWorld> stackServiceWorldMap = Maps.newConcurrentMap();
-    private static final Pattern STACKING_THREAD_NAME_PATTERN = Pattern.compile("NaturalStacker (Items|Entities) Stacking Thread");
+    private static final Pattern STACKING_THREAD_NAME_PATTERN = Pattern.compile("NaturalStackerPlugin (Items|Entities) Stacking Thread");
 
     public static void execute(StackedObject stackedObject, StackedObject otherObject, Runnable runnable) {
         Runnable finalRunnable;
@@ -81,7 +81,7 @@ public final class StackService {
 
     private static final class StackServiceWorld {
 
-        private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+        private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
         private final Map<StackType, ExecutorService> executorServiceMap = new EnumMap<>(StackType.class);
 
@@ -90,7 +90,7 @@ public final class StackService {
             for (StackType stackType : StackType.values())
                 executorServiceMap.put(stackType, Executors.newFixedThreadPool(2,
                         new ThreadFactoryBuilder().setNameFormat(
-                                "NaturalStacker " + stackType + " Stacking Thread (" + world + ")"
+                                "NaturalStackerPlugin " + stackType + " Stacking Thread (" + world + ")"
                         ).build()));
         }
 

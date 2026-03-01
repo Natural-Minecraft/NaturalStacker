@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 public final class WStackedSnapshot implements StackedSnapshot {
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private final Map<Location, Pair<Integer, EntityType>> stackedSpawners = new HashMap<>();
     private final Map<Location, Pair<Integer, ItemStack>> stackedBarrels = new HashMap<>();

@@ -11,8 +11,8 @@ import java.util.concurrent.TimeUnit;
 
 public final class Executor {
 
-    private static final ExecutorService dataService = Executors.newFixedThreadPool(3, new ThreadFactoryBuilder().setNameFormat("NaturalStacker Database Thread #%d").build());
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final ExecutorService dataService = Executors.newFixedThreadPool(3, new ThreadFactoryBuilder().setNameFormat("NaturalStackerPlugin Database Thread #%d").build());
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
     private static boolean shutdown = false, dataShutdown = false;
 
     public static void sync(Runnable runnable) {
@@ -61,7 +61,7 @@ public final class Executor {
     }
 
     public static boolean isDataThread() {
-        return Thread.currentThread().getName().contains("NaturalStacker Database Thread");
+        return Thread.currentThread().getName().contains("NaturalStackerPlugin Database Thread");
     }
 
     public static void data(Runnable runnable) {

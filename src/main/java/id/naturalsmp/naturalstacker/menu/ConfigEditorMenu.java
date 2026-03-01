@@ -56,7 +56,7 @@ public final class ConfigEditorMenu extends WildMenu {
 
     @Override
     protected Inventory buildInventory() {
-        Inventory inventory = Bukkit.createInventory(this, 9 * 6, "" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStacker");
+        Inventory inventory = Bukkit.createInventory(this, 9 * 6, "" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStackerPlugin");
 
         ItemStack glassPane = new ItemBuilder(Materials.BLACK_STAINED_GLASS_PANE).withName("&6").build();
 
@@ -140,7 +140,7 @@ public final class ConfigEditorMenu extends WildMenu {
             case 49:
                 Executor.async(() -> {
                     saveConfig();
-                    e.getWhoClicked().sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStacker " + ChatColor.GRAY + "Saved configuration successfully.");
+                    e.getWhoClicked().sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStackerPlugin " + ChatColor.GRAY + "Saved configuration successfully.");
                 });
                 return;
             default:

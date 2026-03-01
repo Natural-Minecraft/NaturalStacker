@@ -24,7 +24,7 @@ public class HandlerListWrapper extends HandlerList {
             RegisteredListener.class, EventExecutor.class, "executor")
             .removeFinal();
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private Mode mode = Mode.NEW;
 
@@ -42,7 +42,7 @@ public class HandlerListWrapper extends HandlerList {
                 true);
         super.register(trackEventListener);
 
-        // Copy listeners of NaturalStacker to this HandlerList
+        // Copy listeners of NaturalStackerPlugin to this HandlerList
         for (RegisteredListener registeredListener : original.getRegisteredListeners()) {
             register(registeredListener);
         }

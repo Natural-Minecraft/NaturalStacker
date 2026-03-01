@@ -22,7 +22,7 @@ import java.util.Map;
 
 public final class FileUtils {
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private FileUtils() {
 

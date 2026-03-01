@@ -61,7 +61,7 @@ public final class BarrelsListener implements Listener {
         ItemStack inHand = e.getItemInHand();
 
         // In some cases, the item in hand may be different than the placed block.
-        // For example, when waxing copper blocks: https://github.com/BG-Software-LLC/NaturalStacker/issues/685
+        // For example, when waxing copper blocks: https://github.com/BG-Software-LLC/NaturalStackerPlugin/issues/685
         if (inHand == null || inHand.getType() != e.getBlock().getType())
             return;
 

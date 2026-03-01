@@ -12,7 +12,7 @@ import java.util.Map;
 @SuppressWarnings("WeakerAccess")
 public final class Locale {
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
     private static final Map<String, Locale> localeMap = new HashMap<>();
 
     public static Locale BARREL_BREAK = new Locale("BARREL_BREAK");

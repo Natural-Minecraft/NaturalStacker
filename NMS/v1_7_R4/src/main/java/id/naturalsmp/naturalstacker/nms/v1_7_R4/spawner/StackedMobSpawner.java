@@ -48,7 +48,7 @@ public class StackedMobSpawner extends MobSpawnerAbstract {
     private static final ReflectField<MobSpawnerAbstract> MOB_SPAWNER_ABSTRACT = new ReflectField<MobSpawnerAbstract>(
             TileEntityMobSpawner.class, MobSpawnerAbstract.class, "a").removeFinal();
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private final World world;
     private final BlockPosition position;

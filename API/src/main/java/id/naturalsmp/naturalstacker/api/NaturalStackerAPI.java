@@ -16,7 +16,7 @@ import org.bukkit.entity.LivingEntity;
 @SuppressWarnings({"WeakerAccess", "unused"})
 public final class NaturalStackerAPI {
 
-    private static NaturalStacker instance;
+    private static NaturalStackerPlugin instance;
 
     /**
      * Set the plugin's instance for the API.
@@ -24,7 +24,7 @@ public final class NaturalStackerAPI {
      *
      * @param instance The instance of the plugin to set to the API.
      */
-    public static void setPluginInstance(NaturalStacker instance) {
+    public static void setPluginInstance(NaturalStackerPlugin instance) {
         if (NaturalStackerAPI.instance != null) {
             throw new UnsupportedOperationException("You cannot initialize the plugin instance after it was initialized.");
         }
@@ -126,7 +126,7 @@ public final class NaturalStackerAPI {
     /**
      * Get the naturalstacker object.
      */
-    public static NaturalStacker getNaturalStacker() {
+    public static NaturalStackerPlugin getNaturalStacker() {
         return instance;
     }
 

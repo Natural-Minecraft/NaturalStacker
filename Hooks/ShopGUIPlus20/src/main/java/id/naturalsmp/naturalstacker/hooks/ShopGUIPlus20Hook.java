@@ -21,7 +21,7 @@ public final class ShopGUIPlus20Hook {
 
         @Override
         public String getName() {
-            return "NaturalStacker";
+            return "NaturalStackerPlugin";
         }
 
         @Override

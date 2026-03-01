@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 
 public class LootTable implements id.naturalsmp.naturalstacker.api.loot.LootTable {
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private final List<LootPair> lootPairs = new LinkedList<>();
     private final int min, max, minExp, maxExp;

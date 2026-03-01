@@ -25,7 +25,7 @@ public abstract class WildMenu implements InventoryHolder {
 
     protected static final String[] IGNORED_CONFIG_PATHS = new String[]{"items", "sounds", "commands"};
 
-    protected static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    protected static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
     protected static final Map<String, MenuData> dataMap = new ConcurrentHashMap<>();
 
     private final String identifier;

@@ -18,7 +18,7 @@ import java.util.function.Predicate;
 
 public class EntityFilters {
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private EntityFilters() {
 

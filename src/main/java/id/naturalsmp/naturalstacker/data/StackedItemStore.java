@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class StackedItemStore extends AbstractEntityDataStore<StackedItem> {
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     @Override
     protected boolean loadUnloadedInternal(UUID uuid, StackedItem stackedItem) {

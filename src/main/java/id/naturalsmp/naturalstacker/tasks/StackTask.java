@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public final class StackTask extends BukkitRunnable {
 
-    private static NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private static BukkitTask task;
 

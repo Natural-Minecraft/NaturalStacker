@@ -599,7 +599,7 @@ public final class EntitiesListener implements Listener {
 
     // When a lightning hits pigs, the EntityTransformEvent is not called for no reason.
     // This trick should do the job.
-    // For reference, https://github.com/BG-Software-LLC/NaturalStacker/issues/481
+    // For reference, https://github.com/BG-Software-LLC/NaturalStackerPlugin/issues/481
     @EventHandler(priority = EventPriority.MONITOR)
     public void onLightningStrike(LightningStrikeEvent event) {
         if (event.getLightning().isEffect())

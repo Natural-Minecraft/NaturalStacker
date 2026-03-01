@@ -54,7 +54,7 @@ public final class DeathSimulation {
 
     private static final ReflectField<HandlerList> EVENT_DAMAGE_HANDLER_LIST = initializeEntityDamageHandlerListField();
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     @Nullable
     private static final Material CROSSBOW_TYPE = Materials.getMaterialOrNull("CROSSBOW");
@@ -67,7 +67,7 @@ public final class DeathSimulation {
     }
 
     public static void injectEntityDamageHandlerList() {
-        // Changes HandlerList of EntityDamageEvent to only include NaturalStacker's listener.
+        // Changes HandlerList of EntityDamageEvent to only include NaturalStackerPlugin's listener.
         HandlerList original = EntityDamageEvent.getHandlerList();
         HandlerListWrapper newHandlerList = new HandlerListWrapper(original);
         EVENT_DAMAGE_HANDLER_LIST.set(null, newHandlerList);

@@ -34,7 +34,7 @@ public class LootItem extends FilteredLoot {
     private static final ReflectMethod<Void> POTION_META_SET_BASE_TYPE = new ReflectMethod<>(
             PotionMeta.class, "setBasePotionType", PotionType.class);
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private final List<ItemModifiers.ItemModifierFunction> itemModifiers = new LinkedList<>();
     private final ItemStack itemStack, burnableItem;

@@ -88,12 +88,12 @@ public final class ConfigSectionEditorMenu extends WildMenu {
                 this.nextMenuMove = true;
                 player.closeInventory();
 
-                player.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStacker" + ChatColor.GRAY + " Please enter a new value (-cancel to cancel):");
+                player.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStackerPlugin" + ChatColor.GRAY + " Please enter a new value (-cancel to cancel):");
 
                 if (this.section.isList(sectionPath)) {
-                    player.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStacker" + ChatColor.GRAY + " If you enter a value that is already in the list, it will be removed.");
+                    player.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStackerPlugin" + ChatColor.GRAY + " If you enter a value that is already in the list, it will be removed.");
                 } else if (this.section.isConfigurationSection(sectionPath)) {
-                    player.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStacker" + ChatColor.GRAY + " The format to be used is 'KEY: VALUE'");
+                    player.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStackerPlugin" + ChatColor.GRAY + " The format to be used is 'KEY: VALUE'");
                 }
             }
         } catch (Exception ignored) {
@@ -121,10 +121,10 @@ public final class ConfigSectionEditorMenu extends WildMenu {
 
                 if (list.contains(message.toString())) {
                     list.remove(message.toString());
-                    player.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStacker" + ChatColor.GRAY + " Removed the value " + message + " from " + path);
+                    player.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStackerPlugin" + ChatColor.GRAY + " Removed the value " + message + " from " + path);
                 } else {
                     list.add(message.toString());
-                    player.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStacker" + ChatColor.GRAY + " Added the value " + message + " to " + path);
+                    player.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStackerPlugin" + ChatColor.GRAY + " Added the value " + message + " to " + path);
                 }
 
                 this.section.set(path, list);

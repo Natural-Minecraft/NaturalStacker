@@ -560,7 +560,7 @@ public final class SettingsHandler {
     }
 
     public static void reload() {
-        NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+        NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
         plugin.setSettings(new SettingsHandler(plugin));
     }
 

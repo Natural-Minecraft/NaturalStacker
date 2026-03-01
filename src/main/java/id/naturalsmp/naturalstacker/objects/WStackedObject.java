@@ -16,7 +16,7 @@ import java.util.function.Consumer;
 @SuppressWarnings("WeakerAccess")
 public abstract class WStackedObject<T> implements StackedObject<T> {
 
-    protected static NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    protected static NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     protected final T object;
     private final AtomicInteger stackAmount = new AtomicInteger(0);

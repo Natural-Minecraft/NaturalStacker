@@ -22,7 +22,7 @@ import java.util.stream.Stream;
 @SuppressWarnings("UnstableApiUsage")
 public final class EntitiesGetter {
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private static final EntitiesCache entitiesCache = initializeCache();
 

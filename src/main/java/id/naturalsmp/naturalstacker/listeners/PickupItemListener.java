@@ -62,7 +62,7 @@ public class PickupItemListener {
         if (((WStackedItem) stackedItem).isRemoved()) {
             // We did not call the original event, however this item is removed and we pretend we did,
             // so the entity won't pick this item as well.
-            // https://github.com/BG-Software-LLC/NaturalStacker/issues/1074
+            // https://github.com/BG-Software-LLC/NaturalStackerPlugin/issues/1074
             return true;
         }
 
@@ -98,7 +98,7 @@ public class PickupItemListener {
 
     public static void injectHandlerLists() {
         for (EventType eventType : EventType.values()) {
-            // Changes HandlerList of the event to only include NaturalStacker's listeners.
+            // Changes HandlerList of the event to only include NaturalStackerPlugin's listeners.
             try {
                 Class<?> eventClass = Class.forName(eventType.eventClassName);
 

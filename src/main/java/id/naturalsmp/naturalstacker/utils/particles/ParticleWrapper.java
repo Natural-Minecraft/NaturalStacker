@@ -5,7 +5,7 @@ import org.bukkit.Location;
 
 public final class ParticleWrapper {
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private final String particle;
     private final int count, offsetX, offsetY, offsetZ;

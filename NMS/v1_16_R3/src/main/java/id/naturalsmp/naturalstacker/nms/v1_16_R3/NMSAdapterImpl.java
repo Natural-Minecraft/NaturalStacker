@@ -52,7 +52,7 @@ public final class NMSAdapterImpl implements NMSAdapter {
             "Items", "ChestedHorse", "DecorItem",
     };
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private static final NamespacedKey
             STACK_AMOUNT = new NamespacedKey(plugin, "stackAmount"),

@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 @SuppressWarnings("WeakerAccess")
 public abstract class WUnloadedStackedObject implements UnloadedStackedObject, Location2ObjectMap.ILocationEntity {
 
-    protected static NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    protected static NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 

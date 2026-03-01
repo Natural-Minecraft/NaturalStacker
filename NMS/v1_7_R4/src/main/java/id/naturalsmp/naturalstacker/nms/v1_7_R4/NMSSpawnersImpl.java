@@ -40,7 +40,7 @@ import java.util.function.BiPredicate;
 @SuppressWarnings("unused")
 public final class NMSSpawnersImpl implements NMSSpawners {
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private static void createCondition(String id, BiPredicate<World, BlockPosition> predicate, EntityType... entityTypes) {
         SpawnCondition spawnCondition = SpawnCondition.register(new SpawnCondition(id, EntityUtils.format(id)) {

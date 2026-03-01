@@ -104,7 +104,7 @@ public class DBSession {
                         plugin.getSettings().databaseMySQLPrefix, plugin.getSettings().databaseMySQLSSL,
                         plugin.getSettings().databaseMySQLPublicKeyRetrieval,
                         plugin.getSettings().databaseMySQLWaitTimeout, plugin.getSettings().databaseMySQLMaxLifetime,
-                        "NaturalStacker Database Thread", LOGGER);
+                        "NaturalStackerPlugin Database Thread", LOGGER);
                 break;
             case "MARIADB":
                 args = new MariaDBDatabaseSession.Args(plugin.getSettings().databaseMySQLAddress,
@@ -113,12 +113,12 @@ public class DBSession {
                         plugin.getSettings().databaseMySQLPrefix, plugin.getSettings().databaseMySQLSSL,
                         plugin.getSettings().databaseMySQLPublicKeyRetrieval,
                         plugin.getSettings().databaseMySQLWaitTimeout, plugin.getSettings().databaseMySQLMaxLifetime,
-                        "NaturalStacker Database Thread", LOGGER);
+                        "NaturalStackerPlugin Database Thread", LOGGER);
                 break;
             default:
                 File databaseFile = new File(plugin.getDataFolder(), "database.db");
                 args = new SQLiteDatabaseSession.Args(databaseFile,
-                        "NaturalStacker Database Thread", LOGGER);
+                        "NaturalStackerPlugin Database Thread", LOGGER);
                 break;
         }
 

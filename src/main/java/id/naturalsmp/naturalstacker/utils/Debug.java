@@ -6,7 +6,7 @@ import java.util.logging.Level;
 
 public class Debug {
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private Debug() {
 

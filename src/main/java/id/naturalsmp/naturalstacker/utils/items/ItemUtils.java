@@ -60,7 +60,7 @@ public final class ItemUtils {
         }
     }).get();
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
     private static final int MAX_PICKUP_DELAY = 32767;
 
     public static void addItems(ItemStack[] itemStacks, Inventory inventory, Location location) {

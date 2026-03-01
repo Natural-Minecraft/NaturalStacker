@@ -104,7 +104,7 @@ public final class ProvidersHandler {
                 NaturalStackerPlugin.log("&c#################################################################");
                 NaturalStackerPlugin.log("&c##                                                             ##");
                 NaturalStackerPlugin.log("&c## Seems like you're using ASkyBlock, but not the custom fork. ##");
-                NaturalStackerPlugin.log("&c##            <The custom fork supports NaturalStacker>           ##");
+                NaturalStackerPlugin.log("&c##            <The custom fork supports NaturalStackerPlugin>           ##");
                 NaturalStackerPlugin.log("&c##           https://github.com/OmerBenGera/askyblock          ##");
                 NaturalStackerPlugin.log("&c##                                                             ##");
                 NaturalStackerPlugin.log("&c#################################################################");

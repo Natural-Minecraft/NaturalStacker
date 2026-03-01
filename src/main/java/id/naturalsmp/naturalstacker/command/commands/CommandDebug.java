@@ -67,10 +67,10 @@ public final class CommandDebug implements ICommand {
 
         if(stackedSpawner.isDebug()) {
             stackedSpawner.setDebug(false);
-            sender.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStacker " + ChatColor.GRAY + "Toggled debug mode " + ChatColor.RED + "OFF" + ChatColor.GRAY + ".");
+            sender.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStackerPlugin " + ChatColor.GRAY + "Toggled debug mode " + ChatColor.RED + "OFF" + ChatColor.GRAY + ".");
         } else {
             stackedSpawner.setDebug(true);
-            sender.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStacker " + ChatColor.GRAY + "Toggled debug mode " + ChatColor.GREEN + "ON" + ChatColor.GRAY + ".");
+            sender.sendMessage("" + ChatColor.GOLD + ChatColor.BOLD + "NaturalStackerPlugin " + ChatColor.GRAY + "Toggled debug mode " + ChatColor.GREEN + "ON" + ChatColor.GRAY + ".");
         }
     }
 

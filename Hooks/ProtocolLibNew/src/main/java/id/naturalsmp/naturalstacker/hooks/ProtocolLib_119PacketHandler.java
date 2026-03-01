@@ -13,7 +13,7 @@ import java.util.Optional;
 
 public final class ProtocolLib_119PacketHandler implements ProtocolLibHook.IPacketHandler {
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     @Override
     public void handlePacketCustomNameUpdate(PacketContainer packetContainer, @Nullable Entity entity) {

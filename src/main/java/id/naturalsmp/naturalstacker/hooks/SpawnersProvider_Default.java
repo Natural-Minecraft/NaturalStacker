@@ -27,7 +27,7 @@ import java.util.stream.Stream;
 
 public final class SpawnersProvider_Default implements SpawnersProvider {
 
-    private final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     public SpawnersProvider_Default() {
         NaturalStackerPlugin.log(" - Couldn't find any spawners providers, using default one.");

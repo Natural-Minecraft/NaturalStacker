@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class StackedEntityStore extends AbstractEntityDataStore<StackedEntity> {
 
-    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private final Set<UUID> deadEntities = Collections.newSetFromMap(new ConcurrentHashMap<>());
 
