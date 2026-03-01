@@ -1,50 +1,49 @@
 <p align="center">
-<img src="https://static.bg-software.com/imgs/naturalstacker-logo.png" />
+<img src="https://static.naturalsmp.net/imgs/naturalstacker-logo.png" />
 <h2 align="center">The first ever multi-threaded stacking solution!</h2>
 </p>
 <br>
 <p align="center">
 <a href="https://naturalsmp.net/discord/"><img src="https://img.shields.io/discord/293212540723396608?color=7289DA&label=Discord&logo=discord&logoColor=7289DA&link=https://naturalsmp.net/discord/"></a>
 <a href="https://naturalsmp.net/patreon/"><img src="https://img.shields.io/badge/-Support_on_Patreon-F96854.svg?logo=patreon&style=flat&logoColor=white&link=https://naturalsmp.net/patreon/"></a><br>
-<a href=""><img src="https://img.shields.io/maintenance/yes/2025"></a>
-<a href="https://www.codacy.com/gh/BG-Software-LLC/NaturalStacker/dashboard?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=BG-Software-LLC/NaturalStacker&amp;utm_campaign=Badge_Grade"><img src="https://app.codacy.com/project/badge/Grade/231916d939b748ef8d64d6eb7be26583"/></a>
+<a href=""><img src="https://img.shields.io/maintenance/yes/2026"></a>
 </p>
 
 ## Compiling
 
 You can compile the project using gradlew.<br>
-Run `gradlew build` in console to build the project.<br>
-You can find already compiled jars on our [Jenkins](https://hub.bg-software.com/) hub!<br>
+Run `./gradlew shadowJar` in console to build the project.<br>
+You can find already compiled jars on our [GitHub Releases](https://github.com/Natural-Minecraft/NaturalStacker/releases) page!<br>
 
 ## API
 
 The plugin is packed with a rich API for interacting with entities, items and more. When hooking into the plugin, it's highly recommended to only use the API and not the compiled plugin, as the API methods are not only commented, but also will not get removed or changed unless they are marked as deprecated. This means that by using the API, you won't have to do any additional changes to your code between updates.
 
 ##### Maven
-```
+```xml
 <repositories>
     <repository>
-        <id>bg-repo</id>
-        <url>https://repo.bg-software.com/repository/api/</url>
+        <id>natural-repo</id>
+        <url>https://repo.naturalsmp.net/repository/api/</url>
     </repository>
 </repositories>
 
 <dependencies>
     <dependency>
-        <groupId>com.naturalsmp</groupId>
+        <groupId>id.naturalsmp</groupId>
         <artifactId>NaturalStackerAPI</artifactId>
         <version>latest</version>
     </dependency>
 </dependencies>
 ```
 ##### Gradle
-```
+```gradle
 repositories {
-    maven { url 'https://repo.bg-software.com/repository/api/' }
+    maven { url 'https://repo.naturalsmp.net/repository/api/' }
 }
 
 dependencies {
-    compileOnly 'com.naturalsmp:NaturalStackerAPI:latest'
+    compileOnly 'id.naturalsmp:NaturalStackerAPI:latest'
 }
 ```
 ## Updates
