@@ -1,20 +1,20 @@
-package com.bgsoftware.wildstacker.nms.${NMS_VERSION};
+package id.naturalsmp.naturalstacker.nms.${NMS_VERSION};
 
 import com.bgsoftware.common.reflection.ReflectField;
 import com.bgsoftware.common.reflection.ReflectMethod;
-import com.bgsoftware.wildstacker.WildStackerPlugin;
-import com.bgsoftware.wildstacker.api.enums.SpawnCause;
-import com.bgsoftware.wildstacker.api.enums.StackCheckResult;
-import com.bgsoftware.wildstacker.api.objects.StackedItem;
-import com.bgsoftware.wildstacker.listeners.PickupItemListener;
-import com.bgsoftware.wildstacker.nms.NMSEntities;
-import com.bgsoftware.wildstacker.nms.entity.IEntityWrapper;
-import com.bgsoftware.wildstacker.objects.WStackedEntity;
-import com.bgsoftware.wildstacker.objects.WStackedItem;
-import com.bgsoftware.wildstacker.utils.entity.EntityUtils;
-import com.bgsoftware.wildstacker.utils.legacy.EntityTypes;
-import com.bgsoftware.wildstacker.utils.pair.Pair;
-import com.bgsoftware.wildstacker.utils.threads.Executor;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
+import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
+import id.naturalsmp.naturalstacker.api.enums.StackCheckResult;
+import id.naturalsmp.naturalstacker.api.objects.StackedItem;
+import id.naturalsmp.naturalstacker.listeners.PickupItemListener;
+import id.naturalsmp.naturalstacker.nms.NMSEntities;
+import id.naturalsmp.naturalstacker.nms.entity.IEntityWrapper;
+import id.naturalsmp.naturalstacker.objects.WStackedEntity;
+import id.naturalsmp.naturalstacker.objects.WStackedItem;
+import id.naturalsmp.naturalstacker.utils.entity.EntityUtils;
+import id.naturalsmp.naturalstacker.utils.legacy.EntityTypes;
+import id.naturalsmp.naturalstacker.utils.pair.Pair;
+import id.naturalsmp.naturalstacker.utils.threads.Executor;
 import net.minecraft.advancements.CriteriaTriggers;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -93,7 +93,7 @@ import java.util.function.Predicate;
 
 public abstract class AbstractNMSEntities implements NMSEntities {
 
-    private static final WildStackerPlugin plugin = WildStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private static final ReflectField<Integer> ENTITY_EXP = new ReflectField<>(Mob.class, int.class, Modifier.PROTECTED, 1);
     private static final ReflectField<Entity.RemovalReason> ENTITY_REMOVE_REASON = new ReflectField<>(Entity.class, Entity.RemovalReason.class, Modifier.PRIVATE, 1);

@@ -1,8 +1,8 @@
-package com.bgsoftware.wildstacker.nms.${NMS_VERSION};
+package id.naturalsmp.naturalstacker.nms.${NMS_VERSION};
 
-import com.bgsoftware.wildstacker.nms.NMSHolograms;
-import com.bgsoftware.wildstacker.nms.${NMS_VERSION}.hologram.EntityHologram;
-import com.bgsoftware.wildstacker.utils.holograms.Hologram;
+import id.naturalsmp.naturalstacker.nms.NMSHolograms;
+import id.naturalsmp.naturalstacker.nms.${NMS_VERSION}.hologram.EntityHologram;
+import id.naturalsmp.naturalstacker.utils.holograms.Hologram;
 import com.google.common.base.Preconditions;
 import net.minecraft.server.level.ServerLevel;
 import org.bukkit.Location;

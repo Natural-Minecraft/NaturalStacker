@@ -1,14 +1,14 @@
-package com.bgsoftware.wildstacker.nms.${NMS_VERSION};
+package id.naturalsmp.naturalstacker.nms.${NMS_VERSION};
 
-import com.bgsoftware.wildstacker.WildStackerPlugin;
-import com.bgsoftware.wildstacker.api.enums.SpawnCause;
-import com.bgsoftware.wildstacker.api.objects.StackedEntity;
-import com.bgsoftware.wildstacker.api.objects.StackedItem;
-import com.bgsoftware.wildstacker.listeners.ServerTickListener;
-import com.bgsoftware.wildstacker.nms.NMSAdapter;
-import com.bgsoftware.wildstacker.nms.entity.INMSEntityEquipment;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
+import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
+import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
+import id.naturalsmp.naturalstacker.api.objects.StackedItem;
+import id.naturalsmp.naturalstacker.listeners.ServerTickListener;
+import id.naturalsmp.naturalstacker.nms.NMSAdapter;
+import id.naturalsmp.naturalstacker.nms.entity.INMSEntityEquipment;
 import ${COMMON_NMS_PACKAGE}.entity.NMSEntityEquipmentImpl;
-import com.bgsoftware.wildstacker.objects.WStackedEntity;
+import id.naturalsmp.naturalstacker.objects.WStackedEntity;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.nbt.NbtIo;
 import net.minecraft.network.chat.Component;
@@ -39,7 +39,7 @@ public abstract class AbstractNMSAdapter implements NMSAdapter {
             "Items", "ChestedHorse", "DecorItem", "Leash", "leash", "equipment"
     };
 
-    private static final WildStackerPlugin plugin = WildStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private static final NamespacedKey STACK_AMOUNT = new NamespacedKey(plugin, "stackAmount");
     private static final NamespacedKey SPAWN_CAUSE = new NamespacedKey(plugin, "spawnCause");

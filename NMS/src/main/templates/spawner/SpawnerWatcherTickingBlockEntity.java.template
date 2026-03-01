@@ -1,8 +1,8 @@
-package com.bgsoftware.wildstacker.nms.${NMS_VERSION}.spawner;
+package id.naturalsmp.naturalstacker.nms.${NMS_VERSION}.spawner;
 
 import com.bgsoftware.common.reflection.ReflectMethod;
-import com.bgsoftware.wildstacker.WildStackerPlugin;
-import com.bgsoftware.wildstacker.api.objects.StackedSpawner;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
+import id.naturalsmp.naturalstacker.api.objects.StackedSpawner;
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BaseSpawner;
 import net.minecraft.world.level.block.entity.SpawnerBlockEntity;
@@ -16,7 +16,7 @@ public class SpawnerWatcherTickingBlockEntity implements TickingBlockEntity {
     private static final ReflectMethod<Long> GET_CHUNK_COORD_KEY = new ReflectMethod<>(
             TickingBlockEntity.class, "getChunkCoordinateKey");
 
-    private static final WildStackerPlugin plugin = WildStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private static final String CLASS_NAME = SpawnerWatcherTickingBlockEntity.class.getSimpleName();
     private static final int CHECK_INTERVAL = 20;

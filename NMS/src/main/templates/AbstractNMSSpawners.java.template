@@ -1,18 +1,18 @@
-package com.bgsoftware.wildstacker.nms.${NMS_VERSION};
+package id.naturalsmp.naturalstacker.nms.${NMS_VERSION};
 
 import com.bgsoftware.common.reflection.ReflectField;
-import com.bgsoftware.wildstacker.WildStackerPlugin;
-import com.bgsoftware.wildstacker.api.objects.StackedSpawner;
-import com.bgsoftware.wildstacker.api.spawning.SpawnCondition;
-import com.bgsoftware.wildstacker.api.upgrades.SpawnerUpgrade;
-import com.bgsoftware.wildstacker.nms.NMSSpawners;
-import com.bgsoftware.wildstacker.nms.${NMS_VERSION}.spawner.SpawnerWatcherTickingBlockEntity;
-import com.bgsoftware.wildstacker.nms.${NMS_VERSION}.spawner.StackedBaseSpawner;
-import com.bgsoftware.wildstacker.nms.${NMS_VERSION}.spawner.SyncedCreatureSpawnerImpl;
-import com.bgsoftware.wildstacker.objects.WStackedSpawner;
-import com.bgsoftware.wildstacker.utils.entity.EntityUtils;
-import com.bgsoftware.wildstacker.utils.spawners.SpawnerCachedData;
-import com.bgsoftware.wildstacker.utils.spawners.SyncedCreatureSpawner;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
+import id.naturalsmp.naturalstacker.api.objects.StackedSpawner;
+import id.naturalsmp.naturalstacker.api.spawning.SpawnCondition;
+import id.naturalsmp.naturalstacker.api.upgrades.SpawnerUpgrade;
+import id.naturalsmp.naturalstacker.nms.NMSSpawners;
+import id.naturalsmp.naturalstacker.nms.${NMS_VERSION}.spawner.SpawnerWatcherTickingBlockEntity;
+import id.naturalsmp.naturalstacker.nms.${NMS_VERSION}.spawner.StackedBaseSpawner;
+import id.naturalsmp.naturalstacker.nms.${NMS_VERSION}.spawner.SyncedCreatureSpawnerImpl;
+import id.naturalsmp.naturalstacker.objects.WStackedSpawner;
+import id.naturalsmp.naturalstacker.utils.entity.EntityUtils;
+import id.naturalsmp.naturalstacker.utils.spawners.SpawnerCachedData;
+import id.naturalsmp.naturalstacker.utils.spawners.SyncedCreatureSpawner;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.world.level.BaseSpawner;
@@ -42,7 +42,7 @@ public abstract class AbstractNMSSpawners implements NMSSpawners {
     private static final ReflectField<List<TickingBlockEntity>> LEVEL_BLOCK_ENTITY_TICKERS =
             initializeLevelBlockEntityTickersField();
 
-    private static final WildStackerPlugin plugin = WildStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     @Override
     public void updateStackedSpawners(Chunk chunk) {

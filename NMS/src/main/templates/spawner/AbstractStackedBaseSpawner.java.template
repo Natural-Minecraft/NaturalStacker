@@ -1,22 +1,22 @@
-package com.bgsoftware.wildstacker.nms.${NMS_VERSION}.spawner;
+package id.naturalsmp.naturalstacker.nms.${NMS_VERSION}.spawner;
 
 import com.bgsoftware.common.reflection.ReflectField;
-import com.bgsoftware.wildstacker.WildStackerPlugin;
-import com.bgsoftware.wildstacker.api.enums.EntityFlag;
-import com.bgsoftware.wildstacker.api.enums.SpawnCause;
-import com.bgsoftware.wildstacker.api.enums.StackCheckResult;
-import com.bgsoftware.wildstacker.api.objects.StackedEntity;
-import com.bgsoftware.wildstacker.api.objects.StackedSpawner;
-import com.bgsoftware.wildstacker.api.spawning.SpawnCondition;
-import com.bgsoftware.wildstacker.objects.WStackedEntity;
-import com.bgsoftware.wildstacker.objects.WStackedSpawner;
-import com.bgsoftware.wildstacker.utils.Debug;
-import com.bgsoftware.wildstacker.utils.GeneralUtils;
-import com.bgsoftware.wildstacker.utils.Random;
-import com.bgsoftware.wildstacker.utils.entity.EntityStorage;
-import com.bgsoftware.wildstacker.utils.entity.EntityUtils;
-import com.bgsoftware.wildstacker.utils.events.EventsCaller;
-import com.bgsoftware.wildstacker.utils.pair.Pair;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
+import id.naturalsmp.naturalstacker.api.enums.EntityFlag;
+import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
+import id.naturalsmp.naturalstacker.api.enums.StackCheckResult;
+import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
+import id.naturalsmp.naturalstacker.api.objects.StackedSpawner;
+import id.naturalsmp.naturalstacker.api.spawning.SpawnCondition;
+import id.naturalsmp.naturalstacker.objects.WStackedEntity;
+import id.naturalsmp.naturalstacker.objects.WStackedSpawner;
+import id.naturalsmp.naturalstacker.utils.Debug;
+import id.naturalsmp.naturalstacker.utils.GeneralUtils;
+import id.naturalsmp.naturalstacker.utils.Random;
+import id.naturalsmp.naturalstacker.utils.entity.EntityStorage;
+import id.naturalsmp.naturalstacker.utils.entity.EntityUtils;
+import id.naturalsmp.naturalstacker.utils.events.EventsCaller;
+import id.naturalsmp.naturalstacker.utils.pair.Pair;
 import com.destroystokyo.paper.event.entity.PreSpawnerSpawnEvent;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -49,7 +49,7 @@ public abstract class AbstractStackedBaseSpawner extends BaseSpawner {
     private static final ReflectField<BaseSpawner> BASE_SPAWNER = new ReflectField<BaseSpawner>(SpawnerBlockEntity.class,
             BaseSpawner.class, Modifier.PRIVATE | Modifier.FINAL, 1).removeFinal();
 
-    private static final WildStackerPlugin plugin = WildStackerPlugin.getPlugin();
+    private static final NaturalStackerPlugin plugin = NaturalStackerPlugin.getPlugin();
 
     private final WeakReference<WStackedSpawner> stackedSpawner;
     private final BaseSpawner originalBaseSpawner;
