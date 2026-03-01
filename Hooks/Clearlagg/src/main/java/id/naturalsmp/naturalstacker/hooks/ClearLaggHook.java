@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.objects.WStackedEntity;
 import id.naturalsmp.naturalstacker.utils.entity.EntityUtils;
 import me.minebuilders.clearlag.events.EntityRemoveEvent;
@@ -12,7 +12,7 @@ public final class ClearLaggHook {
 
     private static long lastTime = 0;
 
-    public static void register(NaturalStacker plugin) {
+    public static void register(NaturalStackerPlugin plugin) {
         plugin.getServer().getPluginManager().registerEvents(new Listener() {
             @EventHandler
             public void onClearLaggTask(EntityRemoveEvent e) {

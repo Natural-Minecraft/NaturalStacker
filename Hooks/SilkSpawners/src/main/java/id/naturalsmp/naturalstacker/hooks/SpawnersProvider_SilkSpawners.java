@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import com.naturalsmp.common.reflection.ReflectMethod;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.reflection.ReflectMethod;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.objects.StackedSpawner;
 import id.naturalsmp.naturalstacker.api.upgrades.SpawnerUpgrade;
 import id.naturalsmp.naturalstacker.objects.WStackedSpawner;
@@ -40,7 +40,7 @@ public final class SpawnersProvider_SilkSpawners implements SpawnersProvider {
     private final SilkUtil silkUtil;
 
     public SpawnersProvider_SilkSpawners() {
-        NaturalStacker.log(" - Using SilkSpawners as SpawnersProvider.");
+        NaturalStackerPlugin.log(" - Using SilkSpawners as SpawnersProvider.");
         ss = JavaPlugin.getPlugin(SilkSpawners.class);
         silkUtil = SilkUtil.hookIntoSilkSpanwers();
     }

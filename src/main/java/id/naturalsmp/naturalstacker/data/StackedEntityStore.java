@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.data;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
 import id.naturalsmp.naturalstacker.objects.WStackedEntity;
@@ -13,7 +13,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public class StackedEntityStore extends AbstractEntityDataStore<StackedEntity> {
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private final Set<UUID> deadEntities = Collections.newSetFromMap(new ConcurrentHashMap<>());
 

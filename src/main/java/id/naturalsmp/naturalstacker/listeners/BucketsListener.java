@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.listeners;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.utils.ServerVersion;
 import id.naturalsmp.naturalstacker.utils.items.ItemUtils;
 import id.naturalsmp.naturalstacker.utils.threads.Executor;
@@ -26,9 +26,9 @@ import org.bukkit.inventory.PlayerInventory;
 @SuppressWarnings("unused")
 public final class BucketsListener implements Listener {
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
 
-    public BucketsListener(NaturalStacker plugin) {
+    public BucketsListener(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
     }
 

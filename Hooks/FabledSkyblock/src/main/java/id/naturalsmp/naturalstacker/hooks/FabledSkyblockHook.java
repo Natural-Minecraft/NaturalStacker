@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import com.naturalsmp.common.reflection.ReflectField;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.reflection.ReflectField;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.objects.StackedBarrel;
 import id.naturalsmp.naturalstacker.objects.WStackedBarrel;
 import id.naturalsmp.naturalstacker.objects.WStackedSpawner;
@@ -32,10 +32,10 @@ public final class FabledSkyblockHook {
     private static final ReflectField<Map<CompatibleMaterial, BlockAmount>> ISLAND_SCAN_AMOUNTS =
             new ReflectField<>(QueuedIslandScan.class, Map.class, "amounts");
 
-    private static NaturalStacker plugin;
+    private static NaturalStackerPlugin plugin;
     private static Map<Island, QueuedIslandScan> inScan;
 
-    public static void register(NaturalStacker plugin) {
+    public static void register(NaturalStackerPlugin plugin) {
         FabledSkyblockHook.plugin = plugin;
         NaturalStackerCalculator calculator = new NaturalStackerCalculator();
         CalculatorRegistry.registerCalculator(calculator, CompatibleMaterial.SPAWNER);

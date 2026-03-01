@@ -1,11 +1,11 @@
 package id.naturalsmp.naturalstacker;
 
-import com.naturalsmp.common.dependencies.DependenciesManager;
-import com.naturalsmp.common.nmsloader.INMSLoader;
-import com.naturalsmp.common.nmsloader.NMSHandlersFactory;
-import com.naturalsmp.common.nmsloader.NMSLoadException;
-import com.naturalsmp.common.nmsloader.config.NMSConfiguration;
-import com.naturalsmp.common.updater.Updater;
+import com.bgsoftware.common.dependencies.DependenciesManager;
+import com.bgsoftware.common.nmsloader.INMSLoader;
+import com.bgsoftware.common.nmsloader.NMSHandlersFactory;
+import com.bgsoftware.common.nmsloader.NMSLoadException;
+import com.bgsoftware.common.nmsloader.config.NMSConfiguration;
+import com.bgsoftware.common.updater.Updater;
 import id.naturalsmp.naturalstacker.api.NaturalStacker;
 import id.naturalsmp.naturalstacker.api.NaturalStackerAPI;
 import id.naturalsmp.naturalstacker.command.CommandsHandler;
@@ -48,11 +48,11 @@ import org.bukkit.Chunk;
 import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public final class NaturalStacker extends JavaPlugin implements NaturalStacker {
+public final class NaturalStackerPlugin extends JavaPlugin implements NaturalStacker {
 
     private final Updater updater = new Updater(this, "naturalstacker");
 
-    private static NaturalStacker plugin;
+    private static NaturalStackerPlugin plugin;
 
     private SettingsHandler settingsHandler;
     private SystemHandler systemManager;
@@ -78,7 +78,7 @@ public final class NaturalStacker extends JavaPlugin implements NaturalStacker {
         }
     }
 
-    public static NaturalStacker getPlugin() {
+    public static NaturalStackerPlugin getPlugin() {
         return plugin;
     }
 
@@ -90,7 +90,8 @@ public final class NaturalStacker extends JavaPlugin implements NaturalStacker {
         DeathSimulation.injectEntityDamageHandlerList();
         PickupItemListener.injectHandlerLists();
 
-        // Setting the default locale to English will fix issues related to using upper case in Turkish.
+        // Setting the default locale to English will fix issues related to using upper
+        // case in Turkish.
         // https://stackoverflow.com/questions/11063102/using-locales-with-javas-tolowercase-and-touppercase
         java.util.Locale.setDefault(java.util.Locale.ENGLISH);
 
@@ -127,13 +128,13 @@ public final class NaturalStacker extends JavaPlugin implements NaturalStacker {
                     systemManager.handleChunkUnload(chunk, SystemHandler.CHUNK_FULL_STAGE);
             }
 
-            //We need to save the entire database
+            // We need to save the entire database
             systemManager.performCacheSave();
 
             Executor.stopData();
 
             log("Clearing database...");
-            //We need to close the connection
+            // We need to close the connection
             dataHandler.clearDatabase();
         }
 

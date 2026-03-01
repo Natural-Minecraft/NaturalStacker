@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.nms.v1_8_R3.spawner;
 
-import com.naturalsmp.common.reflection.ReflectField;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.reflection.ReflectField;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.EntityFlag;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.enums.StackCheckResult;
@@ -48,7 +48,7 @@ public class StackedMobSpawner extends MobSpawnerAbstract {
     private static final ReflectField<MobSpawnerAbstract> MOB_SPAWNER_ABSTRACT = new ReflectField<MobSpawnerAbstract>(
             TileEntityMobSpawner.class, MobSpawnerAbstract.class, "a").removeFinal();
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private final World world;
     private final BlockPosition position;

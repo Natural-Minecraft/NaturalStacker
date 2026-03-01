@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.nms.v1_16_R3;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.objects.StackedSpawner;
 import id.naturalsmp.naturalstacker.api.spawning.SpawnCondition;
 import id.naturalsmp.naturalstacker.api.upgrades.SpawnerUpgrade;
@@ -49,7 +49,7 @@ import java.util.function.BiPredicate;
 @SuppressWarnings("unused")
 public final class NMSSpawnersImpl implements NMSSpawners {
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private static void createCondition(String id, BiPredicate<World, BlockPosition> predicate, EntityType... entityTypes) {
         SpawnCondition spawnCondition = SpawnCondition.register(new SpawnCondition(id, EntityUtils.format(id)) {

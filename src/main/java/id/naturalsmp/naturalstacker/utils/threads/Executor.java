@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.utils.threads;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import com.google.common.util.concurrent.ThreadFactoryBuilder;
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitTask;
@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 public final class Executor {
 
     private static final ExecutorService dataService = Executors.newFixedThreadPool(3, new ThreadFactoryBuilder().setNameFormat("NaturalStacker Database Thread #%d").build());
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
     private static boolean shutdown = false, dataShutdown = false;
 
     public static void sync(Runnable runnable) {
@@ -78,7 +78,7 @@ public final class Executor {
     public static void stopData() {
         try {
             dataShutdown = true;
-            NaturalStacker.log("Shutting down database executor");
+            NaturalStackerPlugin.log("Shutting down database executor");
             shutdownAndAwaitTermination();
         } catch (Exception ex) {
             ex.printStackTrace();

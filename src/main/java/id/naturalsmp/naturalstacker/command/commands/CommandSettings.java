@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.command.commands;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.command.ICommand;
 import id.naturalsmp.naturalstacker.menu.ConfigEditorMenu;
 import org.bukkit.ChatColor;
@@ -42,7 +42,7 @@ public final class CommandSettings implements ICommand {
     }
 
     @Override
-    public void perform(NaturalStacker plugin, CommandSender sender, String[] args) {
+    public void perform(NaturalStackerPlugin plugin, CommandSender sender, String[] args) {
         if (!(sender instanceof Player)) {
             sender.sendMessage(ChatColor.RED + "Only players can perform this command.");
             return;
@@ -52,7 +52,7 @@ public final class CommandSettings implements ICommand {
     }
 
     @Override
-    public List<String> tabComplete(NaturalStacker plugin, CommandSender sender, String[] args) {
+    public List<String> tabComplete(NaturalStackerPlugin plugin, CommandSender sender, String[] args) {
         return null;
     }
 }

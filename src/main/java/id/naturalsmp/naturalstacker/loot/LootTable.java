@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.loot;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.loot.LootEntityAttributes;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
 import id.naturalsmp.naturalstacker.loot.entity.LivingLootEntityAttributes;
@@ -23,7 +23,7 @@ import java.util.stream.Collectors;
 
 public class LootTable implements id.naturalsmp.naturalstacker.api.loot.LootTable {
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private final List<LootPair> lootPairs = new LinkedList<>();
     private final int min, max, minExp, maxExp;

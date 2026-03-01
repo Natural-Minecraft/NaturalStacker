@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.listeners;
 
-import com.naturalsmp.common.reflection.ReflectField;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.reflection.ReflectField;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.EntityFlag;
 import id.naturalsmp.naturalstacker.api.objects.StackedItem;
 import id.naturalsmp.naturalstacker.objects.WStackedItem;
@@ -28,9 +28,9 @@ public class PickupItemListener {
 
     private static final EnumMap<EventType, HandlerListWrapper> CACHED_HANDLER_LIST = new EnumMap<>(EventType.class);
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
 
-    public PickupItemListener(NaturalStacker plugin) {
+    public PickupItemListener(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
 
         if (EventType.PLAYER_ATTEMPT_PICKUP_ITEM_EVENT.eventClass != null) {

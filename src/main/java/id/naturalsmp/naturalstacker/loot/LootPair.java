@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.loot;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.loot.LootEntityAttributes;
 import id.naturalsmp.naturalstacker.utils.Random;
 import id.naturalsmp.naturalstacker.utils.json.JsonUtils;
@@ -111,7 +111,7 @@ public class LootPair extends FilteredLoot {
                 try {
                     lootItems.add(LootItem.fromJson((JSONObject) element));
                 } catch (IllegalArgumentException ex) {
-                    NaturalStacker.log("[" + lootTableName + "] " + ex.getMessage());
+                    NaturalStackerPlugin.log("[" + lootTableName + "] " + ex.getMessage());
                 }
             });
         }

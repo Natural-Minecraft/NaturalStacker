@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.tasks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
 import id.naturalsmp.naturalstacker.objects.WStackedEntity;
 import id.naturalsmp.naturalstacker.utils.entity.EntityUtils;
@@ -15,7 +15,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 public final class StackTask extends BukkitRunnable {
 
-    private static NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private static BukkitTask task;
 

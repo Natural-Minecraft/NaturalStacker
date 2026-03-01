@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.objects;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.EntityFlag;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.enums.StackCheckResult;
@@ -521,7 +521,7 @@ public final class WStackedEntity extends WAsyncStackedObject<LivingEntity> impl
             try {
                 drops.addAll(lootTable.getDrops(this, lootBonusLevel, stackAmount));
             } catch (Exception ex) {
-                NaturalStacker.log("Error while calculating drops for " + getType() + " with looting " + lootBonusLevel + " and stack size of " + stackAmount + ":");
+                NaturalStackerPlugin.log("Error while calculating drops for " + getType() + " with looting " + lootBonusLevel + " and stack size of " + stackAmount + ":");
                 ex.printStackTrace();
             }
         }

@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.menu;
 
-import com.naturalsmp.common.config.CommentedConfiguration;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.config.CommentedConfiguration;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.handlers.SettingsHandler;
 import id.naturalsmp.naturalstacker.utils.ServerVersion;
 import id.naturalsmp.naturalstacker.utils.items.ItemBuilder;
@@ -160,7 +160,7 @@ public final class ConfigEditorMenu extends WildMenu {
         try {
             config.load(CONFIG_FILE);
         } catch (Exception error) {
-            NaturalStacker.log("An unexpected error occurred while reloading config file:");
+            NaturalStackerPlugin.log("An unexpected error occurred while reloading config file:");
             error.printStackTrace();
         }
     }
@@ -170,7 +170,7 @@ public final class ConfigEditorMenu extends WildMenu {
             config.save(CONFIG_FILE);
             SettingsHandler.reload();
         } catch (Exception error) {
-            NaturalStacker.log("An unexpected error occurred while saving config file:");
+            NaturalStackerPlugin.log("An unexpected error occurred while saving config file:");
             error.printStackTrace();
         }
     }

@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.listeners;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -10,9 +10,9 @@ import org.bukkit.event.server.PluginEnableEvent;
 @SuppressWarnings("unused")
 public final class ProvidersListener implements Listener {
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
 
-    public ProvidersListener(NaturalStacker plugin) {
+    public ProvidersListener(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
     }
 

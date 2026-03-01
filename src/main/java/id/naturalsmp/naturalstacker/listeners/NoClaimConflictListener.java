@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.listeners;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.events.BarrelStackEvent;
 import id.naturalsmp.naturalstacker.api.events.SpawnerStackEvent;
 import id.naturalsmp.naturalstacker.utils.legacy.Materials;
@@ -23,10 +23,10 @@ import java.util.WeakHashMap;
 @SuppressWarnings("unused")
 public final class NoClaimConflictListener implements Listener {
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
     private final Map<Location, UUID> placers = new WeakHashMap<>();
 
-    public NoClaimConflictListener(NaturalStacker plugin) {
+    public NoClaimConflictListener(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
     }
 

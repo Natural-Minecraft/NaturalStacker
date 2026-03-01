@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.nms.v1_20_3;
 
-import com.naturalsmp.common.reflection.ReflectField;
+import com.bgsoftware.common.reflection.ReflectField;
 import id.naturalsmp.naturalstacker.nms.v1_20_3.algorithms.PaperGlowEnchantment;
 import id.naturalsmp.naturalstacker.nms.v1_20_3.algorithms.SpigotGlowEnchantment;
 import net.minecraft.nbt.CompoundTag;

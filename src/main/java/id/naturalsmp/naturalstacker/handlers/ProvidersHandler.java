@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.handlers;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.StackCheckResult;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
 import id.naturalsmp.naturalstacker.hooks.ClaimsProvider;
@@ -48,7 +48,7 @@ import java.util.Optional;
 @SuppressWarnings({"unused", "WeakerAccess"})
 public final class ProvidersHandler {
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
 
     private SpawnersProvider spawnersProvider;
     private EconomyProvider economyProvider;
@@ -70,11 +70,11 @@ public final class ProvidersHandler {
     private boolean handleEntityStackingInsideEvent = true;
     private boolean handleEntityStackingWithDelay = false;
 
-    public ProvidersHandler(NaturalStacker plugin) {
+    public ProvidersHandler(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
 
         Executor.sync(() -> {
-            NaturalStacker.log("Loading providers started...");
+            NaturalStackerPlugin.log("Loading providers started...");
             long startTime = System.currentTimeMillis();
 
             loadSpawnersProvider();
@@ -95,19 +95,19 @@ public final class ProvidersHandler {
             if (hasPaperEntityRemoveSupport())
                 Bukkit.getPluginManager().registerEvents(new PaperListener(), plugin);
 
-            NaturalStacker.log("Loading providers done (Took " + (System.currentTimeMillis() - startTime) + "ms)");
+            NaturalStackerPlugin.log("Loading providers done (Took " + (System.currentTimeMillis() - startTime) + "ms)");
         }, 0L);
 
         Executor.sync(() -> {
             if (Bukkit.getPluginManager().isPluginEnabled("ASkyBlock") &&
                     Bukkit.getPluginManager().getPlugin("ASkyBlock").getDescription().getAuthors().stream().noneMatch(a -> a.contains("NaturalSMP"))) {
-                NaturalStacker.log("&c#################################################################");
-                NaturalStacker.log("&c##                                                             ##");
-                NaturalStacker.log("&c## Seems like you're using ASkyBlock, but not the custom fork. ##");
-                NaturalStacker.log("&c##            <The custom fork supports NaturalStacker>           ##");
-                NaturalStacker.log("&c##           https://github.com/OmerBenGera/askyblock          ##");
-                NaturalStacker.log("&c##                                                             ##");
-                NaturalStacker.log("&c#################################################################");
+                NaturalStackerPlugin.log("&c#################################################################");
+                NaturalStackerPlugin.log("&c##                                                             ##");
+                NaturalStackerPlugin.log("&c## Seems like you're using ASkyBlock, but not the custom fork. ##");
+                NaturalStackerPlugin.log("&c##            <The custom fork supports NaturalStacker>           ##");
+                NaturalStackerPlugin.log("&c##           https://github.com/OmerBenGera/askyblock          ##");
+                NaturalStackerPlugin.log("&c##                                                             ##");
+                NaturalStackerPlugin.log("&c#################################################################");
             }
         }, 10L);
 
@@ -186,7 +186,7 @@ public final class ProvidersHandler {
                     Optional<ClaimsProvider> claimsProvider = createInstance("ClaimsProvider_PlotSquared6");
                     claimsProvider.ifPresent(claimsProviders::add);
                 } catch (Exception ex) {
-                    NaturalStacker.log("&cYour version of PlotSquared is not supported. Please contact NaturalSMP for support.");
+                    NaturalStackerPlugin.log("&cYour version of PlotSquared is not supported. Please contact NaturalSMP for support.");
                 }
             } else if (plotSquaredVersion == 5) {
                 Optional<ClaimsProvider> claimsProvider = createInstance("ClaimsProvider_PlotSquared5");
@@ -323,7 +323,7 @@ public final class ProvidersHandler {
         }
     }
 
-    public void loadPluginHooks(NaturalStacker plugin, Plugin toCheck, boolean enable) {
+    public void loadPluginHooks(NaturalStackerPlugin plugin, Plugin toCheck, boolean enable) {
         PluginManager pluginManager = plugin.getServer().getPluginManager();
 
         // Load listeners

@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.utils.entity;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.utils.ServerVersion;
 import id.naturalsmp.naturalstacker.utils.chunks.ChunkPosition;
 import com.google.common.cache.CacheBuilder;
@@ -22,7 +22,7 @@ import java.util.stream.Stream;
 @SuppressWarnings("UnstableApiUsage")
 public final class EntitiesGetter {
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private static final EntitiesCache entitiesCache = initializeCache();
 

@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.handlers;
 
-import com.naturalsmp.common.config.CommentedConfiguration;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.config.CommentedConfiguration;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.enums.StackSplit;
 import id.naturalsmp.naturalstacker.api.objects.StackedBarrel;
@@ -153,8 +153,8 @@ public final class SettingsHandler {
     public final int stewsMaxStack;
     private YamlConfiguration particlesYaml = null;
 
-    public SettingsHandler(NaturalStacker plugin) {
-        NaturalStacker.log("Loading configuration started...");
+    public SettingsHandler(NaturalStackerPlugin plugin) {
+        NaturalStackerPlugin.log("Loading configuration started...");
         long startTime = System.currentTimeMillis();
         File file = new File(plugin.getDataFolder(), "config.yml");
 
@@ -425,7 +425,7 @@ public final class SettingsHandler {
                         Optional<SpawnCondition> spawnConditionOptional = plugin.getSystemManager().getSpawnCondition(spawnConditionId);
 
                         if (!spawnConditionOptional.isPresent()) {
-                            NaturalStacker.log("Invalid spawn condition: " + spawnConditionId);
+                            NaturalStackerPlugin.log("Invalid spawn condition: " + spawnConditionId);
                             continue;
                         }
 
@@ -547,20 +547,20 @@ public final class SettingsHandler {
             split.setEnabled(cfg.getBoolean("entities.stack-split." + split.name(), false));
         }
 
-        NaturalStacker.log(" - Stacking drops is " + getBoolean(itemsStackingEnabled));
-        NaturalStacker.log(" - Stacking entities is " + getBoolean(entitiesStackingEnabled));
-        NaturalStacker.log(" - Stacking spawners is " + getBoolean(spawnersStackingEnabled));
-        NaturalStacker.log(" - Stacking barrels is " + getBoolean(barrelsStackingEnabled));
+        NaturalStackerPlugin.log(" - Stacking drops is " + getBoolean(itemsStackingEnabled));
+        NaturalStackerPlugin.log(" - Stacking entities is " + getBoolean(entitiesStackingEnabled));
+        NaturalStackerPlugin.log(" - Stacking spawners is " + getBoolean(spawnersStackingEnabled));
+        NaturalStackerPlugin.log(" - Stacking barrels is " + getBoolean(barrelsStackingEnabled));
 
         SpawnersManageMenu.loadMenu();
         SpawnerAmountsMenu.loadMenu();
         SpawnerUpgradeMenu.loadMenu();
 
-        NaturalStacker.log("Loading configuration done (Took " + (System.currentTimeMillis() - startTime) + "ms)");
+        NaturalStackerPlugin.log("Loading configuration done (Took " + (System.currentTimeMillis() - startTime) + "ms)");
     }
 
     public static void reload() {
-        NaturalStacker plugin = NaturalStacker.getPlugin();
+        NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
         plugin.setSettings(new SettingsHandler(plugin));
     }
 
@@ -568,7 +568,7 @@ public final class SettingsHandler {
         return bool ? "enabled" : "disabled";
     }
 
-    private void loadCustomNames(NaturalStacker plugin) {
+    private void loadCustomNames(NaturalStackerPlugin plugin) {
         File file = new File(plugin.getDataFolder(), "custom-names.yml");
 
         if (!file.exists())
@@ -582,7 +582,7 @@ public final class SettingsHandler {
         }
     }
 
-    private List<ParticleWrapper> getParticles(NaturalStacker plugin, String sectionPath) {
+    private List<ParticleWrapper> getParticles(NaturalStackerPlugin plugin, String sectionPath) {
         if (particlesYaml == null) {
             File file = new File(plugin.getDataFolder(), "particles.yml");
 
@@ -608,7 +608,7 @@ public final class SettingsHandler {
                             particleSection.getDouble("extra", 0.0)
                     ));
                 } catch (IllegalArgumentException ex) {
-                    NaturalStacker.log("Particle " + sectionPath + "." + key + " is missing 'type'.");
+                    NaturalStackerPlugin.log("Particle " + sectionPath + "." + key + " is missing 'type'.");
                 }
             }
         }

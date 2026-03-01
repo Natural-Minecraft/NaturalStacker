@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.objects;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.objects.StackedBarrel;
 import id.naturalsmp.naturalstacker.api.objects.StackedSnapshot;
 import id.naturalsmp.naturalstacker.api.objects.StackedSpawner;
@@ -18,7 +18,7 @@ import java.util.stream.Collectors;
 
 public final class WStackedSnapshot implements StackedSnapshot {
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private final Map<Location, Pair<Integer, EntityType>> stackedSpawners = new HashMap<>();
     private final Map<Location, Pair<Integer, ItemStack>> stackedBarrels = new HashMap<>();

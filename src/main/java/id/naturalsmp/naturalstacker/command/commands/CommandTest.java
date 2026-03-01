@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.command.commands;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.command.ICommand;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -40,12 +40,12 @@ public final class CommandTest implements ICommand {
     }
 
     @Override
-    public void perform(NaturalStacker plugin, CommandSender sender, String[] args) {
+    public void perform(NaturalStackerPlugin plugin, CommandSender sender, String[] args) {
         sender.sendMessage(ChatColor.RED + "This command is temporary disabled.");
     }
 
     @Override
-    public List<String> tabComplete(NaturalStacker plugin, CommandSender sender, String[] args) {
+    public List<String> tabComplete(NaturalStackerPlugin plugin, CommandSender sender, String[] args) {
         return null;
     }
 }

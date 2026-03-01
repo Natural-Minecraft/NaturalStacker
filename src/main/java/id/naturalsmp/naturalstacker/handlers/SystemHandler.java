@@ -1,9 +1,9 @@
 package id.naturalsmp.naturalstacker.handlers;
 
-import com.naturalsmp.common.databasebridge.sql.transaction.SQLDatabaseTransaction;
-import com.naturalsmp.common.databasebridge.transaction.IDatabaseTransaction;
+import com.bgsoftware.common.databasebridge.sql.transaction.SQLDatabaseTransaction;
+import com.bgsoftware.common.databasebridge.transaction.IDatabaseTransaction;
 import id.naturalsmp.naturalstacker.Locale;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.EntityFlag;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.handlers.SystemManager;
@@ -80,7 +80,7 @@ public final class SystemHandler implements SystemManager {
     public static final int CHUNK_STAGE = (1 << 1);
     public static final int CHUNK_FULL_STAGE = ENTITIES_STAGE | CHUNK_STAGE;
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
     private final DataHandler dataHandler;
 
     private final Set<UUID> itemsDisabledNames = new HashSet<>();
@@ -92,7 +92,7 @@ public final class SystemHandler implements SystemManager {
 
     private IDataSerializer dataSerializer;
 
-    public SystemHandler(NaturalStacker plugin) {
+    public SystemHandler(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
         this.dataHandler = plugin.getDataHandler();
         this.dataSerializer = new DataSerializer_Default(plugin);

@@ -1,17 +1,17 @@
 package id.naturalsmp.naturalstacker.database;
 
-import com.naturalsmp.common.databasebridge.DatabaseSessionFactory;
-import com.naturalsmp.common.databasebridge.logger.ILogger;
-import com.naturalsmp.common.databasebridge.session.IDatabaseSession;
-import com.naturalsmp.common.databasebridge.sql.query.Column;
-import com.naturalsmp.common.databasebridge.sql.query.QueryResult;
-import com.naturalsmp.common.databasebridge.sql.session.MariaDBDatabaseSession;
-import com.naturalsmp.common.databasebridge.sql.session.MySQLDatabaseSession;
-import com.naturalsmp.common.databasebridge.sql.session.SQLDatabaseSession;
-import com.naturalsmp.common.databasebridge.sql.session.SQLiteDatabaseSession;
-import com.naturalsmp.common.databasebridge.transaction.DatabaseTransactionsExecutor;
-import com.naturalsmp.common.databasebridge.transaction.IDatabaseTransaction;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.databasebridge.DatabaseSessionFactory;
+import com.bgsoftware.common.databasebridge.logger.ILogger;
+import com.bgsoftware.common.databasebridge.session.IDatabaseSession;
+import com.bgsoftware.common.databasebridge.sql.query.Column;
+import com.bgsoftware.common.databasebridge.sql.query.QueryResult;
+import com.bgsoftware.common.databasebridge.sql.session.MariaDBDatabaseSession;
+import com.bgsoftware.common.databasebridge.sql.session.MySQLDatabaseSession;
+import com.bgsoftware.common.databasebridge.sql.session.SQLDatabaseSession;
+import com.bgsoftware.common.databasebridge.sql.session.SQLiteDatabaseSession;
+import com.bgsoftware.common.databasebridge.transaction.DatabaseTransactionsExecutor;
+import com.bgsoftware.common.databasebridge.transaction.IDatabaseTransaction;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 
 import java.io.File;
 import java.sql.ResultSet;
@@ -23,7 +23,7 @@ public class DBSession {
     private static final ILogger LOGGER = new ILogger() {
         @Override
         public void error(String message, Throwable error) {
-            NaturalStacker.log(message);
+            NaturalStackerPlugin.log(message);
             error.printStackTrace();
         }
 
@@ -39,7 +39,7 @@ public class DBSession {
 
         @Override
         public void info(String message) {
-            NaturalStacker.log(message);
+            NaturalStackerPlugin.log(message);
         }
     };
 
@@ -49,7 +49,7 @@ public class DBSession {
         return globalSession != null;
     }
 
-    public static boolean createConnection(NaturalStacker plugin) {
+    public static boolean createConnection(NaturalStackerPlugin plugin) {
         SQLDatabaseSession<?> session = createSessionInternal(plugin, true);
 
         if (session.connect()) {
@@ -94,7 +94,7 @@ public class DBSession {
         }
     }
 
-    private static SQLDatabaseSession<?> createSessionInternal(NaturalStacker plugin, boolean logging) {
+    private static SQLDatabaseSession<?> createSessionInternal(NaturalStackerPlugin plugin, boolean logging) {
         IDatabaseSession.Args args;
         switch (plugin.getSettings().databaseType) {
             case "MYSQL":

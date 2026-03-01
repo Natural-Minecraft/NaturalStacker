@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.listeners;
 
-import com.naturalsmp.common.reflection.ReflectMethod;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.reflection.ReflectMethod;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.EntityFlag;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
 import id.naturalsmp.naturalstacker.api.objects.StackedItem;
@@ -45,9 +45,9 @@ public final class ItemsListener implements Listener {
 
     private static final ReflectMethod<Void> ENTITY_EQUIPMENT_SET_ITEM_IN_MAIN_HAND = new ReflectMethod<>(EntityEquipment.class, "setItemInMainHand", ItemStack.class);
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
 
-    public ItemsListener(NaturalStacker plugin) {
+    public ItemsListener(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
 
         if (ServerVersion.isAtLeast(ServerVersion.v1_8))
@@ -175,9 +175,9 @@ public final class ItemsListener implements Listener {
 
     private static class MergeListener implements Listener {
 
-        private final NaturalStacker plugin;
+        private final NaturalStackerPlugin plugin;
 
-        private MergeListener(NaturalStacker plugin) {
+        private MergeListener(NaturalStackerPlugin plugin) {
             this.plugin = plugin;
         }
 
@@ -207,9 +207,9 @@ public final class ItemsListener implements Listener {
 
     private static class BlockDropItemListener implements Listener {
 
-        private final NaturalStacker plugin;
+        private final NaturalStackerPlugin plugin;
 
-        private BlockDropItemListener(NaturalStacker plugin) {
+        private BlockDropItemListener(NaturalStackerPlugin plugin) {
             this.plugin = plugin;
         }
 

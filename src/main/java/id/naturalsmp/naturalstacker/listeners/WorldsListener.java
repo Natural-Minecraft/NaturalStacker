@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.listeners;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.World;
 import org.bukkit.event.EventHandler;
@@ -10,9 +10,9 @@ import org.bukkit.event.world.WorldInitEvent;
 
 public final class WorldsListener implements Listener {
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
 
-    public WorldsListener(NaturalStacker plugin) {
+    public WorldsListener(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
         for (World world : Bukkit.getWorlds())
             plugin.getNMSWorld().startEntityListen(world);

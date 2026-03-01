@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
 import id.naturalsmp.naturalstacker.hooks.listeners.IEntityDeathListener;
@@ -15,7 +15,7 @@ public final class JobsHook {
 
     private static Plugin jobs;
 
-    public static void register(NaturalStacker plugin) {
+    public static void register(NaturalStackerPlugin plugin) {
         jobs = Bukkit.getPluginManager().getPlugin("Jobs");
         plugin.getProviders().registerEntityDeathListener(JobsHook::handleDeath);
     }

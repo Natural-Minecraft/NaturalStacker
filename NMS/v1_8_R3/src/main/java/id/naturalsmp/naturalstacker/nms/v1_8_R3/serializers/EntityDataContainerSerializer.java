@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.nms.v1_8_R3.serializers;
 
-import com.naturalsmp.common.reflection.ReflectField;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.reflection.ReflectField;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
 import id.naturalsmp.naturalstacker.api.objects.StackedItem;
@@ -20,7 +20,7 @@ public class EntityDataContainerSerializer implements IDataSerializer {
     }
 
     public EntityDataContainerSerializer() {
-        NaturalStacker.log("- Using EntityDataContainer to store entity data.");
+        NaturalStackerPlugin.log("- Using EntityDataContainer to store entity data.");
     }
 
     @Override

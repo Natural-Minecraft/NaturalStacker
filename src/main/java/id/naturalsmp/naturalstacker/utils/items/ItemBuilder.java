@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.utils.items;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.utils.legacy.Materials;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -17,7 +17,7 @@ import java.util.stream.Collectors;
 @SuppressWarnings({"WeakerAccess", "UnusedReturnValue"})
 public final class ItemBuilder {
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private ItemStack itemStack;
     private ItemMeta itemMeta;

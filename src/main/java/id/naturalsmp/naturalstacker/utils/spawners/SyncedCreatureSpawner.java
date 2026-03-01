@@ -1,11 +1,11 @@
 package id.naturalsmp.naturalstacker.utils.spawners;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import org.bukkit.block.CreatureSpawner;
 
 public interface SyncedCreatureSpawner extends CreatureSpawner {
 
-    NaturalStacker plugin = NaturalStacker.getPlugin();
+    NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     static SyncedCreatureSpawner of(CreatureSpawner creatureSpawner) {
         return creatureSpawner instanceof SyncedCreatureSpawner ? (SyncedCreatureSpawner) creatureSpawner :

@@ -1,9 +1,9 @@
 package id.naturalsmp.naturalstacker.nms.v1_8_R3;
 
 
-import com.naturalsmp.common.reflection.ReflectField;
-import com.naturalsmp.common.reflection.ReflectMethod;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.reflection.ReflectField;
+import com.bgsoftware.common.reflection.ReflectMethod;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.enums.StackCheckResult;
 import id.naturalsmp.naturalstacker.api.objects.StackedItem;
@@ -84,7 +84,7 @@ import java.util.function.Predicate;
 
 public final class NMSEntitiesImpl implements NMSEntities {
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private static final ReflectField<Integer> ENTITY_EXP = new ReflectField<>(EntityInsentient.class, int.class, "b_");
     private static final ReflectField<Integer> LAST_DAMAGE_BY_PLAYER_TIME = new ReflectField<>(EntityLiving.class, int.class, "lastDamageByPlayerTime");

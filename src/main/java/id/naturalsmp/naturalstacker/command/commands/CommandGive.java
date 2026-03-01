@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.command.commands;
 
 import id.naturalsmp.naturalstacker.Locale;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.upgrades.SpawnerUpgrade;
 import id.naturalsmp.naturalstacker.command.ICommand;
 import id.naturalsmp.naturalstacker.utils.ServerVersion;
@@ -56,7 +56,7 @@ public final class CommandGive implements ICommand {
     }
 
     @Override
-    public void perform(NaturalStacker plugin, CommandSender sender, String[] args) {
+    public void perform(NaturalStackerPlugin plugin, CommandSender sender, String[] args) {
         boolean silence = false;
 
         if (args[1].equalsIgnoreCase("-s")) {
@@ -167,7 +167,7 @@ public final class CommandGive implements ICommand {
                 return;
             }
 
-            if (!NaturalStacker.getPlugin().getSettings().whitelistedBarrels.contains(barrelType)) {
+            if (!NaturalStackerPlugin.getPlugin().getSettings().whitelistedBarrels.contains(barrelType)) {
                 Locale.INVALID_BARREL.send(sender, args[3]);
                 return;
             }
@@ -183,7 +183,7 @@ public final class CommandGive implements ICommand {
             args[2] = args[2].substring(0, 1).toUpperCase() + args[2].substring(1).toLowerCase();
 
             ItemMeta itemMeta = itemStack.getItemMeta();
-            itemMeta.setDisplayName(NaturalStacker.getPlugin().getSettings().giveItemName
+            itemMeta.setDisplayName(NaturalStackerPlugin.getPlugin().getSettings().giveItemName
                     .replace("{0}", stackSize + "")
                     .replace("{1}", typeName)
                     .replace("{2}", args[2])
@@ -201,7 +201,7 @@ public final class CommandGive implements ICommand {
     }
 
     @Override
-    public List<String> tabComplete(NaturalStacker plugin, CommandSender sender, String[] args) {
+    public List<String> tabComplete(NaturalStackerPlugin plugin, CommandSender sender, String[] args) {
         List<String> list = new ArrayList<>();
 
         if (args.length >= 2 && args[1].equalsIgnoreCase("-s"))
@@ -239,7 +239,7 @@ public final class CommandGive implements ICommand {
         return list;
     }
 
-    private List<String> tabCompleteSilence(NaturalStacker plugin, String[] args) {
+    private List<String> tabCompleteSilence(NaturalStackerPlugin plugin, String[] args) {
         List<String> list = new ArrayList<>();
 
         switch (args.length) {

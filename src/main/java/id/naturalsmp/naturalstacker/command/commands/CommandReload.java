@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.command.commands;
 
 import id.naturalsmp.naturalstacker.Locale;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.command.ICommand;
 import id.naturalsmp.naturalstacker.handlers.LootHandler;
 import id.naturalsmp.naturalstacker.handlers.SettingsHandler;
@@ -47,7 +47,7 @@ public final class CommandReload implements ICommand {
     }
 
     @Override
-    public void perform(NaturalStacker plugin, CommandSender sender, String[] args) {
+    public void perform(NaturalStackerPlugin plugin, CommandSender sender, String[] args) {
         Executor.async(() -> {
             SettingsHandler.reload();
             LootHandler.reload();
@@ -60,7 +60,7 @@ public final class CommandReload implements ICommand {
     }
 
     @Override
-    public List<String> tabComplete(NaturalStacker plugin, CommandSender sender, String[] args) {
+    public List<String> tabComplete(NaturalStackerPlugin plugin, CommandSender sender, String[] args) {
         return new ArrayList<>();
     }
 }

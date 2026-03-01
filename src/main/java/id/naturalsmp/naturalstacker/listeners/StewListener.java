@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.listeners;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.utils.items.ItemUtils;
 import id.naturalsmp.naturalstacker.utils.legacy.Materials;
 import org.bukkit.Bukkit;
@@ -13,9 +13,9 @@ import org.bukkit.inventory.ItemStack;
 
 public final class StewListener implements Listener {
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
 
-    public StewListener(NaturalStacker plugin) {
+    public StewListener(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
     }
 

@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.nms.v1_12_R1;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.nms.NMSWorld;
 import id.naturalsmp.naturalstacker.nms.v1_12_R1.world.WorldEntityListener;
 import id.naturalsmp.naturalstacker.utils.chunks.ChunkPosition;
@@ -35,7 +35,7 @@ public class NMSWorldImpl implements NMSWorld {
         Entity entity = EntityTypes.a(((CraftEntity) bukkitEntity).getHandle().getClass(), world);
 
         if (entity == null) {
-            NaturalStacker.log("Failed to get entity type from " + bukkitEntity.getType());
+            NaturalStackerPlugin.log("Failed to get entity type from " + bukkitEntity.getType());
             return true;
         }
 

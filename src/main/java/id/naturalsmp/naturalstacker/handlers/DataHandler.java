@@ -1,12 +1,12 @@
 package id.naturalsmp.naturalstacker.handlers;
 
-import com.naturalsmp.common.databasebridge.sql.query.Column;
-import com.naturalsmp.common.databasebridge.sql.query.QueryResult;
-import com.naturalsmp.common.databasebridge.sql.transaction.DeleteSQLDatabaseTransaction;
-import com.naturalsmp.common.databasebridge.sql.transaction.InsertSQLDatabaseTransaction;
-import com.naturalsmp.common.databasebridge.sql.transaction.SQLDatabaseTransaction;
-import com.naturalsmp.common.databasebridge.transaction.IDatabaseTransaction;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.databasebridge.sql.query.Column;
+import com.bgsoftware.common.databasebridge.sql.query.QueryResult;
+import com.bgsoftware.common.databasebridge.sql.transaction.DeleteSQLDatabaseTransaction;
+import com.bgsoftware.common.databasebridge.sql.transaction.InsertSQLDatabaseTransaction;
+import com.bgsoftware.common.databasebridge.sql.transaction.SQLDatabaseTransaction;
+import com.bgsoftware.common.databasebridge.transaction.IDatabaseTransaction;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.objects.StackedBarrel;
 import id.naturalsmp.naturalstacker.api.objects.StackedObject;
@@ -48,15 +48,15 @@ public final class DataHandler {
 
     public final Set<StackedObject> OBJECTS_TO_SAVE = Collections.newSetFromMap(new ConcurrentHashMap<>());
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
 
-    public DataHandler(NaturalStacker plugin) {
+    public DataHandler(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
 
         Executor.sync(() -> {
             try {
                 if (!DBSession.createConnection(plugin)) {
-                    NaturalStacker.log("&cCouldn't connect to database, closing server...");
+                    NaturalStackerPlugin.log("&cCouldn't connect to database, closing server...");
                     Bukkit.getScheduler().runTask(plugin, () -> Bukkit.getPluginManager().disablePlugin(plugin));
                     return;
                 }
@@ -210,7 +210,7 @@ public final class DataHandler {
 
         long startTime = System.currentTimeMillis();
 
-        NaturalStacker.log("Starting to load entities...");
+        NaturalStackerPlugin.log("Starting to load entities...");
 
         DBSession.select("entities", "", new QueryResult<ResultSet>().onSuccess(resultSet -> {
             while (resultSet.next()) {
@@ -221,7 +221,7 @@ public final class DataHandler {
             }
         }));
 
-        NaturalStacker.log("Loading entities done! Took " + (System.currentTimeMillis() - startTime) + " ms.");
+        NaturalStackerPlugin.log("Loading entities done! Took " + (System.currentTimeMillis() - startTime) + " ms.");
     }
 
     private void loadItems() {
@@ -230,7 +230,7 @@ public final class DataHandler {
 
         long startTime = System.currentTimeMillis();
 
-        NaturalStacker.log("Starting to load items...");
+        NaturalStackerPlugin.log("Starting to load items...");
 
         DBSession.select("items", "", new QueryResult<ResultSet>().onSuccess(resultSet -> {
             while (resultSet.next()) {
@@ -240,13 +240,13 @@ public final class DataHandler {
             }
         }));
 
-        NaturalStacker.log("Loading items done! Took " + (System.currentTimeMillis() - startTime) + " ms.");
+        NaturalStackerPlugin.log("Loading items done! Took " + (System.currentTimeMillis() - startTime) + " ms.");
     }
 
     private void loadSpawners(List<IDatabaseTransaction> transactionsToExecute) {
         long startTime = System.currentTimeMillis();
 
-        NaturalStacker.log("Starting to load spawners...");
+        NaturalStackerPlugin.log("Starting to load spawners...");
 
         DBSession.select("spawners", "", new QueryResult<ResultSet>().onSuccess(resultSet -> {
             DeleteSQLDatabaseTransaction deleteNullWorldTransaction = new DeleteSQLDatabaseTransaction(
@@ -276,12 +276,12 @@ public final class DataHandler {
                     exceptionReason = "Exception was thrown.";
                 }
 
-                NaturalStacker.log("Couldn't load spawner: " + location);
-                NaturalStacker.log(exceptionReason);
+                NaturalStackerPlugin.log("Couldn't load spawner: " + location);
+                NaturalStackerPlugin.log(exceptionReason);
 
                 if (exceptionReason.contains("Null") && plugin.getSettings().deleteInvalidWorlds) {
                     deleteNullWorldTransaction.bindObject(location).newBatch();
-                    NaturalStacker.log("Deleted spawner (" + location + ") from database.");
+                    NaturalStackerPlugin.log("Deleted spawner (" + location + ") from database.");
                     calledDeleteTransaction = true;
                 }
             }
@@ -291,13 +291,13 @@ public final class DataHandler {
 
         }));
 
-        NaturalStacker.log("Loading spawners done! Took " + (System.currentTimeMillis() - startTime) + " ms.");
+        NaturalStackerPlugin.log("Loading spawners done! Took " + (System.currentTimeMillis() - startTime) + " ms.");
     }
 
     private void loadBarrles(List<IDatabaseTransaction> transactionsToExecute) {
         long startTime = System.currentTimeMillis();
 
-        NaturalStacker.log("Starting to load barrels...");
+        NaturalStackerPlugin.log("Starting to load barrels...");
 
         DBSession.select("barrels", "", new QueryResult<ResultSet>().onSuccess(resultSet -> {
             DeleteSQLDatabaseTransaction deleteNullWorldTransaction = new DeleteSQLDatabaseTransaction(
@@ -328,12 +328,12 @@ public final class DataHandler {
                     exceptionReason = "Exception was thrown.";
                 }
 
-                NaturalStacker.log("Couldn't load barrel: " + location);
-                NaturalStacker.log(exceptionReason);
+                NaturalStackerPlugin.log("Couldn't load barrel: " + location);
+                NaturalStackerPlugin.log(exceptionReason);
 
                 if (exceptionReason.contains("Null") && plugin.getSettings().deleteInvalidWorlds) {
                     deleteNullWorldTransaction.bindObject(location).newBatch();
-                    NaturalStacker.log("Deleted barrel (" + location + ") from database.");
+                    NaturalStackerPlugin.log("Deleted barrel (" + location + ") from database.");
                     calledDeleteTransaction = true;
                 }
             }
@@ -342,7 +342,7 @@ public final class DataHandler {
                 transactionsToExecute.add(deleteNullWorldTransaction);
         }));
 
-        NaturalStacker.log("Loading barrels done! Took " + (System.currentTimeMillis() - startTime) + " ms.");
+        NaturalStackerPlugin.log("Loading barrels done! Took " + (System.currentTimeMillis() - startTime) + " ms.");
     }
 
     private String serializeItemInternal(@Nullable ItemStack itemStack) {

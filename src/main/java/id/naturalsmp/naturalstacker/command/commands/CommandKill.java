@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.command.commands;
 
 import id.naturalsmp.naturalstacker.Locale;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.command.ICommand;
 import id.naturalsmp.naturalstacker.objects.WStackedEntity;
@@ -53,7 +53,7 @@ public final class CommandKill implements ICommand {
     }
 
     @Override
-    public void perform(NaturalStacker plugin, CommandSender sender, String[] args) {
+    public void perform(NaturalStackerPlugin plugin, CommandSender sender, String[] args) {
         Set<EntityTypes> entityTypes = new HashSet<>();
         Set<SpawnCause> spawnCauses = new HashSet<>();
         IntegerValue integerValue = new IntegerValue(-1);
@@ -115,7 +115,7 @@ public final class CommandKill implements ICommand {
     }
 
     @Override
-    public List<String> tabComplete(NaturalStacker plugin, CommandSender sender, String[] args) {
+    public List<String> tabComplete(NaturalStackerPlugin plugin, CommandSender sender, String[] args) {
         List<String> list = new ArrayList<>();
         List<String> alreadyFiltered = new ArrayList<>();
 

@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.StackCheckResult;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
@@ -14,7 +14,7 @@ public final class EntitySimilarityProvider_LevelledMobs implements EntitySimila
 
     private final NamespacedKey levelKey;
 
-    public EntitySimilarityProvider_LevelledMobs(NaturalStacker plugin) {
+    public EntitySimilarityProvider_LevelledMobs(NaturalStackerPlugin plugin) {
         Plugin levelledMobs = Bukkit.getPluginManager().getPlugin("LevelledMobs");
         assert levelledMobs != null;
         this.levelKey = new NamespacedKey(levelledMobs, "level");

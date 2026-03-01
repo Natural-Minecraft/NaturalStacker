@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.utils.entity;
 
-import com.naturalsmp.common.reflection.ReflectMethod;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.reflection.ReflectMethod;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.EntityFlag;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.enums.StackCheckResult;
@@ -82,7 +82,7 @@ public final class EntityUtils {
     private static final ReflectMethod<Entity> GET_SHOULDER_ENTITY_LEFT = new ReflectMethod<>(HumanEntity.class, "getShoulderEntityLeft");
     private static final ReflectMethod<Void> SET_SHOULDER_ENTITY_LEFT = new ReflectMethod<>(HumanEntity.class, "setShoulderEntityLeft", Entity.class);
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
     private static final Enchantment CURSE_OF_VANISH = Arrays.stream(Enchantment.values())
             .filter(enchantment -> enchantment.getName() != null && enchantment.getName().equals("VANISHING_CURSE"))
             .findFirst().orElse(null);

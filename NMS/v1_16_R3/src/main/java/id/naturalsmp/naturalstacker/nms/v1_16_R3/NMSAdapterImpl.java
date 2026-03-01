@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.nms.v1_16_R3;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
 import id.naturalsmp.naturalstacker.api.objects.StackedItem;
@@ -52,7 +52,7 @@ public final class NMSAdapterImpl implements NMSAdapter {
             "Items", "ChestedHorse", "DecorItem",
     };
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private static final NamespacedKey
             STACK_AMOUNT = new NamespacedKey(plugin, "stackAmount"),

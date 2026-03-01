@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.listeners;
 
 import id.naturalsmp.naturalstacker.Locale;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.UnstackResult;
 import id.naturalsmp.naturalstacker.api.objects.StackedBarrel;
 import id.naturalsmp.naturalstacker.hooks.listeners.IStackedBlockListener;
@@ -45,9 +45,9 @@ public final class BarrelsListener implements Listener {
 
     private final Set<UUID> barrelsToggleCommandPlayers = new HashSet<>();
     private final Set<UUID> alreadyBarrelsPlacedPlayers = new HashSet<>();
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
 
-    public BarrelsListener(NaturalStacker plugin) {
+    public BarrelsListener(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
         if (ServerVersion.isAtLeast(ServerVersion.v1_9))
             plugin.getServer().getPluginManager().registerEvents(new CauldronChangeListener(), plugin);

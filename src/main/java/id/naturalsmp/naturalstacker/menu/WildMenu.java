@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.menu;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.utils.files.SoundWrapper;
 import id.naturalsmp.naturalstacker.utils.items.ItemBuilder;
 import id.naturalsmp.naturalstacker.utils.pair.Pair;
@@ -25,7 +25,7 @@ public abstract class WildMenu implements InventoryHolder {
 
     protected static final String[] IGNORED_CONFIG_PATHS = new String[]{"items", "sounds", "commands"};
 
-    protected static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    protected static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
     protected static final Map<String, MenuData> dataMap = new ConcurrentHashMap<>();
 
     private final String identifier;

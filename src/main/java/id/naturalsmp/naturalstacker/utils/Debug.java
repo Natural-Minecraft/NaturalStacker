@@ -1,12 +1,12 @@
 package id.naturalsmp.naturalstacker.utils;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 
 import java.util.logging.Level;
 
 public class Debug {
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private Debug() {
 

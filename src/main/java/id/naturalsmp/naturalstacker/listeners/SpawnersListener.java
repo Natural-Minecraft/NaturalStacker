@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.listeners;
 
 import id.naturalsmp.naturalstacker.Locale;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.EntityFlag;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.enums.StackCheckResult;
@@ -82,10 +82,10 @@ public final class SpawnersListener implements Listener {
     private final Map<Entity, UUID> explodableSources = new WeakHashMap<>();
     private final Set<Location> paperPreSpawnChecked = new HashSet<>();
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
     private boolean listenToSpawnEvent = true;
 
-    public SpawnersListener(NaturalStacker plugin) {
+    public SpawnersListener(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
 
         try {
@@ -95,7 +95,7 @@ public final class SpawnersListener implements Listener {
         }
     }
 
-    public static boolean handleSpawnerBreak(NaturalStacker plugin, StackedSpawner stackedSpawner, int breakAmount, Player player, boolean breakMenu) {
+    public static boolean handleSpawnerBreak(NaturalStackerPlugin plugin, StackedSpawner stackedSpawner, int breakAmount, Player player, boolean breakMenu) {
         double amountToCharge;
 
         if (player.hasPermission("naturalstacker.charge.bypass")) {

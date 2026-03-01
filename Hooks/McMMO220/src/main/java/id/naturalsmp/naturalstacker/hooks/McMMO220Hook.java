@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
 import id.naturalsmp.naturalstacker.hooks.listeners.IEntityDeathListener;
 import com.gmail.nossr50.datatypes.meta.OldName;
@@ -27,10 +27,10 @@ public final class McMMO220Hook {
 
     private static final Set<UUID> spawnerEntities = new HashSet<>();
 
-    private static NaturalStacker plugin;
+    private static NaturalStackerPlugin plugin;
     private static com.gmail.nossr50.mcMMO mcMMO;
 
-    public static void register(NaturalStacker plugin) {
+    public static void register(NaturalStackerPlugin plugin) {
         McMMO220Hook.plugin = plugin;
         mcMMO = com.gmail.nossr50.mcMMO.p;
         plugin.getProviders().registerEntityDeathListener(McMMO220Hook::handleDeath);

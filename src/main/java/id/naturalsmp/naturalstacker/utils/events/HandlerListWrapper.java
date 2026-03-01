@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.utils.events;
 
-import com.naturalsmp.common.reflection.ReflectField;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.reflection.ReflectField;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import org.bukkit.event.Event;
 import org.bukkit.event.EventException;
 import org.bukkit.event.EventPriority;
@@ -24,7 +24,7 @@ public class HandlerListWrapper extends HandlerList {
             RegisteredListener.class, EventExecutor.class, "executor")
             .removeFinal();
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private Mode mode = Mode.NEW;
 

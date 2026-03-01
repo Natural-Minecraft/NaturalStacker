@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.loot;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.loot.LootEntityAttributes;
 import id.naturalsmp.naturalstacker.api.upgrades.SpawnerUpgrade;
@@ -18,7 +18,7 @@ import java.util.function.Predicate;
 
 public class EntityFilters {
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private EntityFilters() {
 

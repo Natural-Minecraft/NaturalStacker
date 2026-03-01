@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.command;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import org.bukkit.command.CommandSender;
 
 import java.util.List;
@@ -19,8 +19,8 @@ public interface ICommand {
 
     int getMaxArgs();
 
-    void perform(NaturalStacker plugin, CommandSender sender, String[] args);
+    void perform(NaturalStackerPlugin plugin, CommandSender sender, String[] args);
 
-    List<String> tabComplete(NaturalStacker plugin, CommandSender sender, String[] args);
+    List<String> tabComplete(NaturalStackerPlugin plugin, CommandSender sender, String[] args);
 
 }

@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import com.comphenix.protocol.events.PacketContainer;
 import com.comphenix.protocol.reflect.StructureModifier;
 import com.comphenix.protocol.wrappers.WrappedDataValue;
@@ -13,7 +13,7 @@ import java.util.Optional;
 
 public final class ProtocolLib_119PacketHandler implements ProtocolLibHook.IPacketHandler {
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     @Override
     public void handlePacketCustomNameUpdate(PacketContainer packetContainer, @Nullable Entity entity) {

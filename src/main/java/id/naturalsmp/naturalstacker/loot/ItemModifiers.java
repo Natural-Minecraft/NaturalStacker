@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.loot;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.utils.Random;
 import org.bukkit.inventory.ItemStack;
 import org.bukkit.inventory.meta.ItemMeta;
@@ -8,7 +8,7 @@ import org.jetbrains.annotations.Nullable;
 
 public class ItemModifiers {
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     public static ItemModifierFunction countModifier(int min, int max, int limit) {
         return (lootItem, itemStack, itemMeta, amountOfItems, lootBonusLevel) -> {

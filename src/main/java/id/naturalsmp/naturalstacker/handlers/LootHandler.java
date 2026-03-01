@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.handlers;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.loot.LootTable;
 import id.naturalsmp.naturalstacker.loot.LootTableSheep;
 import id.naturalsmp.naturalstacker.utils.ServerVersion;
@@ -26,8 +26,8 @@ public final class LootHandler {
 
     private final Map<String, LootTable> lootTables = new HashMap<>();
 
-    public LootHandler(NaturalStacker plugin) {
-        NaturalStacker.log("Loading loot-tables started...");
+    public LootHandler(NaturalStackerPlugin plugin) {
+        NaturalStackerPlugin.log("Loading loot-tables started...");
         long startTime = System.currentTimeMillis();
 
         File folderFile = new File(plugin.getDataFolder(), "loottables");
@@ -54,19 +54,19 @@ public final class LootHandler {
                 String key = file.getName().replace(".json", "").toUpperCase();
 
                 if (!isValidEntityType(key.replace("_BABY", ""))) {
-                    NaturalStacker.log("&cWarning: The file " + file.getName() + " doesn't seem like a valid loot table name.");
-                    NaturalStacker.log("&cDetected entity of this file is " + key);
+                    NaturalStackerPlugin.log("&cWarning: The file " + file.getName() + " doesn't seem like a valid loot table name.");
+                    NaturalStackerPlugin.log("&cDetected entity of this file is " + key);
                 }
 
                 lootTables.put(key, key.contains("SHEEP") ? LootTableSheep.fromJson(jsonObject, file.getName()) : LootTable.fromJson(jsonObject, file.getName()));
             } catch (Exception ex) {
                 ex.printStackTrace();
-                NaturalStacker.log("[" + file.getName() + "] Couldn't load loot table:");
-                NaturalStacker.log("    " + ex.getMessage());
+                NaturalStackerPlugin.log("[" + file.getName() + "] Couldn't load loot table:");
+                NaturalStackerPlugin.log("    " + ex.getMessage());
             }
         }
 
-        NaturalStacker.log("Loading loot-tables done (Took " + (System.currentTimeMillis() - startTime) + "ms)");
+        NaturalStackerPlugin.log("Loading loot-tables done (Took " + (System.currentTimeMillis() - startTime) + "ms)");
     }
 
     private static boolean isValidEntityType(String entityType) {
@@ -87,7 +87,7 @@ public final class LootHandler {
     }
 
     public static void reload() {
-        NaturalStacker plugin = NaturalStacker.getPlugin();
+        NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
         plugin.setLootHandler(new LootHandler(plugin));
     }
 

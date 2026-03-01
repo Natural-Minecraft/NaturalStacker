@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
 import id.naturalsmp.naturalstacker.api.objects.StackedSpawner;
@@ -14,7 +14,7 @@ import org.bukkit.event.Listener;
 
 public final class EpicSpawners5Hook {
 
-    public static void register(NaturalStacker plugin) {
+    public static void register(NaturalStackerPlugin plugin) {
         plugin.getServer().getPluginManager().registerEvents(new Listener() {
             @EventHandler
             public void onSpawnerSpawn(SpawnerSpawnEvent e) {

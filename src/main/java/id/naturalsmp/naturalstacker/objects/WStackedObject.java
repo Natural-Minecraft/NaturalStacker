@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.objects;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.StackCheckResult;
 import id.naturalsmp.naturalstacker.api.enums.StackResult;
 import id.naturalsmp.naturalstacker.api.enums.UnstackResult;
@@ -16,7 +16,7 @@ import java.util.function.Consumer;
 @SuppressWarnings("WeakerAccess")
 public abstract class WStackedObject<T> implements StackedObject<T> {
 
-    protected static NaturalStacker plugin = NaturalStacker.getPlugin();
+    protected static NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     protected final T object;
     private final AtomicInteger stackAmount = new AtomicInteger(0);

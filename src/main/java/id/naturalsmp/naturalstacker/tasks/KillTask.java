@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.tasks;
 
 import id.naturalsmp.naturalstacker.Locale;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
 import org.bukkit.scheduler.BukkitRunnable;
@@ -9,7 +9,7 @@ import org.bukkit.scheduler.BukkitTask;
 
 public final class KillTask extends BukkitRunnable {
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private static BukkitTask task = null;
     private static long timeLeft;

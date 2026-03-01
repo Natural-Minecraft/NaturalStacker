@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
 import io.lumine.xikage.mythicmobs.MythicMobs;
@@ -10,9 +10,9 @@ import org.bukkit.entity.LivingEntity;
 @SuppressWarnings("unused")
 public final class EntityNameProvider_MythicMobs4 implements EntityNameProvider {
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
 
-    public EntityNameProvider_MythicMobs4(NaturalStacker plugin) {
+    public EntityNameProvider_MythicMobs4(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
     }
 

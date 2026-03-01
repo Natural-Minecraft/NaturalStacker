@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.hooks.listeners.IStackedBlockListener;
 import id.naturalsmp.naturalstacker.utils.threads.Executor;
 import net.coreprotect.CoreProtect;
@@ -22,13 +22,13 @@ import java.util.Map;
 @SuppressWarnings({"deprecation", "unused"})
 public final class CoreProtectHook {
 
-    private static NaturalStacker plugin;
+    private static NaturalStackerPlugin plugin;
 
     private static Plugin coreProtect;
     private static boolean pickupSupport = false;
     private static boolean warningDisplayed = false;
 
-    public static void register(NaturalStacker plugin) {
+    public static void register(NaturalStackerPlugin plugin) {
         CoreProtectHook.plugin = plugin;
         coreProtect = Bukkit.getPluginManager().getPlugin("CoreProtect");
         try {
@@ -71,8 +71,8 @@ public final class CoreProtectHook {
             }
         } else if (!warningDisplayed) {
             warningDisplayed = true;
-            NaturalStacker.log("&cDetected an API version of CoreProtect that is not supported: " + coreProtectAPI.APIVersion());
-            NaturalStacker.log("&cOpen an issue on github regarding this!");
+            NaturalStackerPlugin.log("&cDetected an API version of CoreProtect that is not supported: " + coreProtectAPI.APIVersion());
+            NaturalStackerPlugin.log("&cOpen an issue on github regarding this!");
         }
     }
 

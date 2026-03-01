@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.nms.v1_21_7;
 
-import com.naturalsmp.common.reflection.ReflectMethod;
+import com.bgsoftware.common.reflection.ReflectMethod;
 import com.mojang.authlib.properties.Property;
 import com.mojang.authlib.properties.PropertyMap;
 import com.mojang.logging.LogUtils;

@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import com.naturalsmp.common.reflection.ReflectMethod;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.reflection.ReflectMethod;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.objects.WStackedEntity;
 import id.naturalsmp.naturalstacker.utils.entity.EntityUtils;
@@ -20,7 +20,7 @@ public final class MyPetHook {
     private static final ReflectMethod<Optional<MyPetBukkitEntity>> GET_ENTITY_METHOD =
             new ReflectMethod<>(MyPet.class, Optional.class, "getEntity");
 
-    public static void register(NaturalStacker plugin) {
+    public static void register(NaturalStackerPlugin plugin) {
         plugin.getServer().getPluginManager().registerEvents(new Listener() {
             @EventHandler
             public void onMyPetSpawn(MyPetCallEvent e) {

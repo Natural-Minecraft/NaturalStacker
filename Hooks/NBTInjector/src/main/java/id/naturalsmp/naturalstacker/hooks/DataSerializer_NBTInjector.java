@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import com.naturalsmp.common.reflection.ReflectField;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.reflection.ReflectField;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
 import id.naturalsmp.naturalstacker.api.objects.StackedItem;
@@ -30,11 +30,11 @@ public final class DataSerializer_NBTInjector implements IDataSerializer, Listen
         }
     }
 
-    public DataSerializer_NBTInjector(NaturalStacker plugin) {
+    public DataSerializer_NBTInjector(NaturalStackerPlugin plugin) {
         if (NBTInjector.isInjected()) {
             plugin.getSystemManager().setDataSerializer(this);
             Bukkit.getPluginManager().registerEvents(this, plugin);
-            NaturalStacker.log("- Using NBTInjector to store entity data.");
+            NaturalStackerPlugin.log("- Using NBTInjector to store entity data.");
         }
     }
 

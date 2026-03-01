@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.listeners.events;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.utils.ServerVersion;
 import id.naturalsmp.naturalstacker.utils.entity.EntitiesGetter;
 import id.naturalsmp.naturalstacker.utils.legacy.Materials;
@@ -17,14 +17,14 @@ import java.util.function.Supplier;
 
 public final class EventsListener {
 
-    private static NaturalStacker plugin;
+    private static NaturalStackerPlugin plugin;
 
     @Nullable
     private static IEggLayListener eggLayListener;
     @Nullable
     private static IScuteDropListener scuteDropListener;
 
-    public static void register(NaturalStacker plugin) {
+    public static void register(NaturalStackerPlugin plugin) {
         EventsListener.plugin = plugin;
 
         plugin.getServer().getPluginManager().registerEvents(new EggLay(), plugin);

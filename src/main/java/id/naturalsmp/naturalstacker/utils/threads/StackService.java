@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.utils.threads;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.objects.AsyncStackedObject;
 import id.naturalsmp.naturalstacker.api.objects.StackedItem;
 import id.naturalsmp.naturalstacker.api.objects.StackedObject;
@@ -81,7 +81,7 @@ public final class StackService {
 
     private static final class StackServiceWorld {
 
-        private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+        private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
         private final Map<StackType, ExecutorService> executorServiceMap = new EnumMap<>(StackType.class);
 

@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.listeners;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import org.bukkit.Chunk;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
@@ -14,9 +14,9 @@ import static id.naturalsmp.naturalstacker.handlers.SystemHandler.CHUNK_FULL_STA
 
 public final class ChunksListener implements Listener {
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
 
-    public ChunksListener(NaturalStacker plugin) {
+    public ChunksListener(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
     }
 

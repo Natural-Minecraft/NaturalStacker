@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.objects.StackedSpawner;
 import id.naturalsmp.naturalstacker.api.upgrades.SpawnerUpgrade;
 import id.naturalsmp.naturalstacker.utils.entity.EntityUtils;
@@ -27,10 +27,10 @@ import java.util.stream.Stream;
 
 public final class SpawnersProvider_Default implements SpawnersProvider {
 
-    private final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     public SpawnersProvider_Default() {
-        NaturalStacker.log(" - Couldn't find any spawners providers, using default one.");
+        NaturalStackerPlugin.log(" - Couldn't find any spawners providers, using default one.");
     }
 
     @Override

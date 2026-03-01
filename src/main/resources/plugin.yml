@@ -1,6 +1,6 @@
 name: NaturalStacker
 version: ${project.version}
-main: id.naturalsmp.naturalstacker.NaturalStacker
+main: id.naturalsmp.naturalstacker.NaturalStackerPlugin
 
 description: Stacking drops, entities, blocks and spawners into one object!
 website: https://naturalsmp.net/

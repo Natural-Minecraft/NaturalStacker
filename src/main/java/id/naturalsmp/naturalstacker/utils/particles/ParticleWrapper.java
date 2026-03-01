@@ -1,11 +1,11 @@
 package id.naturalsmp.naturalstacker.utils.particles;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import org.bukkit.Location;
 
 public final class ParticleWrapper {
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private final String particle;
     private final int count, offsetX, offsetY, offsetZ;

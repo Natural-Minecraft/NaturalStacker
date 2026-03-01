@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker;
 
-import com.naturalsmp.common.config.CommentedConfiguration;
+import com.bgsoftware.common.config.CommentedConfiguration;
 import id.naturalsmp.naturalstacker.utils.files.FileUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;
@@ -12,7 +12,7 @@ import java.util.Map;
 @SuppressWarnings("WeakerAccess")
 public final class Locale {
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
     private static final Map<String, Locale> localeMap = new HashMap<>();
 
     public static Locale BARREL_BREAK = new Locale("BARREL_BREAK");
@@ -92,7 +92,7 @@ public final class Locale {
     }
 
     public static void reload() {
-        NaturalStacker.log("Loading messages started...");
+        NaturalStackerPlugin.log("Loading messages started...");
         long startTime = System.currentTimeMillis();
         int messagesAmount = 0;
         File file = new File(plugin.getDataFolder(), "lang.yml");
@@ -113,8 +113,8 @@ public final class Locale {
             messagesAmount++;
         }
 
-        NaturalStacker.log(" - Found " + messagesAmount + " messages in lang.yml.");
-        NaturalStacker.log("Loading messages done (Took " + (System.currentTimeMillis() - startTime) + "ms)");
+        NaturalStackerPlugin.log(" - Found " + messagesAmount + " messages in lang.yml.");
+        NaturalStackerPlugin.log("Loading messages done (Took " + (System.currentTimeMillis() - startTime) + "ms)");
     }
 
     public static void sendMessage(CommandSender sender, String message) {

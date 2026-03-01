@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
 import org.bukkit.event.Listener;
@@ -11,13 +11,13 @@ import static id.naturalsmp.naturalstacker.handlers.SystemHandler.ENTITIES_STAGE
 
 public class PaperChunksHook implements Listener {
 
-    public static void register(NaturalStacker plugin) {
+    public static void register(NaturalStackerPlugin plugin) {
         plugin.getServer().getPluginManager().registerEvents(new PaperChunksHook(plugin), plugin);
     }
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
 
-    public PaperChunksHook(NaturalStacker plugin) {
+    public PaperChunksHook(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
     }
 

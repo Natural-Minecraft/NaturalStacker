@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.utils.items;
 
-import com.naturalsmp.common.reflection.ReflectMethod;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.reflection.ReflectMethod;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.upgrades.SpawnerUpgrade;
 import id.naturalsmp.naturalstacker.utils.ServerVersion;
 import id.naturalsmp.naturalstacker.utils.entity.EntityUtils;
@@ -60,7 +60,7 @@ public final class ItemUtils {
         }
     }).get();
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
     private static final int MAX_PICKUP_DELAY = 32767;
 
     public static void addItems(ItemStack[] itemStacks, Inventory inventory, Location location) {
@@ -113,7 +113,7 @@ public final class ItemUtils {
                 }
             }
         } catch (Exception ex) {
-            NaturalStacker.log("Error while dropping " + itemStack + ":");
+            NaturalStackerPlugin.log("Error while dropping " + itemStack + ":");
             ex.printStackTrace();
         }
     }

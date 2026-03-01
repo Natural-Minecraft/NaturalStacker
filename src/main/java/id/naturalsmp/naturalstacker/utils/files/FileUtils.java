@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.utils.files;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.menu.WildMenu;
 import id.naturalsmp.naturalstacker.utils.ServerVersion;
 import id.naturalsmp.naturalstacker.utils.items.ItemBuilder;
@@ -22,7 +22,7 @@ import java.util.Map;
 
 public final class FileUtils {
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private FileUtils() {
 
@@ -74,7 +74,7 @@ public final class FileUtils {
             type = Material.valueOf(materialName);
             data = (short) section.getInt("data");
         } catch (IllegalArgumentException e) {
-            NaturalStacker.log("&c[" + fileName + "] Couldn't convert '" + materialName +
+            NaturalStackerPlugin.log("&c[" + fileName + "] Couldn't convert '" + materialName +
                     "' into an material in '" + section.getCurrentPath() + ".type', skipping...");
             return null;
         }
@@ -97,7 +97,7 @@ public final class FileUtils {
                 try {
                     enchantment = Enchantment.getByName(enchantName);
                 } catch (IllegalArgumentException e) {
-                    NaturalStacker.log("&c[" + fileName + "] Couldn't convert '" + enchantName +
+                    NaturalStackerPlugin.log("&c[" + fileName + "] Couldn't convert '" + enchantName +
                             "' into an enchantment in '" + section.getCurrentPath() + ".enchants', skipping...");
                     continue;
                 }
@@ -111,7 +111,7 @@ public final class FileUtils {
                 try {
                     itemBuilder.withFlags(ItemFlag.valueOf(flagName));
                 } catch (IllegalArgumentException e) {
-                    NaturalStacker.log("&c[" + fileName + "] Couldn't convert '" + flagName +
+                    NaturalStackerPlugin.log("&c[" + fileName + "] Couldn't convert '" + flagName +
                             "' into an item flag in '" + section.getCurrentPath() + ".flags', skipping...");
                 }
             }

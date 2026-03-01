@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.listeners;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.EntityFlag;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.enums.StackSplit;
@@ -92,11 +92,11 @@ public final class EntitiesListener implements Listener {
     private final FutureEntityTracker<Integer> slimeSplitTracker = new FutureEntityTracker<>();
     private final FutureEntityTracker<Integer> mushroomTracker = new FutureEntityTracker<>();
     private final FutureEntityTracker<SpawnEggTrackedData> spawnEggTracker = new FutureEntityTracker<>();
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
 
     private boolean duplicateCow = false;
 
-    public EntitiesListener(NaturalStacker plugin) {
+    public EntitiesListener(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
         EntitiesListener.IMP = this;
 
@@ -133,7 +133,7 @@ public final class EntitiesListener implements Listener {
                 e.getDrops().clear();
                 e.setDroppedExp(0);
             } catch (Throwable ex) {
-                NaturalStacker.log("Seems like the array of EntityDeathEvent is not an ArrayList, but a " + e.getDrops().getClass());
+                NaturalStackerPlugin.log("Seems like the array of EntityDeathEvent is not an ArrayList, but a " + e.getDrops().getClass());
                 ex.printStackTrace();
             }
         }
@@ -991,9 +991,9 @@ public final class EntitiesListener implements Listener {
                 Materials.getMaterialOrNull("PITCHER_POD")
         };
 
-        private final NaturalStacker plugin;
+        private final NaturalStackerPlugin plugin;
 
-        SnifferListener(NaturalStacker plugin) {
+        SnifferListener(NaturalStackerPlugin plugin) {
             this.plugin = plugin;
         }
 

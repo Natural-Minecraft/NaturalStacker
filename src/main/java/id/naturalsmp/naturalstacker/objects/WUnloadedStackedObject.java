@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.objects;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.objects.UnloadedStackedObject;
 import id.naturalsmp.naturalstacker.utils.data.structures.Location2ObjectMap;
 import org.bukkit.Bukkit;
@@ -12,7 +12,7 @@ import java.util.concurrent.locks.ReentrantReadWriteLock;
 @SuppressWarnings("WeakerAccess")
 public abstract class WUnloadedStackedObject implements UnloadedStackedObject, Location2ObjectMap.ILocationEntity {
 
-    protected static NaturalStacker plugin = NaturalStacker.getPlugin();
+    protected static NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private final ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 

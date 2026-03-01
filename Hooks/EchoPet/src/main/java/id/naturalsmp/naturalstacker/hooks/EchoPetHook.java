@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.objects.WStackedEntity;
 import id.naturalsmp.naturalstacker.utils.entity.EntityUtils;
@@ -13,7 +13,7 @@ import org.bukkit.event.Listener;
 @SuppressWarnings("unused")
 public final class EchoPetHook {
 
-    public static void register(NaturalStacker plugin) {
+    public static void register(NaturalStackerPlugin plugin) {
         plugin.getServer().getPluginManager().registerEvents(new Listener() {
             @EventHandler
             public void onEchoPetSpawn(PetPreSpawnEvent e) {

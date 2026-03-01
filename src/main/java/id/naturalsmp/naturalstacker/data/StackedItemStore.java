@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.data;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.objects.StackedItem;
 import id.naturalsmp.naturalstacker.objects.WStackedItem;
 import id.naturalsmp.naturalstacker.utils.data.DataSerializer;
@@ -9,7 +9,7 @@ import java.util.UUID;
 
 public class StackedItemStore extends AbstractEntityDataStore<StackedItem> {
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     @Override
     protected boolean loadUnloadedInternal(UUID uuid, StackedItem stackedItem) {

@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.loot;
 
-import com.naturalsmp.common.reflection.ReflectMethod;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.reflection.ReflectMethod;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.loot.LootEntityAttributes;
 import id.naturalsmp.naturalstacker.utils.ServerVersion;
 import id.naturalsmp.naturalstacker.utils.json.JsonUtils;
@@ -34,7 +34,7 @@ public class LootItem extends FilteredLoot {
     private static final ReflectMethod<Void> POTION_META_SET_BASE_TYPE = new ReflectMethod<>(
             PotionMeta.class, "setBasePotionType", PotionType.class);
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private final List<ItemModifiers.ItemModifierFunction> itemModifiers = new LinkedList<>();
     private final ItemStack itemStack, burnableItem;

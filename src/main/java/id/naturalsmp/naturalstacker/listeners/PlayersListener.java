@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.listeners;
 
 import id.naturalsmp.naturalstacker.Locale;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.tasks.KillTask;
 import id.naturalsmp.naturalstacker.utils.threads.Executor;
 import org.bukkit.ChatColor;
@@ -13,9 +13,9 @@ import org.bukkit.event.player.PlayerJoinEvent;
 @SuppressWarnings("unused")
 public final class PlayersListener implements Listener {
 
-    private NaturalStacker plugin;
+    private NaturalStackerPlugin plugin;
 
-    public PlayersListener(NaturalStacker plugin) {
+    public PlayersListener(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
     }
 

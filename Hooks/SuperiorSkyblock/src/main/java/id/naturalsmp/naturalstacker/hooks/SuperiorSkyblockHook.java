@@ -3,7 +3,7 @@ package id.naturalsmp.naturalstacker.hooks;
 import com.naturalsmp.superiorskyblock.api.SuperiorSkyblockAPI;
 import com.naturalsmp.superiorskyblock.api.island.Island;
 import com.naturalsmp.superiorskyblock.api.island.IslandFlag;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.events.EntityStackEvent;
 import id.naturalsmp.naturalstacker.api.events.SpawnerStackedEntitySpawnEvent;
 import org.bukkit.event.EventHandler;
@@ -14,7 +14,7 @@ public final class SuperiorSkyblockHook {
     private static IslandFlag ENTITIES_STACKING;
     private static boolean registered = false;
 
-    public static void register(NaturalStacker plugin) {
+    public static void register(NaturalStackerPlugin plugin) {
         if (!plugin.getSettings().superiorSkyblockHook)
             return;
 
@@ -28,7 +28,7 @@ public final class SuperiorSkyblockHook {
             try {
                 ENTITIES_STACKING = IslandFlag.getByName("ENTITIES_STACKING");
             } catch (NullPointerException error2) {
-                NaturalStacker.log("&cCouldn't register a custom island-flag into SuperiorSkyblock - open an issue on github.");
+                NaturalStackerPlugin.log("&cCouldn't register a custom island-flag into SuperiorSkyblock - open an issue on github.");
                 return;
             }
         }

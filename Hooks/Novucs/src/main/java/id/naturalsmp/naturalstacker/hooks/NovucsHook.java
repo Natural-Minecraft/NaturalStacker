@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import com.naturalsmp.common.reflection.ReflectField;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.reflection.ReflectField;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.events.SpawnerStackEvent;
 import id.naturalsmp.naturalstacker.api.events.SpawnerUnstackEvent;
 import id.naturalsmp.naturalstacker.objects.WStackedSpawner;
@@ -25,10 +25,10 @@ import java.util.HashMap;
 @SuppressWarnings("unused")
 public final class NovucsHook {
 
-    private static NaturalStacker plugin;
+    private static NaturalStackerPlugin plugin;
     private static FactionsTopPlugin novucs;
 
-    public static void register(NaturalStacker plugin) {
+    public static void register(NaturalStackerPlugin plugin) {
         NovucsHook.plugin = plugin;
         novucs = JavaPlugin.getPlugin(FactionsTopPlugin.class);
         new ReflectField<>(FactionsTopPlugin.class, SpawnerStackerHook.class,

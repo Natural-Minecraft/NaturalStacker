@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.tasks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.objects.StackedItem;
 import id.naturalsmp.naturalstacker.objects.WStackedItem;
 import id.naturalsmp.naturalstacker.utils.items.ItemUtils;
@@ -12,7 +12,7 @@ import org.bukkit.scheduler.BukkitTask;
 
 public final class ItemsMerger extends BukkitRunnable {
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     private static BukkitTask task = null;
 

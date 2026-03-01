@@ -1,15 +1,15 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
 import id.naturalsmp.naturalstacker.api.objects.StackedItem;
 import id.naturalsmp.naturalstacker.utils.threads.Executor;
 
 public final class DataSerializer_Default implements IDataSerializer {
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
 
-    public DataSerializer_Default(NaturalStacker plugin) {
+    public DataSerializer_Default(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
     }
 

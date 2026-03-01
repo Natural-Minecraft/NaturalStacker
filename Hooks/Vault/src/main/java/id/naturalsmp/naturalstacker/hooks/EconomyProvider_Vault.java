@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import net.milkbowl.vault.economy.Economy;
 import org.bukkit.Bukkit;
 import org.bukkit.entity.Player;
@@ -17,7 +17,7 @@ public final class EconomyProvider_Vault implements EconomyProvider {
             econ = rsp.getProvider();
 
         if (econ != null)
-            NaturalStacker.log("Using Vault as an economy provider.");
+            NaturalStackerPlugin.log("Using Vault as an economy provider.");
 
         return econ != null;
     }

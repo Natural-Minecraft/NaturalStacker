@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.command;
 
 import id.naturalsmp.naturalstacker.Locale;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.command.commands.CommandDebug;
 import id.naturalsmp.naturalstacker.command.commands.CommandGive;
 import id.naturalsmp.naturalstacker.command.commands.CommandInfo;
@@ -22,10 +22,10 @@ import java.util.List;
 
 public final class CommandsHandler implements CommandExecutor, TabCompleter {
 
-    private NaturalStacker plugin;
+    private NaturalStackerPlugin plugin;
     private List<ICommand> subCommands = new ArrayList<>();
 
-    public CommandsHandler(NaturalStacker plugin) {
+    public CommandsHandler(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
         subCommands.add(new CommandDebug());
         subCommands.add(new CommandGive());

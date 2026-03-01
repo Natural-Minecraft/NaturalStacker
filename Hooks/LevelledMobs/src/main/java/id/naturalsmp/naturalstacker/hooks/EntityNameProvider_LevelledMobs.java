@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
 import org.bukkit.Bukkit;
 import org.bukkit.NamespacedKey;
@@ -13,10 +13,10 @@ import org.bukkit.plugin.Plugin;
 public final class EntityNameProvider_LevelledMobs implements EntityNameProvider {
 
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
     private final NamespacedKey isLevelledKey;
 
-    public EntityNameProvider_LevelledMobs(NaturalStacker plugin) {
+    public EntityNameProvider_LevelledMobs(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
         Plugin levelledMobs = Bukkit.getPluginManager().getPlugin("LevelledMobs");
         assert levelledMobs != null;

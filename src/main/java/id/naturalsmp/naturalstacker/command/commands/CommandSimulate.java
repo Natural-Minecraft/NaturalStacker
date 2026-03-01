@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.command.commands;
 
 import id.naturalsmp.naturalstacker.Locale;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.command.ICommand;
 import id.naturalsmp.naturalstacker.utils.items.ItemBuilder;
 import org.bukkit.Bukkit;
@@ -44,7 +44,7 @@ public class CommandSimulate implements ICommand {
     }
 
     @Override
-    public void perform(NaturalStacker plugin, CommandSender sender, String[] args) {
+    public void perform(NaturalStackerPlugin plugin, CommandSender sender, String[] args) {
         Player targetPlayer = Bukkit.getPlayer(args[1]);
 
         if (targetPlayer == null) {
@@ -69,7 +69,7 @@ public class CommandSimulate implements ICommand {
     }
 
     @Override
-    public List<String> tabComplete(NaturalStacker plugin, CommandSender sender, String[] args) {
+    public List<String> tabComplete(NaturalStackerPlugin plugin, CommandSender sender, String[] args) {
         return args.length == 2 ? null : new ArrayList<>();
     }
 }

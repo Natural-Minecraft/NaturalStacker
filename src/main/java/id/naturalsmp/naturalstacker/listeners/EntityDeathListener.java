@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.listeners;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.EntityFlag;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
 import id.naturalsmp.naturalstacker.objects.WStackedEntity;
@@ -39,9 +39,9 @@ public class EntityDeathListener implements Listener {
 
     private final Map<EntityDamageEvent, EntityDamageData> damageResults = new IdentityHashMap<>();
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
 
-    public EntityDeathListener(NaturalStacker plugin) {
+    public EntityDeathListener(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
 
         // We register the event in a delay so it will be the last listener to be called.

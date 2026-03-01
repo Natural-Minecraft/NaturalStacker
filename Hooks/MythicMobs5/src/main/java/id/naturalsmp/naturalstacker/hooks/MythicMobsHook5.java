@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.objects.WStackedEntity;
 import id.naturalsmp.naturalstacker.utils.entity.EntityUtils;
@@ -13,7 +13,7 @@ import org.bukkit.event.Listener;
 
 public final class MythicMobsHook5 {
 
-    public static void register(NaturalStacker plugin) {
+    public static void register(NaturalStackerPlugin plugin) {
         plugin.getServer().getPluginManager().registerEvents(new MythicMobsListener(), plugin);
         plugin.getProviders().registerEntityDuplicateListener(MythicMobsHook5::tryDuplicate);
     }

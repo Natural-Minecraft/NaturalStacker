@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.objects.WStackedSpawner;
 import id.naturalsmp.naturalstacker.utils.threads.Executor;
 import de.dustplanet.silkspawners.SilkSpawners;
@@ -15,9 +15,9 @@ import org.bukkit.plugin.java.JavaPlugin;
 @SuppressWarnings("unused")
 public final class SilkSpawnersHook {
 
-    private static NaturalStacker plugin;
+    private static NaturalStackerPlugin plugin;
 
-    public static void register(NaturalStacker plugin) {
+    public static void register(NaturalStackerPlugin plugin) {
         SilkSpawnersHook.plugin = plugin;
         plugin.getServer().getPluginManager().registerEvents(new SilkSpawnersListener(), plugin);
         if(plugin.getSettings().spawnersStackingEnabled)

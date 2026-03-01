@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.objects;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.enums.StackCheckResult;
 import id.naturalsmp.naturalstacker.api.enums.StackResult;
@@ -123,7 +123,7 @@ public final class WStackedBarrel extends WStackedHologramObject<Block> implemen
             itemStack.setAmount(1);
 
             ItemMeta itemMeta = itemStack.getItemMeta();
-            itemMeta.setDisplayName(NaturalStacker.getPlugin().getSettings().giveItemName
+            itemMeta.setDisplayName(NaturalStackerPlugin.getPlugin().getSettings().giveItemName
                     .replace("{0}", amount + "")
                     .replace("{1}", ItemUtils.getFormattedType(new ItemStack(getType())))
                     .replace("{2}", "Barrel")

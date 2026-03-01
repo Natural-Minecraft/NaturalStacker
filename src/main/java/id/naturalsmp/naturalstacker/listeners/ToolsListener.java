@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.listeners;
 
 import id.naturalsmp.naturalstacker.Locale;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.StackCheckResult;
 import id.naturalsmp.naturalstacker.api.objects.StackedBarrel;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
@@ -28,9 +28,9 @@ import java.util.UUID;
 public final class ToolsListener implements Listener {
 
     private final Map<UUID, StackedObject> simulateObjects = new HashMap<>();
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
 
-    public ToolsListener(NaturalStacker plugin) {
+    public ToolsListener(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
     }
 

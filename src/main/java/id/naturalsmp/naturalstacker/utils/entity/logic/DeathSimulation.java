@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.utils.entity.logic;
 
-import com.naturalsmp.common.reflection.ReflectField;
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import com.bgsoftware.common.reflection.ReflectField;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.EntityFlag;
 import id.naturalsmp.naturalstacker.api.enums.StackSplit;
 import id.naturalsmp.naturalstacker.api.enums.UnstackResult;
@@ -54,7 +54,7 @@ public final class DeathSimulation {
 
     private static final ReflectField<HandlerList> EVENT_DAMAGE_HANDLER_LIST = initializeEntityDamageHandlerListField();
 
-    private static final NaturalStacker plugin = NaturalStacker.getPlugin();
+    private static final NaturalStacker plugin = NaturalStackerPlugin.getPlugin();
 
     @Nullable
     private static final Material CROSSBOW_TYPE = Materials.getMaterialOrNull("CROSSBOW");

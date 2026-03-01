@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.objects.StackedSpawner;
 import id.naturalsmp.naturalstacker.api.upgrades.SpawnerUpgrade;
 import id.naturalsmp.naturalstacker.utils.events.EventsCaller;
@@ -29,7 +29,7 @@ import java.util.Map;
 @SuppressWarnings("unused")
 public final class SpawnersProvider_MineableSpawners implements SpawnersProvider {
 
-    private final NaturalStacker plugin;
+    private final NaturalStackerPlugin plugin;
     private final MineableSpawners mineableSpawners;
 
     private Map<String, Double> permissionChances = new HashMap<>();
@@ -37,7 +37,7 @@ public final class SpawnersProvider_MineableSpawners implements SpawnersProvider
     private boolean allSamePrice = false;
     private double globalPrice = 0.0;
 
-    public SpawnersProvider_MineableSpawners(NaturalStacker plugin) {
+    public SpawnersProvider_MineableSpawners(NaturalStackerPlugin plugin) {
         this.plugin = plugin;
         mineableSpawners = JavaPlugin.getPlugin(MineableSpawners.class);
         Listener spawnerMineListener = Arrays.stream(BlockBreakEvent.getHandlerList().getRegisteredListeners())
@@ -78,12 +78,12 @@ public final class SpawnersProvider_MineableSpawners implements SpawnersProvider
                 globalPrice = (Double) globalPriceField.get(spawnerMineListener);
             }
         } catch (Throwable ex) {
-            NaturalStacker.log("&cError while hooking into MS - can cause conflicts / unintended bypasses.");
+            NaturalStackerPlugin.log("&cError while hooking into MS - can cause conflicts / unintended bypasses.");
             ex.printStackTrace();
             return;
         }
 
-        NaturalStacker.log(" - Using MineableSpawners as SpawnersProvider.");
+        NaturalStackerPlugin.log(" - Using MineableSpawners as SpawnersProvider.");
     }
 
     @Override

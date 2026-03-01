@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.objects.WStackedEntity;
 import id.naturalsmp.naturalstacker.utils.entity.EntityUtils;
@@ -19,7 +19,7 @@ public final class CrazyEnchantmentsHook {
 
     private static boolean registered = false;
 
-    public static void register(NaturalStacker plugin) {
+    public static void register(NaturalStackerPlugin plugin) {
         if (registered)
             return;
 
@@ -41,9 +41,9 @@ public final class CrazyEnchantmentsHook {
 
     private static class AllyListener implements Listener {
 
-        private final NaturalStacker plugin;
+        private final NaturalStackerPlugin plugin;
 
-        AllyListener(NaturalStacker plugin) {
+        AllyListener(NaturalStackerPlugin plugin) {
             this.plugin = plugin;
         }
 

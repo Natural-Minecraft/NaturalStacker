@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.utils.entity.EntityUtils;
 import net.brcdev.shopgui.ShopGuiPlusApi;
 import net.brcdev.shopgui.provider.spawner.SpawnerProvider;
@@ -10,12 +10,12 @@ import org.bukkit.plugin.Plugin;
 
 public final class ShopGUIPlus18Hook {
 
-    private static NaturalStacker plugin;
+    private static NaturalStackerPlugin plugin;
 
-    public static void register(NaturalStacker plugin) {
+    public static void register(NaturalStackerPlugin plugin) {
         ShopGUIPlus18Hook.plugin = plugin;
         ShopGuiPlusApi.registerSpawnerProvider(new NaturalStackerSpawnerProvider());
-        NaturalStacker.log("Found ShopGUIPlus - Hooked as SpawnerProvider!");
+        NaturalStackerPlugin.log("Found ShopGUIPlus - Hooked as SpawnerProvider!");
     }
 
     private static final class NaturalStackerSpawnerProvider extends SpawnerProvider {
