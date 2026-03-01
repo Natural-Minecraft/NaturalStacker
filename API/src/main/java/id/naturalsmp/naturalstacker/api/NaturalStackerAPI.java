@@ -13,20 +13,22 @@ import org.bukkit.entity.EntityType;
 import org.bukkit.entity.Item;
 import org.bukkit.entity.LivingEntity;
 
-@SuppressWarnings({"WeakerAccess", "unused"})
+@SuppressWarnings({ "WeakerAccess", "unused" })
 public final class NaturalStackerAPI {
 
-    private static NaturalStackerPlugin instance;
+    private static NaturalStacker instance;
 
     /**
      * Set the plugin's instance for the API.
-     * Do not use this method on your own, as it may cause an undefined behavior when using the API.
+     * Do not use this method on your own, as it may cause an undefined behavior
+     * when using the API.
      *
      * @param instance The instance of the plugin to set to the API.
      */
-    public static void setPluginInstance(NaturalStackerPlugin instance) {
+    public static void setPluginInstance(NaturalStacker instance) {
         if (NaturalStackerAPI.instance != null) {
-            throw new UnsupportedOperationException("You cannot initialize the plugin instance after it was initialized.");
+            throw new UnsupportedOperationException(
+                    "You cannot initialize the plugin instance after it was initialized.");
         }
 
         NaturalStackerAPI.instance = instance;
@@ -126,7 +128,7 @@ public final class NaturalStackerAPI {
     /**
      * Get the naturalstacker object.
      */
-    public static NaturalStackerPlugin getNaturalStacker() {
+    public static NaturalStacker getNaturalStacker() {
         return instance;
     }
 
