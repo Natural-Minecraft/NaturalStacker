@@ -96,14 +96,14 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
         java.util.Locale.setDefault(java.util.Locale.ENGLISH);
 
         new Metrics(this, 4105);
-
-        shouldEnable = loadNMSAdapter();
+        
         loadAPI();
 
-        this.nmsAdapter.loadLegacy();
-
-        if (!shouldEnable)
+        if (loadNMSAdapter()) {
+            this.nmsAdapter.loadLegacy();
+        } else {
             log("&cThere was an error while loading the plugin.");
+        }
     }
 
     @Override
@@ -212,7 +212,32 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
 
     private boolean loadNMSAdapter() {
         try {
-            INMSLoader nmsLoader = NMSHandlersFactory.createNMSLoader(this, NMSConfiguration.forPlugin(this));
+            NMSConfiguration nmsConfig;
+
+            try {
+                nmsConfig = NMSConfiguration.forPlugin(this);
+            } catch (Throwable error) {
+                // If the package check fails, we manually instantiate the configuration.
+                // This bypasses the hardcoded "com.bgsoftware" package constraint.
+                try {
+                    Class<?> clazz = Class.forName("com.bgsoftware.common.nmsloader.config.NMSConfiguration$PluginNMSConfiguration");
+                    java.lang.reflect.Constructor<?> constructor = clazz.getDeclaredConstructor(org.bukkit.plugin.java.JavaPlugin.class);
+                    constructor.setAccessible(true);
+                    nmsConfig = (NMSConfiguration) constructor.newInstance(this);
+                    
+                    // We also need to fix the internal brand check if it's stored in a field
+                    try {
+                        java.lang.reflect.Field field = clazz.getSuperclass().getDeclaredField("pluginPackage");
+                        field.setAccessible(true);
+                        field.set(nmsConfig, "id.naturalsmp.naturalstacker");
+                    } catch (Throwable ignored) {
+                    }
+                } catch (Throwable fatal) {
+                    throw new NMSLoadException("Failed to bypass NMSLoader package check", fatal);
+                }
+            }
+
+            INMSLoader nmsLoader = NMSHandlersFactory.createNMSLoader(this, nmsConfig);
             this.nmsAdapter = nmsLoader.loadNMSHandler(NMSAdapter.class);
             this.nmsEntities = nmsLoader.loadNMSHandler(NMSEntities.class);
             this.nmsHolograms = nmsLoader.loadNMSHandler(NMSHolograms.class);
