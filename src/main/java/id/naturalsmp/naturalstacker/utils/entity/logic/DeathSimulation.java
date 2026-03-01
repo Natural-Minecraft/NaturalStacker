@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.utils.entity.logic;
 
-import com.bgsoftware.common.reflection.ReflectField;
+import id.naturalsmp.common.reflection.ReflectField;
 import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.EntityFlag;
 import id.naturalsmp.naturalstacker.api.enums.StackSplit;

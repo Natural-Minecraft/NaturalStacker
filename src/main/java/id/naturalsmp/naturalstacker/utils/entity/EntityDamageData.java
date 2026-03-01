@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.utils.entity;
 
-import com.bgsoftware.common.reflection.ReflectField;
+import id.naturalsmp.common.reflection.ReflectField;
 import org.bukkit.event.entity.EntityDamageEvent;
 
 import java.util.Collections;

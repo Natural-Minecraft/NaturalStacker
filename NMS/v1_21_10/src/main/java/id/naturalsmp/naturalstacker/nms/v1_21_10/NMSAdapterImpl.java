@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.nms.v1_21_10;
 
-import com.bgsoftware.common.reflection.ReflectMethod;
+import id.naturalsmp.common.reflection.ReflectMethod;
 import com.google.common.collect.HashMultimap;
 import com.google.common.collect.Multimap;
 import com.mojang.authlib.properties.Property;

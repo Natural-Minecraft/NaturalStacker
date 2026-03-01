@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.listeners;
 
-import com.bgsoftware.common.reflection.ReflectMethod;
+import id.naturalsmp.common.reflection.ReflectMethod;
 import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.EntityFlag;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;

@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker;
 
-import com.bgsoftware.common.config.CommentedConfiguration;
+import id.naturalsmp.common.config.CommentedConfiguration;
 import id.naturalsmp.naturalstacker.utils.files.FileUtils;
 import org.bukkit.ChatColor;
 import org.bukkit.command.CommandSender;

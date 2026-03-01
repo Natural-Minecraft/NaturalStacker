@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.handlers;
 
-import com.bgsoftware.common.databasebridge.sql.transaction.SQLDatabaseTransaction;
-import com.bgsoftware.common.databasebridge.transaction.IDatabaseTransaction;
+import id.naturalsmp.common.databasebridge.sql.transaction.SQLDatabaseTransaction;
+import id.naturalsmp.common.databasebridge.transaction.IDatabaseTransaction;
 import id.naturalsmp.naturalstacker.Locale;
 import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.EntityFlag;

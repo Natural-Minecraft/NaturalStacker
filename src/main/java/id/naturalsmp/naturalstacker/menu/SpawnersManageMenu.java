@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.menu;
 
-import com.bgsoftware.common.config.CommentedConfiguration;
+import id.naturalsmp.common.config.CommentedConfiguration;
 import id.naturalsmp.naturalstacker.api.objects.StackedSpawner;
 import id.naturalsmp.naturalstacker.objects.WStackedSpawner;
 import id.naturalsmp.naturalstacker.utils.files.FileUtils;

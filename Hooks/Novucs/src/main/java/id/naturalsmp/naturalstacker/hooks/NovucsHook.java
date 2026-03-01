@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.hooks;
 
-import com.bgsoftware.common.reflection.ReflectField;
+import id.naturalsmp.common.reflection.ReflectField;
 import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.events.SpawnerStackEvent;
 import id.naturalsmp.naturalstacker.api.events.SpawnerUnstackEvent;

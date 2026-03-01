@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.nms.v1_12_R1.spawner;
 
-import com.bgsoftware.common.reflection.ReflectField;
+import id.naturalsmp.common.reflection.ReflectField;
 import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.EntityFlag;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;

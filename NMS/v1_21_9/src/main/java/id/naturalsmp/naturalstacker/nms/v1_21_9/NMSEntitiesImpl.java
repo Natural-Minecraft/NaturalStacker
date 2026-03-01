@@ -1,7 +1,7 @@
 package id.naturalsmp.naturalstacker.nms.v1_21_9;
 
-import com.bgsoftware.common.reflection.ReflectConstructor;
-import com.bgsoftware.common.reflection.ReflectMethod;
+import id.naturalsmp.common.reflection.ReflectConstructor;
+import id.naturalsmp.common.reflection.ReflectMethod;
 import id.naturalsmp.naturalstacker.api.enums.StackCheckResult;
 import id.naturalsmp.naturalstacker.utils.entity.StackCheck;
 import id.naturalsmp.naturalstacker.utils.legacy.EntityTypes;

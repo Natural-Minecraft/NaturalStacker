@@ -1,11 +1,11 @@
 package id.naturalsmp.naturalstacker.handlers;
 
-import com.bgsoftware.common.databasebridge.sql.query.Column;
-import com.bgsoftware.common.databasebridge.sql.query.QueryResult;
-import com.bgsoftware.common.databasebridge.sql.transaction.DeleteSQLDatabaseTransaction;
-import com.bgsoftware.common.databasebridge.sql.transaction.InsertSQLDatabaseTransaction;
-import com.bgsoftware.common.databasebridge.sql.transaction.SQLDatabaseTransaction;
-import com.bgsoftware.common.databasebridge.transaction.IDatabaseTransaction;
+import id.naturalsmp.common.databasebridge.sql.query.Column;
+import id.naturalsmp.common.databasebridge.sql.query.QueryResult;
+import id.naturalsmp.common.databasebridge.sql.transaction.DeleteSQLDatabaseTransaction;
+import id.naturalsmp.common.databasebridge.sql.transaction.InsertSQLDatabaseTransaction;
+import id.naturalsmp.common.databasebridge.sql.transaction.SQLDatabaseTransaction;
+import id.naturalsmp.common.databasebridge.transaction.IDatabaseTransaction;
 import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.objects.StackedBarrel;

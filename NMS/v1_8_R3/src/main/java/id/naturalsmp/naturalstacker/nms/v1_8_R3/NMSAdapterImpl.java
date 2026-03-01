@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.nms.v1_8_R3;
 
-import com.bgsoftware.common.reflection.ReflectField;
+import id.naturalsmp.common.reflection.ReflectField;
 import id.naturalsmp.naturalstacker.api.objects.StackedEntity;
 import id.naturalsmp.naturalstacker.api.objects.StackedItem;
 import id.naturalsmp.naturalstacker.hooks.IDataSerializer;

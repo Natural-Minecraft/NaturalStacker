@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.nms.v1_16_R3;
 
-import com.bgsoftware.common.reflection.ReflectField;
+import id.naturalsmp.common.reflection.ReflectField;
 import id.naturalsmp.naturalstacker.nms.NMSWorld;
 import id.naturalsmp.naturalstacker.utils.chunks.ChunkPosition;
 import net.minecraft.server.v1_16_R3.BlockPosition;

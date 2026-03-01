@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.handlers;
 
-import com.bgsoftware.common.config.CommentedConfiguration;
+import id.naturalsmp.common.config.CommentedConfiguration;
 import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.enums.StackSplit;
