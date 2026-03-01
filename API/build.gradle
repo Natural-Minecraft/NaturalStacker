@@ -15,7 +15,7 @@ dependencies {
 publishing {
     publications {
         maven(MavenPublication) {
-            groupId = 'com.naturalsmp'
+            groupId = 'id.naturalsmp'
             artifactId = 'NaturalStackerAPI'
             version = parent.version
 
