@@ -1,6 +1,6 @@
 package id.naturalsmp.naturalstacker.nms.v1_17;
 
-import id.naturalsmp.common.reflection.ReflectMethod;
+import com.bgsoftware.common.reflection.ReflectMethod;
 import id.naturalsmp.naturalstacker.api.enums.StackCheckResult;
 import id.naturalsmp.naturalstacker.utils.legacy.EntityTypes;
 import id.naturalsmp.naturalstacker.utils.pair.Pair;

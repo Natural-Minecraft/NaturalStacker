@@ -1,16 +1,16 @@
 package id.naturalsmp.naturalstacker.database;
 
-import id.naturalsmp.common.databasebridge.DatabaseSessionFactory;
-import id.naturalsmp.common.databasebridge.logger.ILogger;
-import id.naturalsmp.common.databasebridge.session.IDatabaseSession;
-import id.naturalsmp.common.databasebridge.sql.query.Column;
-import id.naturalsmp.common.databasebridge.sql.query.QueryResult;
-import id.naturalsmp.common.databasebridge.sql.session.MariaDBDatabaseSession;
-import id.naturalsmp.common.databasebridge.sql.session.MySQLDatabaseSession;
-import id.naturalsmp.common.databasebridge.sql.session.SQLDatabaseSession;
-import id.naturalsmp.common.databasebridge.sql.session.SQLiteDatabaseSession;
-import id.naturalsmp.common.databasebridge.transaction.DatabaseTransactionsExecutor;
-import id.naturalsmp.common.databasebridge.transaction.IDatabaseTransaction;
+import com.bgsoftware.common.databasebridge.DatabaseSessionFactory;
+import com.bgsoftware.common.databasebridge.logger.ILogger;
+import com.bgsoftware.common.databasebridge.session.IDatabaseSession;
+import com.bgsoftware.common.databasebridge.sql.query.Column;
+import com.bgsoftware.common.databasebridge.sql.query.QueryResult;
+import com.bgsoftware.common.databasebridge.sql.session.MariaDBDatabaseSession;
+import com.bgsoftware.common.databasebridge.sql.session.MySQLDatabaseSession;
+import com.bgsoftware.common.databasebridge.sql.session.SQLDatabaseSession;
+import com.bgsoftware.common.databasebridge.sql.session.SQLiteDatabaseSession;
+import com.bgsoftware.common.databasebridge.transaction.DatabaseTransactionsExecutor;
+import com.bgsoftware.common.databasebridge.transaction.IDatabaseTransaction;
 import id.naturalsmp.naturalstacker.NaturalStackerPlugin;
 
 import java.io.File;

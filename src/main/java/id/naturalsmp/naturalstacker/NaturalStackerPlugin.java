@@ -1,11 +1,11 @@
 package id.naturalsmp.naturalstacker;
 
-import id.naturalsmp.common.dependencies.DependenciesManager;
-import id.naturalsmp.common.nmsloader.INMSLoader;
-import id.naturalsmp.common.nmsloader.NMSHandlersFactory;
-import id.naturalsmp.common.nmsloader.NMSLoadException;
-import id.naturalsmp.common.nmsloader.config.NMSConfiguration;
-import id.naturalsmp.common.updater.Updater;
+import com.bgsoftware.common.dependencies.DependenciesManager;
+import com.bgsoftware.common.nmsloader.INMSLoader;
+import com.bgsoftware.common.nmsloader.NMSHandlersFactory;
+import com.bgsoftware.common.nmsloader.NMSLoadException;
+import com.bgsoftware.common.nmsloader.config.NMSConfiguration;
+import com.bgsoftware.common.updater.Updater;
 import id.naturalsmp.naturalstacker.api.NaturalStacker;
 import id.naturalsmp.naturalstacker.api.NaturalStackerAPI;
 import id.naturalsmp.naturalstacker.command.CommandsHandler;

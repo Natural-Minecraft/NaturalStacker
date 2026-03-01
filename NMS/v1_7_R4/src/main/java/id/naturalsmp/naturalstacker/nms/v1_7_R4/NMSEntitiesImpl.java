@@ -1,8 +1,8 @@
 package id.naturalsmp.naturalstacker.nms.v1_7_R4;
 
 
-import id.naturalsmp.common.reflection.ReflectField;
-import id.naturalsmp.common.reflection.ReflectMethod;
+import com.bgsoftware.common.reflection.ReflectField;
+import com.bgsoftware.common.reflection.ReflectMethod;
 import id.naturalsmp.naturalstacker.api.enums.SpawnCause;
 import id.naturalsmp.naturalstacker.api.enums.StackCheckResult;
 import id.naturalsmp.naturalstacker.api.objects.StackedItem;
