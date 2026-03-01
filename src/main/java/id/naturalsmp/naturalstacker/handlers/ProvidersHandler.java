@@ -45,7 +45,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
-@SuppressWarnings({"unused", "WeakerAccess"})
+@SuppressWarnings({ "unused", "WeakerAccess" })
 public final class ProvidersHandler {
 
     private final NaturalStackerPlugin plugin;
@@ -95,16 +95,19 @@ public final class ProvidersHandler {
             if (hasPaperEntityRemoveSupport())
                 Bukkit.getPluginManager().registerEvents(new PaperListener(), plugin);
 
-            NaturalStackerPlugin.log("Loading providers done (Took " + (System.currentTimeMillis() - startTime) + "ms)");
+            NaturalStackerPlugin
+                    .log("Loading providers done (Took " + (System.currentTimeMillis() - startTime) + "ms)");
         }, 0L);
 
         Executor.sync(() -> {
             if (Bukkit.getPluginManager().isPluginEnabled("ASkyBlock") &&
-                    Bukkit.getPluginManager().getPlugin("ASkyBlock").getDescription().getAuthors().stream().noneMatch(a -> a.contains("NaturalSMP"))) {
+                    Bukkit.getPluginManager().getPlugin("ASkyBlock").getDescription().getAuthors().stream()
+                            .noneMatch(a -> a.contains("NaturalSMP"))) {
                 NaturalStackerPlugin.log("&c#################################################################");
                 NaturalStackerPlugin.log("&c##                                                             ##");
                 NaturalStackerPlugin.log("&c## Seems like you're using ASkyBlock, but not the custom fork. ##");
-                NaturalStackerPlugin.log("&c##            <The custom fork supports NaturalStackerPlugin>           ##");
+                NaturalStackerPlugin
+                        .log("&c##            <The custom fork supports NaturalStackerPlugin>           ##");
                 NaturalStackerPlugin.log("&c##           https://github.com/OmerBenGera/askyblock          ##");
                 NaturalStackerPlugin.log("&c##                                                             ##");
                 NaturalStackerPlugin.log("&c#################################################################");
@@ -186,7 +189,8 @@ public final class ProvidersHandler {
                     Optional<ClaimsProvider> claimsProvider = createInstance("ClaimsProvider_PlotSquared6");
                     claimsProvider.ifPresent(claimsProviders::add);
                 } catch (Exception ex) {
-                    NaturalStackerPlugin.log("&cYour version of PlotSquared is not supported. Please contact NaturalSMP for support.");
+                    NaturalStackerPlugin.log(
+                            "&cYour version of PlotSquared is not supported. Please contact NaturalSMP for support.");
                 }
             } else if (plotSquaredVersion == 5) {
                 Optional<ClaimsProvider> claimsProvider = createInstance("ClaimsProvider_PlotSquared5");
@@ -220,7 +224,8 @@ public final class ProvidersHandler {
         }
 
         if (Bukkit.getPluginManager().isPluginEnabled("IslandNPC") &&
-                Bukkit.getPluginManager().getPlugin("IslandNPC").getDescription().getAuthors().contains("WaterArchery")) {
+                Bukkit.getPluginManager().getPlugin("IslandNPC").getDescription().getAuthors()
+                        .contains("WaterArchery")) {
             Optional<EntityTypeProvider> entityTypeProvider = createInstance("EntityTypeProvider_IslandNPC");
             entityTypeProvider.ifPresent(entityTypeProviders::add);
         }
@@ -250,7 +255,8 @@ public final class ProvidersHandler {
         entitySimilarityProviders.clear();
 
         if (Bukkit.getPluginManager().isPluginEnabled("LevelledMobs")) {
-            Optional<EntitySimilarityProvider> entitySimilarityProvider = createInstance("EntitySimilarityProvider_LevelledMobs");
+            Optional<EntitySimilarityProvider> entitySimilarityProvider = createInstance(
+                    "EntitySimilarityProvider_LevelledMobs");
             entitySimilarityProvider.ifPresent(entitySimilarityProviders::add);
         }
         if (Bukkit.getPluginManager().isPluginEnabled("MythicMobs")) {
@@ -314,10 +320,12 @@ public final class ProvidersHandler {
         if (Bukkit.getPluginManager().isPluginEnabled("FastAsyncWorldEdit")) {
             try {
                 Class.forName("com.fastasyncworldedit.core.configuration.Settings");
-                Optional<ConflictPluginFixer> conflictPluginFixer = createInstance("ConflictPluginFixer_FastAsyncWorldEdit2");
+                Optional<ConflictPluginFixer> conflictPluginFixer = createInstance(
+                        "ConflictPluginFixer_FastAsyncWorldEdit2");
                 conflictPluginFixer.ifPresent(conflictPluginFixers::add);
             } catch (ClassNotFoundException error) {
-                Optional<ConflictPluginFixer> conflictPluginFixer = createInstance("ConflictPluginFixer_FastAsyncWorldEdit");
+                Optional<ConflictPluginFixer> conflictPluginFixer = createInstance(
+                        "ConflictPluginFixer_FastAsyncWorldEdit");
                 conflictPluginFixer.ifPresent(conflictPluginFixers::add);
             }
         }
@@ -389,7 +397,7 @@ public final class ProvidersHandler {
         if (enable && isPlugin(toCheck, "MiniaturePets") && pluginManager.isPluginEnabled("MiniaturePets"))
             registerHook("MiniaturePetsHook");
 
-        //Load plugin hooks
+        // Load plugin hooks
         if (isPlugin(toCheck, "mcMMO") && pluginManager.isPluginEnabled("mcMMO")) {
             Plugin mcmmo = pluginManager.getPlugin("mcMMO");
             if (mcmmo.getDescription().getVersion().startsWith("1")) {
@@ -513,14 +521,14 @@ public final class ProvidersHandler {
     }
 
     public void notifyStackedBlockListeners(OfflinePlayer offlinePlayer, Block block,
-                                            IStackedBlockListener.Action action) {
+            IStackedBlockListener.Action action) {
         if (!this.stackedBlocksListeners.isEmpty())
             // noinspection deprecation
             notifyStackedBlockListeners(offlinePlayer, block.getLocation(), block.getType(), block.getData(), action);
     }
 
     public void notifyStackedBlockListeners(OfflinePlayer offlinePlayer, Location location, Material type, byte data,
-                                            IStackedBlockListener.Action action) {
+            IStackedBlockListener.Action action) {
         this.stackedBlocksListeners.forEach(stackedBlockListener -> stackedBlockListener
                 .recordBlockChange(offlinePlayer, location, type, data, action));
     }
@@ -580,7 +588,7 @@ public final class ProvidersHandler {
     private void registerHook(String className) {
         try {
             Class<?> clazz = Class.forName("id.naturalsmp.naturalstacker.hooks." + className);
-            Method registerMethod = clazz.getMethod("register", NaturalStacker.class);
+            Method registerMethod = clazz.getMethod("register", NaturalStackerPlugin.class);
             registerMethod.invoke(null, plugin);
         } catch (Exception ignored) {
         }
@@ -597,7 +605,7 @@ public final class ProvidersHandler {
             }
 
             try {
-                Constructor<?> constructor = clazz.getConstructor(NaturalStacker.class);
+                Constructor<?> constructor = clazz.getConstructor(NaturalStackerPlugin.class);
                 // noinspection unchecked
                 return Optional.of((T) constructor.newInstance(plugin));
             } catch (Exception error) {
