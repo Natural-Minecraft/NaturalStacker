@@ -1,0 +1,96 @@
+name: NaturalStacker
+version: ${project.version}
+main: id.naturalsmp.naturalstacker.NaturalStacker
+
+description: Stacking drops, entities, blocks and spawners into one object!
+website: https://naturalsmp.net/
+api-version: 1.13
+author: NaturalSMP
+
+# Custom section used by DependenciesManager, which replaces softdepend.
+class-depends:
+  - Arconix
+  - Boss
+  - Citizens
+  - ClearLag
+  - CMI
+  - CoreProtect
+  - CrazyEnchantments
+  - CustomBosses
+  - EpicBosses
+  - EpicSpawners
+  - Factions
+  - Holograms
+  - HolographicDisplays
+  - MassiveCore
+  - mcMMO
+  - MineableSpawners
+  - MyPet
+  - MythicMobs
+  - FactionsTop
+  - PlotSquared
+  - ProtocolLib
+  - ShopGUIPlus
+  - SilkSpawners
+  - Vault
+  - NaturalStackerEnchantsPatch
+  - WildTools
+  - WorldEdit
+  - WorldGuard
+
+loadbefore:
+  - ShopGUIPlus
+  - SuperiorSkyblock2
+  - Multiverse-Core
+
+commands:
+  stacker:
+    description: Main command for the plugin
+    aliases: [ wstacker, ws ]
+
+permissions:
+  naturalstacker.*:
+    description: Gives access to all the command.
+    default: op
+    children:
+      naturalstacker.give: true
+      naturalstacker.info: true
+      naturalstacker.kill: true
+      naturalstacker.reload: true
+      naturalstacker.save: true
+      naturalstacker.silktouch: true
+      naturalstacker.nosilkdrop: true
+      naturalstacker.settings: true
+      naturalstacker.place.*: true
+      naturalstacker.nextplace: true
+      naturalstacker.stats: true
+      naturalstacker.toggle: true
+      naturalstacker.charge.bypass: true
+  naturalstacker.give:
+    description: Gives access to give spawner and eggs to players.
+  naturalstacker.info:
+    description: Gives access to get information about a spawner.
+  naturalstacker.kill:
+    description: Gives access to kill all stacked-entities.
+  naturalstacker.reload:
+    description: Gives access to reload all configuration files.
+  naturalstacker.silktouch:
+    description: Gives access to get spawners with silk-touch.
+  naturalstacker.nosilkdrop:
+    description: Gives access to get spawners without silk-touch.
+  naturalstacker.settings:
+    description: Gives access to use settings editor.
+  naturalstacker.place.*:
+    description: Gives access to place all spawner types
+  naturalstacker.stack.*:
+    description: Gives access to stack all spawner types
+    default: true
+  naturalstacker.nextplace:
+    description: Gives access to place spawners next to others when the feature is disabled.
+  naturalstacker.stats:
+    description: Gives access to get all stats about cached data.
+  naturalstacker.toggle:
+    default: true
+    description: Gives access to use the toggle command if enabled.
+  naturalstacker.charge.bypass:
+    description: Bypass charging for placing and breaking spawners

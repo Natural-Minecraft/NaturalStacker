@@ -1,0 +1,125 @@
+###############################################
+##                                           ##
+##          NaturalStacker Messages          ##
+##           Developed by NaturalSMP         ##
+##                                           ##
+###############################################
+
+# Prefix for all messages
+PREFIX: '&#00AAFF&lNatural&#55FF55&lStacker &8» &f'
+
+# Called when a player places / breaks a stacked-block
+BARREL_BREAK: '&a✔ &7Kamu menghancurkan barrel &bx{0} &f{1}.'
+BARREL_PLACE: '&a✔ &7Kamu membuat barrel baru dari &b{0}.'
+BARREL_UPDATE: '&a✔ &7Kamu memasukkan &b{0} &7ke dalam barrel (x{1}).'
+
+# Called when a player runs the toggle command
+BARREL_TOGGLE_ON: '&a✔ &7Penempatan barrel telah &bdiaktifkan.'
+BARREL_TOGGLE_OFF: '&c✖ &7Penempatan barrel telah &cdinonaktifkan.'
+
+# Called when player places a barrel but has no permission.
+BARREL_NO_PERMISSION: '&c✖ &7Kamu tidak punya izin untuk menggunakan barrel.'
+
+# Called when the chunk limit is exceeded.
+CHUNK_LIMIT_EXCEEDED: '&c✖ &7Batas chunk &b{0} &7untuk chunk ini telah terlampaui.'
+
+# Called when a player runs a command not in the required usage
+COMMAND_USAGE: '&c✖ &7Penggunaan: &b/{0}'
+
+# Called when a player runs the entity names toggle command.
+ENTITY_NAMES_TOGGLE_ON: '&a✔ &7Nama entitas sekarang &baktif.'
+ENTITY_NAMES_TOGGLE_OFF: '&c✖ &7Nama entitas sekarang &cnonaktif.'
+
+# Called when a player runs an invalid stacker sub-command.
+HELP_COMMAND_HEADER: '&#00AAFF&l=== &bNaturalStacker Bantuan &#00AAFF&l==='
+HELP_COMMAND_LINE: '&8▶ &#00AAFF/{0} &8- &7{1}'
+HELP_COMMAND_FOOTER: '&#00AAFF&l==================================='
+
+# Called when a player runs give command with an invalid argument.
+INVALID_BARREL: '&c✖ &7Barrel &b{0} &7tidak ditemukan.'
+INVALID_ENTITY: '&c✖ &7Entitas &b{0} &7tidak ditemukan.'
+INVALID_NUMBER: '&c✖ &7Masukkan angka yang valid.'
+INVALID_PLAYER: '&c✖ &7Player &b{0} &7tidak ditemukan.'
+INVALID_SPAWN_CAUSE: '&c✖ &7Penyebab spawn &b{0} &7tidak ditemukan.'
+INVALID_TYPE: '&c✖ &7Pilih antara egg atau spawner.'
+INVALID_UPGRADE: '&c✖ &7Upgrade &b{0} &7tidak ditemukan.'
+
+# Called when a player toggles inventory tweaks on and off.
+INVENTORY_TWEAKS_TOGGLE_ON: '&a✔ &7Inventory tweaks sekarang &baktif.'
+INVENTORY_TWEAKS_TOGGLE_OFF: '&c✖ &7Inventory tweaks sekarang &cnonaktif.'
+
+# Called when a player successfully runs a inspect command.
+INSPECT_GIVE_PLAYER: '&a✔ &7Berhasil memberikan &b{0} x{1} &7inspect tool(s).'
+INSPECT_RECEIVE: '&a✔ &7Kamu menerima &bx{0} &7inspect tool(s) dari &b{1}.'
+
+# Called when a player successfully runs a simulate command.
+SIMULATE_GIVE_PLAYER: '&a✔ &7Berhasil memberikan &b{0} x{1} &7simulate tool(s).'
+SIMULATE_RECEIVE: '&a✔ &7Kamu menerima &bx{0} &7simulate tool(s) dari &b{1}.'
+
+# Called when a player runs the item names toggle command.
+ITEM_NAMES_TOGGLE_ON: '&a✔ &7Nama item sekarang &baktif.'
+ITEM_NAMES_TOGGLE_OFF: '&c✖ &7Nama item sekarang &cnonaktif.'
+
+# Called when a kill-all task is running
+KILL_ALL_ANNOUNCEMENT: '&a✔ &7Semua entitas dan item tertumpuk telah dibersihkan!'
+KILL_ALL_REMAINING_TIME: '&bℹ &7Semua tumpukan akan dibersihkan dalam &b{0} &7detik!'
+KILL_ALL_OPS: '&8&o[NaturalStacker: Membersihkan tumpukan entitas]'
+
+# Called when placing a spawner next to another one when the it's disabled.
+NEXT_SPAWNER_PLACEMENT: '&c✖ &7Kamu tidak bisa meletakkan spawner berdekatan.'
+
+# Called when running a stacker command without permission.
+NO_PERMISSION: '&fUnknown command. Type "/help" for help.'
+
+# Called when placing spawners but there's already a spawner in the merge-radius.
+ONLY_ONE_SPAWNER: '&c✖ &7Hanya diperbolehkan satu spawner dalam radius 1 blok.'
+
+# Called when a player successfully reloaded all configuration files.
+RELOAD_SUCCESS: '&a✔ &7Berhasil memuat ulang konfigurasi.'
+
+# Called when a player places / breaks a spawner
+SPAWNER_BREAK: '&a✔ &eKamu menghancurkan spawner &b{0} (x{1}) &edan dikenakan biaya &b${2}.'
+SPAWNER_BREAK_NOT_ENOUGH_MONEY: '&c✖ &7Kamu butuh &b{0} &7untuk menghancurkan spawner ini.'
+SPAWNER_BREAK_WITHOUT_SILK: '&c✖ &7Kamu butuh &bSilk Touch &7untuk mengambil spawner ini.'
+SPAWNER_PLACE: '&a✔ &7Kamu meletakkan spawner &b{0} (x{1}) &7dan dikenakan biaya &b${2}.'
+SPAWNER_PLACE_NOT_ENOUGH_MONEY: '&c✖ &7Kamu butuh &b{0} &7untuk meletakkan spawner ini.'
+SPAWNER_PLACE_BLOCKED: '&c✖ &7Kamu tidak punya izin meletakkan spawner ini! ({0})'
+SPAWNER_UPDATE: '&a✔ &7Kamu memperbarui spawner (x{0}).'
+SPAWNER_CHANGE_NOT_ENOUGH_ITEMS: '&c✖ &7Telur spawn tidak cukup untuk mengubah spawner ({0} / {1}).'
+
+# Called when a player attempts to upgrade a spawner.
+SPAWNER_UPGRADE_NOT_ENOUGH_MONEY: '&c✖ &7Kamu butuh &b${0} &7untuk upgrade spawner ini.'
+SPAWNER_UPGRADE_SUCCESS: '&a✔ &7Berhasil meng-upgrade spawner!'
+
+# Called when a player successfully runs a give command.
+STACK_GIVE_PLAYER: '&a✔ &7Berhasil memberikan &b{0} x{1} {2} {3}.'
+STACK_RECEIVE: '&a✔ &7Kamu menerima &bx{0} &7{1} dari &b{2}.'
+
+# Called when running info command
+STACK_INFO_INVALID: '&c✖ &7Tumpukan tidak ditemukan.'
+BARREL_INFO_HEADER: '&#00AAFF&l=== &bDetail Barrel &#00AAFF&l==='
+BARREL_INFO_TYPE: '&8▶ &7Tipe: &b{0}'
+BARREL_INFO_AMOUNT: '&8▶ &7Jumlah: &b{0}'
+BARREL_INFO_FOOTER: '&#00AAFF&l==========================='
+SPAWNER_INFO_HEADER: '&#00AAFF&l=== &bDetail Spawner &#00AAFF&l==='
+SPAWNER_INFO_TYPE: '&8▶ &7Tipe: &b{0}'
+SPAWNER_INFO_AMOUNT: '&8▶ &7Jumlah: &b{0}'
+SPAWNER_INFO_UPGRADE: '&8▶ &7Upgrade: &b{0}'
+SPAWNER_INFO_FOOTER: '&#00AAFF&l============================'
+ENTITY_INFO_HEADER: '&#00AAFF&l=== &bDetail Entitas &#00AAFF&l==='
+ENTITY_INFO_UUID: '&8▶ &7UUID: &b{0}'
+ENTITY_INFO_TYPE: '&8▶ &7Tipe: &b{0}'
+ENTITY_INFO_AMOUNT: '&8▶ &7Jumlah: &b{0}'
+ENTITY_INFO_SPAWN_REASON: '&8▶ &7Alasan Spawn: &b{0}'
+ENTITY_INFO_NERFED: '&8▶ &7Nerfed: &b{0}'
+ENTITY_INFO_UPGRADE: '&8▶ &7Upgrade: &b{0}'
+ENTITY_INFO_FOOTER: '&#00AAFF&l============================'
+
+# Called when simulating stacking of two objects
+OBJECT_SIMULATE_CHOOSE_SECOND: '&bℹ &7Klik objek kedua.'
+OBJECT_SIMULATE_SUCCESS_RESULT: '&a✔ &7Hasil: &aBERHASIL&7. Bisa ditumpuk.'
+OBJECT_SIMULATE_FAIL_RESULT: '&c✖ &7Hasil: &c{0}&7. Tidak bisa ditumpuk.'
+
+# Used in the upgrades menu
+UPGRADE_CURRENT: '&8▶ &7Upgrade Saat Ini: &b'
+UPGRADE_NEXT: '&8▶ &7Upgrade Berikutnya: &b'

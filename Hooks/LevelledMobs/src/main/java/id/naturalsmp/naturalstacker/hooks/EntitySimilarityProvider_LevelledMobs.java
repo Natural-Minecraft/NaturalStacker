@@ -1,0 +1,34 @@
+package id.naturalsmp.naturalstacker.hooks;
+
+import id.naturalsmp.naturalstacker.NaturalStacker;
+import id.naturalsmp.naturalstacker.api.enums.StackCheckResult;
+import org.bukkit.Bukkit;
+import org.bukkit.NamespacedKey;
+import org.bukkit.entity.Entity;
+import org.bukkit.persistence.PersistentDataContainer;
+import org.bukkit.persistence.PersistentDataType;
+import org.bukkit.plugin.Plugin;
+
+@SuppressWarnings("unused")
+public final class EntitySimilarityProvider_LevelledMobs implements EntitySimilarityProvider {
+
+    private final NamespacedKey levelKey;
+
+    public EntitySimilarityProvider_LevelledMobs(NaturalStacker plugin) {
+        Plugin levelledMobs = Bukkit.getPluginManager().getPlugin("LevelledMobs");
+        assert levelledMobs != null;
+        this.levelKey = new NamespacedKey(levelledMobs, "level");
+    }
+
+    @Override
+    public StackCheckResult areSimilar(Entity entity, Entity other) {
+        return getLevelledMobLevel(entity) == getLevelledMobLevel(other) ? StackCheckResult.SUCCESS :
+                StackCheckResult.LEVELLED_MOB_LEVEL;
+    }
+
+    private int getLevelledMobLevel(Entity livingEntity) {
+        PersistentDataContainer dataContainer = livingEntity.getPersistentDataContainer();
+        return dataContainer.getOrDefault(levelKey, PersistentDataType.INTEGER, -1);
+    }
+
+}
