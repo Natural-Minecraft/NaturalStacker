@@ -105,7 +105,7 @@ shadowJar {
     relocate 'org.bstats', 'id.naturalsmp.naturalstacker.libs.org.bstats'
     relocate 'com.bgsoftware.common', 'id.naturalsmp.naturalstacker.libs.com.bgsoftware.common'
 
-    archiveFileName = rootProject.name + "-" + rootProject.buildVersion + ".jar"
+    archiveFileName = rootProject.name + ".jar"
 
     delete fileTree(rootProject.targetFolder.getAbsolutePath())
 
