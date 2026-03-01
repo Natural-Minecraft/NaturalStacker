@@ -103,11 +103,10 @@ shadowJar {
     dependsOn(jar)
 
     relocate 'org.bstats', 'id.naturalsmp.naturalstacker.libs.org.bstats'
-    relocate('com.bgsoftware.wildstacker', 'id.naturalsmp.naturalstacker')
-    relocate('com.bgsoftware', 'id.naturalsmp') {
-        exclude 'com.bgsoftware.superiorskyblock.**'
-        exclude 'com.bgsoftware.wildtools.**'
-    }
+    relocate 'com.bgsoftware.wildstacker', 'id.naturalsmp.naturalstacker'
+    relocate 'com.bgsoftware', 'id.naturalsmp'
+    relocate 'id.naturalsmp.superiorskyblock', 'com.bgsoftware.superiorskyblock'
+    relocate 'id.naturalsmp.wildtools', 'com.bgsoftware.wildtools'
 
     archiveFileName = rootProject.name + ".jar"
 
