@@ -99,7 +99,8 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
         
         loadAPI();
 
-        if (loadNMSAdapter()) {
+        this.shouldEnable = loadNMSAdapter();
+        if (this.shouldEnable) {
             this.nmsAdapter.loadLegacy();
         } else {
             log("&cThere was an error while loading the plugin.");
@@ -212,28 +213,43 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
 
     private boolean loadNMSAdapter() {
         try {
-            NMSConfiguration nmsConfig;
+            NMSConfiguration nmsConfig = null;
 
             try {
+                // Try official way first
                 nmsConfig = NMSConfiguration.forPlugin(this);
             } catch (Throwable error) {
-                // If the package check fails, we manually instantiate the configuration.
-                // This bypasses the hardcoded "com.bgsoftware" package constraint.
+                // If the package check fails, we manually instantiate the configuration using Unsafe.
+                // This bypasses the constructor that triggers the "com.bgsoftware" check.
                 try {
                     Class<?> clazz = Class.forName("com.bgsoftware.common.nmsloader.config.NMSConfiguration$PluginNMSConfiguration");
-                    java.lang.reflect.Constructor<?> constructor = clazz.getDeclaredConstructor(org.bukkit.plugin.java.JavaPlugin.class);
-                    constructor.setAccessible(true);
-                    nmsConfig = (NMSConfiguration) constructor.newInstance(this);
                     
-                    // We also need to fix the internal brand check if it's stored in a field
-                    try {
-                        java.lang.reflect.Field field = clazz.getSuperclass().getDeclaredField("pluginPackage");
-                        field.setAccessible(true);
-                        field.set(nmsConfig, "id.naturalsmp.naturalstacker");
-                    } catch (Throwable ignored) {
+                    // Get Unsafe instance
+                    java.lang.reflect.Field unsafeField = sun.misc.Unsafe.class.getDeclaredField("theUnsafe");
+                    unsafeField.setAccessible(true);
+                    sun.misc.Unsafe unsafe = (sun.misc.Unsafe) unsafeField.get(null);
+                    
+                    // Allocate instance without constructor
+                    nmsConfig = (NMSConfiguration) unsafe.allocateInstance(clazz);
+                    
+                    // Manually set the JavaPlugin field in PluginNMSConfiguration
+                    for (java.lang.reflect.Field field : clazz.getDeclaredFields()) {
+                        if (org.bukkit.plugin.java.JavaPlugin.class.isAssignableFrom(field.getType())) {
+                            field.setAccessible(true);
+                            field.set(nmsConfig, this);
+                        }
                     }
+
+                    // Manually set fields in NMSConfiguration superclass
+                    for (java.lang.reflect.Field field : clazz.getSuperclass().getDeclaredFields()) {
+                        field.setAccessible(true);
+                        if (field.getName().equals("pluginPackage") || (field.getType().equals(String.class) && field.get(nmsConfig) == null)) {
+                            field.set(nmsConfig, "id.naturalsmp.naturalstacker");
+                        }
+                    }
+
                 } catch (Throwable fatal) {
-                    throw new NMSLoadException("Failed to bypass NMSLoader package check", fatal);
+                    throw new NMSLoadException("Failed to bypass NMSLoader package check via Unsafe", fatal);
                 }
             }
 
