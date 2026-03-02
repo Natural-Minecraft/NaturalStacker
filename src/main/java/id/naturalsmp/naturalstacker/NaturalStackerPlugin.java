@@ -213,57 +213,7 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
 
     private boolean loadNMSAdapter() {
         try {
-            NMSConfiguration nmsConfig = null;
-
-            String forcedVersion = "v1_21_10";
-
-            if (nmsConfig == null) {
-                try {
-                    Class<?> clazz = Class.forName("com.bgsoftware.common.nmsloader.config.NMSConfiguration$PluginNMSConfiguration");
-                    
-                    // Get Unsafe instance
-                    java.lang.reflect.Field unsafeField = sun.misc.Unsafe.class.getDeclaredField("theUnsafe");
-                    unsafeField.setAccessible(true);
-                    sun.misc.Unsafe unsafe = (sun.misc.Unsafe) unsafeField.get(null);
-                    
-                    // Allocate instance without constructor
-                    nmsConfig = (NMSConfiguration) unsafe.allocateInstance(clazz);
-                    
-                    // Manually set all fields in the hierarchy
-                    Class<?> current = clazz;
-                    java.io.File cacheDir = new java.io.File(getDataFolder(), "nms_cache");
-                    if (!cacheDir.exists()) cacheDir.mkdirs();
-
-                    while (current != null && !current.equals(Object.class)) {
-                        for (java.lang.reflect.Field field : current.getDeclaredFields()) {
-                            field.setAccessible(true);
-                            String name = field.getName();
-                            Class<?> type = field.getType();
-                            
-                            try {
-                                if (type.equals(java.io.File.class)) {
-                                    field.set(nmsConfig, cacheDir);
-                                } else if (org.bukkit.plugin.java.JavaPlugin.class.isAssignableFrom(type)) {
-                                    field.set(nmsConfig, this);
-                                } else if (type.equals(String.class)) {
-                                    Object existing = field.get(nmsConfig);
-                                    if (existing == null || existing.equals("")) {
-                                        if (name.equalsIgnoreCase("pluginPackage") || name.equalsIgnoreCase("package")) {
-                                            field.set(nmsConfig, "id.naturalsmp.naturalstacker");
-                                        } else if (name.toLowerCase().contains("version")) {
-                                            field.set(nmsConfig, forcedVersion);
-                                        }
-                                    }
-                                }
-                            } catch (Throwable ignored) {}
-                        }
-                        current = current.getSuperclass();
-                    }
-
-                } catch (Throwable fatal) {
-                    throw new NMSLoadException("Failed to bypass NMSLoader package check via Unsafe", fatal);
-                }
-            }
+            NMSConfiguration nmsConfig = new NaturalNMSConfiguration(this);
 
             INMSLoader nmsLoader = NMSHandlersFactory.createNMSLoader(this, nmsConfig);
             this.nmsAdapter = nmsLoader.loadNMSHandler(NMSAdapter.class);
@@ -273,7 +223,7 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
             this.nmsWorld = nmsLoader.loadNMSHandler(NMSWorld.class);
 
             if (this.nmsAdapter == null || this.nmsSpawners == null) {
-                throw new NMSLoadException("Failed to load one or more NMS handlers for version: " + forcedVersion);
+                throw new NMSLoadException("Failed to load one or more NMS handlers");
             }
 
             return true;
@@ -285,6 +235,7 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
             return false;
         }
     }
+
 
     public NMSAdapter getNMSAdapter() {
         return nmsAdapter;

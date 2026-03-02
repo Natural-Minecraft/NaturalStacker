@@ -187,7 +187,7 @@ items:
 # Here you can configurable all features related to stacked entities.
 entities:
   # Should entities get stacked on the server?
-  enabled: true
+  enabled: false
 
   # How many blocks from the entity should be checked for other entities to stack into?
   # EntityType list: https://naturalsmp.net/entities/
@@ -519,7 +519,7 @@ spawners:
   # EntityType list: https://naturalsmp.net/entities/
   # If you wish to disable blacklisted spawners, use "blacklist: []"
   blacklist:
-    - BLAZE
+    - BLAZEexample
 
   # Whitelisted spawners are spawners that will get stacked.
   # EntityType list: https://naturalsmp.net/entities/
