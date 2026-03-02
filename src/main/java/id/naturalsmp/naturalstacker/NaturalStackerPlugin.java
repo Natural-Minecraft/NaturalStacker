@@ -229,28 +229,35 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
                     // Allocate instance without constructor
                     nmsConfig = (NMSConfiguration) unsafe.allocateInstance(clazz);
                     
-                    // Manually set the JavaPlugin field in PluginNMSConfiguration
-                    for (java.lang.reflect.Field field : clazz.getDeclaredFields()) {
-                        if (org.bukkit.plugin.java.JavaPlugin.class.isAssignableFrom(field.getType())) {
-                            field.setAccessible(true);
-                            field.set(nmsConfig, this);
-                        }
-                    }
+                    // Manually set all fields in the hierarchy
+                    Class<?> current = clazz;
+                    java.io.File cacheDir = new java.io.File(getDataFolder(), "nms_cache");
+                    if (!cacheDir.exists()) cacheDir.mkdirs();
 
-                    // Manually set fields in NMSConfiguration superclass
-                    for (java.lang.reflect.Field field : clazz.getSuperclass().getDeclaredFields()) {
-                        field.setAccessible(true);
-                        String name = field.getName();
-                        
-                        if (name.equals("pluginPackage") || (field.getType().equals(String.class) && field.get(nmsConfig) == null)) {
-                            field.set(nmsConfig, "id.naturalsmp.naturalstacker");
-                        } else if (name.equals("cacheFolder") || field.getType().equals(java.io.File.class)) {
-                            field.set(nmsConfig, new java.io.File(getDataFolder(), "nms_cache"));
-                        } else if (name.equals("plugin") || org.bukkit.plugin.java.JavaPlugin.class.isAssignableFrom(field.getType())) {
-                            field.set(nmsConfig, this);
-                        } else if (name.equals("nmsVersion") || name.equals("version") || name.equals("NMSVersion")) {
-                             field.set(nmsConfig, forcedVersion);
+                    while (current != null && !current.equals(Object.class)) {
+                        for (java.lang.reflect.Field field : current.getDeclaredFields()) {
+                            field.setAccessible(true);
+                            String name = field.getName();
+                            Class<?> type = field.getType();
+                            
+                            try {
+                                if (type.equals(java.io.File.class)) {
+                                    field.set(nmsConfig, cacheDir);
+                                } else if (org.bukkit.plugin.java.JavaPlugin.class.isAssignableFrom(type)) {
+                                    field.set(nmsConfig, this);
+                                } else if (type.equals(String.class)) {
+                                    Object existing = field.get(nmsConfig);
+                                    if (existing == null || existing.equals("")) {
+                                        if (name.equalsIgnoreCase("pluginPackage") || name.equalsIgnoreCase("package")) {
+                                            field.set(nmsConfig, "id.naturalsmp.naturalstacker");
+                                        } else if (name.toLowerCase().contains("version")) {
+                                            field.set(nmsConfig, forcedVersion);
+                                        }
+                                    }
+                                }
+                            } catch (Throwable ignored) {}
                         }
+                        current = current.getSuperclass();
                     }
 
                 } catch (Throwable fatal) {
