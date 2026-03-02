@@ -117,8 +117,6 @@ public class NaturalNMSConfiguration extends NMSConfiguration {
         } catch (ClassNotFoundException error) {
             throw new NMSLoadException("NMS class not found: " + className +
                     ". Make sure the NMS module for " + nmsVersion + " is compiled and included.", error);
-        } catch (NMSLoadException error) {
-            throw error;
         } catch (Throwable error) {
             throw new NMSLoadException("Failed to instantiate NMS handler: " + className, error);
         }
