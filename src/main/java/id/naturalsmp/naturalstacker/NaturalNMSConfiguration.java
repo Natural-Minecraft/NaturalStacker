@@ -1,16 +1,13 @@
 package id.naturalsmp.naturalstacker;
 
 import com.bgsoftware.common.nmsloader.config.NMSConfiguration;
-import com.bgsoftware.common.nmsloader.INMSLoader;
 import com.bgsoftware.common.nmsloader.NMSLoadException;
 import org.bukkit.Bukkit;
-import org.bukkit.UnsafeValues;
 import org.bukkit.plugin.java.JavaPlugin;
 
 import java.io.File;
 import java.lang.reflect.Constructor;
-import java.util.Arrays;
-import java.util.List;
+import java.lang.reflect.Method;
 
 /**
  * Custom NMS loading system that bypasses the NMSHandlersFactory entirely.
@@ -50,13 +47,15 @@ public class NaturalNMSConfiguration extends NMSConfiguration {
 
     /**
      * Detect the NMS version string from the server's data version.
-     * This mirrors the logic in NMSHandlersFactory.getNMSPackageVersionName().
+     * Uses reflection to call getDataVersion() since it may not exist at compile time.
      */
     public static String detectNMSVersion() {
         try {
-            // For 1.17+ use data version
-            @SuppressWarnings("deprecation")
-            int dataVersion = Bukkit.getUnsafe().getDataVersion();
+            // Use reflection to get data version (not available in old Spigot API)
+            Object unsafeValues = Bukkit.class.getMethod("getUnsafe").invoke(null);
+            Method getDataVersion = unsafeValues.getClass().getMethod("getDataVersion");
+            int dataVersion = (int) getDataVersion.invoke(unsafeValues);
+
 
             int[][] versionMap = {
                 {2730, -1},   // v1_17 start marker
