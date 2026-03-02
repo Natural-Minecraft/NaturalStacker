@@ -215,12 +215,9 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
         try {
             NMSConfiguration nmsConfig = null;
 
-            try {
-                // Try official way first
-                nmsConfig = NMSConfiguration.forPlugin(this);
-            } catch (Throwable error) {
-                // If the package check fails, we manually instantiate the configuration using Unsafe.
-                // This bypasses the constructor that triggers the "com.bgsoftware" check.
+            String forcedVersion = "v1_21_10";
+
+            if (nmsConfig == null) {
                 try {
                     Class<?> clazz = Class.forName("com.bgsoftware.common.nmsloader.config.NMSConfiguration$PluginNMSConfiguration");
                     
@@ -252,7 +249,7 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
                         } else if (name.equals("plugin") || org.bukkit.plugin.java.JavaPlugin.class.isAssignableFrom(field.getType())) {
                             field.set(nmsConfig, this);
                         } else if (name.equals("nmsVersion") || name.equals("version") || name.equals("NMSVersion")) {
-                             field.set(nmsConfig, "v1_21_10");
+                             field.set(nmsConfig, forcedVersion);
                         }
                     }
 
@@ -269,7 +266,7 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
             this.nmsWorld = nmsLoader.loadNMSHandler(NMSWorld.class);
 
             if (this.nmsAdapter == null || this.nmsSpawners == null) {
-                throw new NMSLoadException("Failed to load one or more NMS handlers for version: " + (nmsConfig != null ? nmsConfig.getNMSVersion() : "unknown"));
+                throw new NMSLoadException("Failed to load one or more NMS handlers for version: " + forcedVersion);
             }
 
             return true;
