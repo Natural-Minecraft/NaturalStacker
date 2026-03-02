@@ -243,8 +243,14 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
                     // Manually set fields in NMSConfiguration superclass
                     for (java.lang.reflect.Field field : clazz.getSuperclass().getDeclaredFields()) {
                         field.setAccessible(true);
-                        if (field.getName().equals("pluginPackage") || (field.getType().equals(String.class) && field.get(nmsConfig) == null)) {
+                        String name = field.getName();
+                        
+                        if (name.equals("pluginPackage") || (field.getType().equals(String.class) && field.get(nmsConfig) == null)) {
                             field.set(nmsConfig, "id.naturalsmp.naturalstacker");
+                        } else if (name.equals("cacheFolder") || field.getType().equals(java.io.File.class)) {
+                            field.set(nmsConfig, new java.io.File(getDataFolder(), "nms_cache"));
+                        } else if (name.equals("plugin") || org.bukkit.plugin.java.JavaPlugin.class.isAssignableFrom(field.getType())) {
+                            field.set(nmsConfig, this);
                         }
                     }
 
