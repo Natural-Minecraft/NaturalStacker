@@ -23,13 +23,18 @@ shadowJar {
 }
 
 assemble {
-    dependsOn(reobfJar)
+    dependsOn(jar)
 }
 
 tasks {
-    reobfJar {
+    jar {
+        // Output the Mojang-mapped jar to the archive folder for Paper 1.21.10
         File outputFile = new File(rootProject.archiveFolder, "reobf/${project.name}.jar")
-        outputJar.set(layout.buildDirectory.file(outputFile.getPath()))
+        archiveFile.set(outputFile)
+    }
+    reobfJar {
+        // Disable Spigot-mapped reobfJar since Paper 1.20.5+ requires native Mojang mappings
+        enabled = false
     }
 }
 
