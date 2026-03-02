@@ -211,53 +211,59 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
         }
     }
 
+    // All known NMS versions, latest first, for fallback scanning
+    private static final String[] KNOWN_NMS_VERSIONS = {
+        "v1_21_10", "v1_21_9", "v1_21_7", "v1_21_5", "v1_21_4", "v1_21_3",
+        "v1_21", "v1_20_4", "v1_20_3", "v1_19", "v1_18", "v1_17",
+        "v1_16_R3", "v1_12_R1", "v1_8_R3", "v1_7_R4"
+    };
+
     private boolean loadNMSAdapter() {
         NaturalNMSConfiguration nmsConfig = new NaturalNMSConfiguration(this);
 
         // Detect server NMS version
-        String nmsVersion = NaturalNMSConfiguration.detectNMSVersion();
-        if (nmsVersion == null) {
-            log("&cCould not detect NMS version from server. Is this a supported Minecraft version?");
-            return false;
+        String detectedVersion = NaturalNMSConfiguration.detectNMSVersion();
+        log("Detected NMS version: " + (detectedVersion != null ? detectedVersion : "unknown"));
+
+        // Build list of versions to try: detected version first, then all others
+        java.util.List<String> versionsToTry = new java.util.ArrayList<>();
+        if (detectedVersion != null) {
+            versionsToTry.add(detectedVersion);
         }
-        log("Detected NMS version: " + nmsVersion);
-
-        // Primary approach: Direct class loading (bypasses NMSHandlersFactory resource checks)
-        try {
-            log("Loading NMS handlers directly for version " + nmsVersion + "...");
-
-            this.nmsAdapter = nmsConfig.loadNMSHandlerDirect(NMSAdapter.class, nmsVersion);
-            this.nmsEntities = nmsConfig.loadNMSHandlerDirect(NMSEntities.class, nmsVersion);
-            this.nmsHolograms = nmsConfig.loadNMSHandlerDirect(NMSHolograms.class, nmsVersion);
-            this.nmsSpawners = nmsConfig.loadNMSHandlerDirect(NMSSpawners.class, nmsVersion);
-            this.nmsWorld = nmsConfig.loadNMSHandlerDirect(NMSWorld.class, nmsVersion);
-
-            log("&aAll NMS handlers loaded successfully via direct loading!");
-            return true;
-        } catch (NMSLoadException directError) {
-            log("&eDirect NMS loading failed: " + directError.getMessage());
-            log("&eFalling back to NMSHandlersFactory...");
+        for (String v : KNOWN_NMS_VERSIONS) {
+            if (!v.equals(detectedVersion)) {
+                versionsToTry.add(v);
+            }
         }
 
-        // Fallback: Try NMSHandlersFactory (original approach)
-        try {
-            INMSLoader nmsLoader = NMSHandlersFactory.createNMSLoader(this, nmsConfig);
-            this.nmsAdapter = nmsLoader.loadNMSHandler(NMSAdapter.class);
-            this.nmsEntities = nmsLoader.loadNMSHandler(NMSEntities.class);
-            this.nmsHolograms = nmsLoader.loadNMSHandler(NMSHolograms.class);
-            this.nmsSpawners = nmsLoader.loadNMSHandler(NMSSpawners.class);
-            this.nmsWorld = nmsLoader.loadNMSHandler(NMSWorld.class);
+        // Try each version via direct class loading
+        for (String nmsVersion : versionsToTry) {
+            try {
+                // Quick check: does the main adapter class exist?
+                Class.forName("id.naturalsmp.naturalstacker.nms." + nmsVersion + ".NMSAdapterImpl");
 
-            log("&aAll NMS handlers loaded successfully via NMSHandlersFactory!");
-            return true;
-        } catch (NMSLoadException factoryError) {
-            log("&cNMSHandlersFactory also failed: " + factoryError.getMessage());
-            log("&cThe plugin doesn't support your minecraft version.");
-            log("&cPlease try a different version.");
-            factoryError.printStackTrace();
-            return false;
+                log("Found NMS module for version " + nmsVersion + ", loading handlers...");
+
+                this.nmsAdapter = nmsConfig.loadNMSHandlerDirect(NMSAdapter.class, nmsVersion);
+                this.nmsEntities = nmsConfig.loadNMSHandlerDirect(NMSEntities.class, nmsVersion);
+                this.nmsHolograms = nmsConfig.loadNMSHandlerDirect(NMSHolograms.class, nmsVersion);
+                this.nmsSpawners = nmsConfig.loadNMSHandlerDirect(NMSSpawners.class, nmsVersion);
+                this.nmsWorld = nmsConfig.loadNMSHandlerDirect(NMSWorld.class, nmsVersion);
+
+                log("&aAll NMS handlers loaded successfully for version " + nmsVersion + "!");
+                return true;
+            } catch (ClassNotFoundException ignored) {
+                // This version's NMS module is not available, try next
+            } catch (Throwable error) {
+                log("&eNMS version " + nmsVersion + " found but failed to load: " + error.getMessage());
+            }
         }
+
+        log("&cNo compatible NMS module found. Tried versions: " + versionsToTry);
+        log("&cThe plugin doesn't support your minecraft version.");
+        return false;
     }
+
 
 
 
