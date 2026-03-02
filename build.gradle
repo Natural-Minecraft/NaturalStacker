@@ -82,9 +82,10 @@ dependencies {
 
 jar {
     from {
-        for (File file : rootProject.archiveFolder.listFiles()) {
-            zipTree(file)
-        }
+        fileTree(rootProject.archiveFolder) {
+            include '**/*.jar'
+            exclude '*-exclude.jar'
+        }.collect { zipTree(it) }
     }
 }
 

@@ -251,6 +251,8 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
                             field.set(nmsConfig, new java.io.File(getDataFolder(), "nms_cache"));
                         } else if (name.equals("plugin") || org.bukkit.plugin.java.JavaPlugin.class.isAssignableFrom(field.getType())) {
                             field.set(nmsConfig, this);
+                        } else if (name.equals("nmsVersion") || name.equals("version") || name.equals("NMSVersion")) {
+                             field.set(nmsConfig, "v1_21_10");
                         }
                     }
 
@@ -265,6 +267,10 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
             this.nmsHolograms = nmsLoader.loadNMSHandler(NMSHolograms.class);
             this.nmsSpawners = nmsLoader.loadNMSHandler(NMSSpawners.class);
             this.nmsWorld = nmsLoader.loadNMSHandler(NMSWorld.class);
+
+            if (this.nmsAdapter == null || this.nmsSpawners == null) {
+                throw new NMSLoadException("Failed to load one or more NMS handlers for version: " + (nmsConfig != null ? nmsConfig.getNMSVersion() : "unknown"));
+            }
 
             return true;
         } catch (NMSLoadException error) {
