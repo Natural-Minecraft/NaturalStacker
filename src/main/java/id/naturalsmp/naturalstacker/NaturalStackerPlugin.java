@@ -256,6 +256,7 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
                 // This version's NMS module is not available, try next
             } catch (Throwable error) {
                 log("&eNMS version " + nmsVersion + " found but failed to load: " + error.getMessage());
+                error.printStackTrace();
             }
         }
 
