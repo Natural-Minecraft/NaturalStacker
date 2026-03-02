@@ -212,9 +212,35 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
     }
 
     private boolean loadNMSAdapter() {
-        try {
-            NMSConfiguration nmsConfig = new NaturalNMSConfiguration(this);
+        NaturalNMSConfiguration nmsConfig = new NaturalNMSConfiguration(this);
 
+        // Detect server NMS version
+        String nmsVersion = NaturalNMSConfiguration.detectNMSVersion();
+        if (nmsVersion == null) {
+            log("&cCould not detect NMS version from server. Is this a supported Minecraft version?");
+            return false;
+        }
+        log("Detected NMS version: " + nmsVersion);
+
+        // Primary approach: Direct class loading (bypasses NMSHandlersFactory resource checks)
+        try {
+            log("Loading NMS handlers directly for version " + nmsVersion + "...");
+
+            this.nmsAdapter = nmsConfig.loadNMSHandlerDirect(NMSAdapter.class, nmsVersion);
+            this.nmsEntities = nmsConfig.loadNMSHandlerDirect(NMSEntities.class, nmsVersion);
+            this.nmsHolograms = nmsConfig.loadNMSHandlerDirect(NMSHolograms.class, nmsVersion);
+            this.nmsSpawners = nmsConfig.loadNMSHandlerDirect(NMSSpawners.class, nmsVersion);
+            this.nmsWorld = nmsConfig.loadNMSHandlerDirect(NMSWorld.class, nmsVersion);
+
+            log("&aAll NMS handlers loaded successfully via direct loading!");
+            return true;
+        } catch (NMSLoadException directError) {
+            log("&eDirect NMS loading failed: " + directError.getMessage());
+            log("&eFalling back to NMSHandlersFactory...");
+        }
+
+        // Fallback: Try NMSHandlersFactory (original approach)
+        try {
             INMSLoader nmsLoader = NMSHandlersFactory.createNMSLoader(this, nmsConfig);
             this.nmsAdapter = nmsLoader.loadNMSHandler(NMSAdapter.class);
             this.nmsEntities = nmsLoader.loadNMSHandler(NMSEntities.class);
@@ -222,19 +248,17 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
             this.nmsSpawners = nmsLoader.loadNMSHandler(NMSSpawners.class);
             this.nmsWorld = nmsLoader.loadNMSHandler(NMSWorld.class);
 
-            if (this.nmsAdapter == null || this.nmsSpawners == null) {
-                throw new NMSLoadException("Failed to load one or more NMS handlers");
-            }
-
+            log("&aAll NMS handlers loaded successfully via NMSHandlersFactory!");
             return true;
-        } catch (NMSLoadException error) {
+        } catch (NMSLoadException factoryError) {
+            log("&cNMSHandlersFactory also failed: " + factoryError.getMessage());
             log("&cThe plugin doesn't support your minecraft version.");
             log("&cPlease try a different version.");
-            error.printStackTrace();
-
+            factoryError.printStackTrace();
             return false;
         }
     }
+
 
 
     public NMSAdapter getNMSAdapter() {
