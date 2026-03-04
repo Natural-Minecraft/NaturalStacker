@@ -47,19 +47,19 @@ public final class ItemBuilder {
     }
 
     public ItemBuilder withName(String name) {
-        itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', name));
+        itemMeta.setDisplayName(id.naturalsmp.naturalstacker.utils.GeneralUtils.color(name));
         return this;
     }
 
     public ItemBuilder withLore(String firstLine, ConfigurationSection configurationSection) {
         List<String> loreList = new ArrayList<>();
 
-        firstLine = ChatColor.translateAlternateColorCodes('&', firstLine);
+        firstLine = id.naturalsmp.naturalstacker.utils.GeneralUtils.color(firstLine);
         loreList.add(firstLine);
 
         for (String section : configurationSection.getKeys(false)) {
             section = section + ": " + configurationSection.get(section).toString();
-            loreList.add(ChatColor.getLastColors(firstLine) + ChatColor.translateAlternateColorCodes('&', section));
+            loreList.add(ChatColor.getLastColors(firstLine) + id.naturalsmp.naturalstacker.utils.GeneralUtils.color(section));
         }
 
         if (loreList.size() > 16) {
@@ -74,11 +74,11 @@ public final class ItemBuilder {
     public ItemBuilder withLore(String firstLine, List<String> listLine) {
         List<String> loreList = new ArrayList<>();
 
-        firstLine = ChatColor.translateAlternateColorCodes('&', firstLine);
+        firstLine = id.naturalsmp.naturalstacker.utils.GeneralUtils.color(firstLine);
         loreList.add(firstLine);
 
         for (String line : listLine) {
-            loreList.add(ChatColor.getLastColors(firstLine) + ChatColor.translateAlternateColorCodes('&', line));
+            loreList.add(ChatColor.getLastColors(firstLine) + id.naturalsmp.naturalstacker.utils.GeneralUtils.color(line));
         }
 
         if (loreList.size() > 10) {
@@ -93,7 +93,7 @@ public final class ItemBuilder {
     }
 
     public ItemBuilder withLore(List<String> lore) {
-        itemMeta.setLore(lore.stream().map(s -> ChatColor.translateAlternateColorCodes('&', s)).collect(Collectors.toList()));
+        itemMeta.setLore(lore.stream().map(s -> id.naturalsmp.naturalstacker.utils.GeneralUtils.color(s)).collect(Collectors.toList()));
         return this;
     }
 
@@ -101,7 +101,7 @@ public final class ItemBuilder {
         List<String> loreList = new ArrayList<>();
 
         for (String line : lore) {
-            loreList.add(ChatColor.translateAlternateColorCodes('&', line));
+            loreList.add(id.naturalsmp.naturalstacker.utils.GeneralUtils.color(line));
         }
 
         itemMeta.setLore(loreList);

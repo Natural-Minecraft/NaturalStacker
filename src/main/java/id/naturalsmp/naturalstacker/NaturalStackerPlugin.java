@@ -70,7 +70,7 @@ public final class NaturalStackerPlugin extends JavaPlugin implements NaturalSta
     private boolean shouldEnable = true;
 
     public static void log(String message) {
-        message = ChatColor.translateAlternateColorCodes('&', message);
+        message = id.naturalsmp.naturalstacker.utils.GeneralUtils.color(message);
         if (message.contains(ChatColor.COLOR_CHAR + "")) {
             Bukkit.getConsoleSender().sendMessage("[NaturalStacker] " + message);
         } else {

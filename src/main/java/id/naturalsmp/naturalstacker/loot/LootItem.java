@@ -192,12 +192,12 @@ public class LootItem extends FilteredLoot {
         ItemMeta itemMeta = itemStack.getItemMeta();
 
         if (jsonObject.containsKey("name"))
-            itemMeta.setDisplayName(ChatColor.translateAlternateColorCodes('&', (String) jsonObject.get("name")));
+            itemMeta.setDisplayName(id.naturalsmp.naturalstacker.utils.GeneralUtils.color((String) jsonObject.get("name")));
 
         if (jsonObject.containsKey("lore")) {
             JSONArray jsonArray = (JSONArray) jsonObject.get("lore");
             itemMeta.setLore(((Stream<String>) jsonArray.stream()).map(line ->
-                    ChatColor.translateAlternateColorCodes('&', line)).collect(Collectors.toList()));
+                    id.naturalsmp.naturalstacker.utils.GeneralUtils.color(line)).collect(Collectors.toList()));
         }
 
         if (jsonObject.containsKey("enchants")) {

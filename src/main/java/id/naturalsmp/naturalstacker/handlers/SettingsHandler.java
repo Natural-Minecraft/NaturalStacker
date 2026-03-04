@@ -184,7 +184,7 @@ public final class SettingsHandler {
         databaseMySQLWaitTimeout = cfg.getLong("database.waitTimeout");
         databaseMySQLMaxLifetime = cfg.getLong("database.maxLifetime");
 
-        giveItemName = ChatColor.translateAlternateColorCodes('&', cfg.getString("give-item-name", "&6x{0} &f&o{1} {2}"));
+        giveItemName = id.naturalsmp.naturalstacker.utils.GeneralUtils.color(cfg.getString("give-item-name", "&6x{0} &f&o{1} {2}"));
         SPAWNERS_PATTERN = Pattern.compile(giveItemName
                 .replace("{0}", "(.*)")
                 .replace("{1}", "(.*)")
@@ -226,7 +226,7 @@ public final class SettingsHandler {
         blacklistedItems = FastEnumArray.fromList(cfg.getStringList("items.blacklist"), Material.class);
         whitelistedItems = FastEnumArray.fromList(cfg.getStringList("items.whitelist"), Material.class);
         itemsChunkLimit = cfg.getInt("items.chunk-limit", 0);
-        itemsCustomName = ChatColor.translateAlternateColorCodes('&', cfg.getString("items.custom-name", "&6&lx{0} {1}"));
+        itemsCustomName = id.naturalsmp.naturalstacker.utils.GeneralUtils.color(cfg.getString("items.custom-name", "&6&lx{0} {1}"));
         //noinspection unchecked
         itemsNameBuilder = new NameBuilder<>(itemsCustomName,
                 new NamePlaceholder<>("{0}", stackedItem -> stackedItem.getStackAmount() + ""),
@@ -252,7 +252,7 @@ public final class SettingsHandler {
                 EntityType.class, SpawnCause.class);
         minimumRequiredEntities = Fast2EnumsMap.fromSectionToInt(cfg.getConfigurationSection("entities.minimum-required"),
                 EntityType.class, SpawnCause.class);
-        entitiesCustomName = ChatColor.translateAlternateColorCodes('&', cfg.getString("entities.custom-name", "&d&lx{0} {1}"));
+        entitiesCustomName = id.naturalsmp.naturalstacker.utils.GeneralUtils.color(cfg.getString("entities.custom-name", "&d&lx{0} {1}"));
         //noinspection unchecked
         entitiesNameBuilder = new NameBuilder<>(entitiesCustomName,
                 new NamePlaceholder<>("{0}", stackedEntity -> stackedEntity.getStackAmount() + ""),
@@ -270,7 +270,7 @@ public final class SettingsHandler {
         whitelistedEntities = Fast2EnumsArray.fromList(cfg.getStringList("entities.whitelist"),
                 EntityType.class, SpawnCause.class);
         blacklistedEntitiesNames = cfg.getStringList("entities.name-blacklist").stream()
-                .map(line -> Pattern.compile(ChatColor.translateAlternateColorCodes('&', line)))
+                .map(line -> Pattern.compile(id.naturalsmp.naturalstacker.utils.GeneralUtils.color(line)))
                 .collect(Collectors.toList());
         entitiesInstantKills = Fast3EnumsArray.fromList(cfg.getStringList("entities.instant-kill"),
                 EntityType.class, SpawnCause.class, EntityDamageEvent.DamageCause.class);
@@ -332,7 +332,7 @@ public final class SettingsHandler {
         blacklistedSpawners = FastEnumArray.fromList(cfg.getStringList("spawners.blacklist"), EntityType.class);
         whitelistedSpawners = FastEnumArray.fromList(cfg.getStringList("spawners.whitelist"), EntityType.class);
         spawnersChunkLimit = cfg.getInt("spawners.chunk-limit", 0);
-        spawnersCustomName = ChatColor.translateAlternateColorCodes('&', cfg.getString("spawners.custom-name", "&9&lx{0} {1}"));
+        spawnersCustomName = id.naturalsmp.naturalstacker.utils.GeneralUtils.color(cfg.getString("spawners.custom-name", "&9&lx{0} {1}"));
         //noinspection unchecked
         spawnersNameBuilder = new NameBuilder<>(spawnersCustomName,
                 new NamePlaceholder<>("{0}", stackedSpawner -> stackedSpawner.getStackAmount() + ""),
@@ -340,9 +340,9 @@ public final class SettingsHandler {
                 new NamePlaceholder<>("{2}", stackedSpawner -> ((WStackedSpawner) stackedSpawner).getCachedDisplayName().toUpperCase()),
                 new NamePlaceholder<>("{3}", stackedSpawner -> stackedSpawner.getUpgrade().getDisplayName())
         );
-        spawnerItemName = ChatColor.translateAlternateColorCodes('&', cfg.getString("spawners.spawner-item.name", "&e{0} &fSpawner"));
+        spawnerItemName = id.naturalsmp.naturalstacker.utils.GeneralUtils.color(cfg.getString("spawners.spawner-item.name", "&e{0} &fSpawner"));
         spawnerItemLore = cfg.getStringList("spawners.spawner-item.lore").stream().map(line ->
-                ChatColor.translateAlternateColorCodes('&', line)).collect(Collectors.toList());
+                id.naturalsmp.naturalstacker.utils.GeneralUtils.color(line)).collect(Collectors.toList());
         silkTouchSpawners = cfg.getBoolean("spawners.silk-touch.enabled", true);
         dropToInventory = cfg.getBoolean("spawners.silk-touch.drop-to-inventory", true);
         silkWorlds = cfg.getStringList("spawners.silk-touch.worlds");
@@ -509,7 +509,7 @@ public final class SettingsHandler {
         barrelsDisabledWorlds = cfg.getStringList("barrels.disabled-worlds");
         barrelsLimits = FastEnumMap.fromSection(cfg.getConfigurationSection("barrels.limits"), Material.class);
         chunkMergeBarrels = cfg.getBoolean("barrels.chunk-merge", false);
-        barrelsCustomName = ChatColor.translateAlternateColorCodes('&', cfg.getString("barrels.custom-name", "&9&lx{0} {1}"));
+        barrelsCustomName = id.naturalsmp.naturalstacker.utils.GeneralUtils.color(cfg.getString("barrels.custom-name", "&9&lx{0} {1}"));
         //noinspection unchecked
         barrelsNameBuilder = new NameBuilder<>(barrelsCustomName,
                 new NamePlaceholder<>("{0}", stackedBarrel -> stackedBarrel.getStackAmount() + ""),
@@ -523,7 +523,7 @@ public final class SettingsHandler {
         barrelsToggleCommand = cfg.getBoolean("barrels.toggle-command.enabled", false);
         barrelsToggleCommandSyntax = cfg.getString("barrels.toggle-command.command", "stacker toggle");
         barrelsPlaceInventory = cfg.getBoolean("barrels.place-inventory.enabled", true);
-        barrelsPlaceInventoryTitle = ChatColor.translateAlternateColorCodes('&',
+        barrelsPlaceInventoryTitle = id.naturalsmp.naturalstacker.utils.GeneralUtils.color(
                 cfg.getString("barrels.place-inventory.title", "Add items here ({0})"));
         forceCauldron = cfg.getBoolean("barrels.force-cauldron", false);
         barrelsRequiredPermission = cfg.getString("barrels.required-permission", "");
@@ -533,7 +533,7 @@ public final class SettingsHandler {
 
         bucketsStackerEnabled = cfg.getBoolean("buckets.enabled", true);
         bucketsBlacklistedNames = cfg.getStringList("buckets.name-blacklist").stream()
-                .map(line -> ChatColor.translateAlternateColorCodes('&', line)).collect(Collectors.toList());
+                .map(line -> id.naturalsmp.naturalstacker.utils.GeneralUtils.color(line)).collect(Collectors.toList());
         bucketsMaxStack = cfg.getInt("buckets.max-stack", 16);
 
         stewsStackingEnabled = cfg.getBoolean("stews.enabled", true);
@@ -578,7 +578,7 @@ public final class SettingsHandler {
 
         if (cfg.getBoolean("enabled", true)) {
             for (String key : cfg.getConfigurationSection("").getKeys(false))
-                customNames.put(key, ChatColor.translateAlternateColorCodes('&', cfg.getString(key)));
+                customNames.put(key, id.naturalsmp.naturalstacker.utils.GeneralUtils.color(cfg.getString(key)));
         }
     }
 

@@ -128,7 +128,7 @@ public final class FileUtils {
 
         menu.resetData();
 
-        menu.setTitle(ChatColor.translateAlternateColorCodes('&', section.getString("title", "")));
+        menu.setTitle(id.naturalsmp.naturalstacker.utils.GeneralUtils.color(section.getString("title", "")));
 
         List<String> pattern = section.getStringList("pattern");
 

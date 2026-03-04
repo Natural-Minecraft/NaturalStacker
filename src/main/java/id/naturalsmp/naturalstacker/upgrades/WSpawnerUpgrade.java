@@ -106,7 +106,7 @@ public final class WSpawnerUpgrade implements SpawnerUpgrade {
 
     @Override
     public void setDisplayName(String displayName) {
-        this.displayName = displayName == null ? "" : ChatColor.translateAlternateColorCodes('&', displayName);
+        this.displayName = displayName == null ? "" : id.naturalsmp.naturalstacker.utils.GeneralUtils.color(displayName);
     }
 
     @Override

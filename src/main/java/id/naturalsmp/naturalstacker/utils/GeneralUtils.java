@@ -21,11 +21,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import java.util.stream.Stream;
+import org.bukkit.ChatColor;
 
 public final class GeneralUtils {
 
     private static final NumberFormat numberFormatter = DecimalFormat.getNumberInstance();
+    private static final Pattern HEX_PATTERN = Pattern.compile("&#([A-Fa-f0-9]{6})");
 
     static {
         numberFormatter.setGroupingUsed(true);
@@ -109,6 +113,20 @@ public final class GeneralUtils {
 
     private static double distance(Location loc1, Location loc2) {
         return loc1.getWorld() != loc2.getWorld() ? Double.POSITIVE_INFINITY : loc1.distanceSquared(loc2);
+    }
+
+    public static String color(String message) {
+        if (message == null) return null;
+        Matcher matcher = HEX_PATTERN.matcher(message);
+        StringBuffer buffer = new StringBuffer(message.length() + 4 * 8);
+        while (matcher.find()) {
+            String group = matcher.group(1);
+            matcher.appendReplacement(buffer, ChatColor.COLOR_CHAR + "x"
+                    + ChatColor.COLOR_CHAR + group.charAt(0) + ChatColor.COLOR_CHAR + group.charAt(1)
+                    + ChatColor.COLOR_CHAR + group.charAt(2) + ChatColor.COLOR_CHAR + group.charAt(3)
+                    + ChatColor.COLOR_CHAR + group.charAt(4) + ChatColor.COLOR_CHAR + group.charAt(5));
+        }
+        return ChatColor.translateAlternateColorCodes('&', matcher.appendTail(buffer).toString());
     }
 
 }

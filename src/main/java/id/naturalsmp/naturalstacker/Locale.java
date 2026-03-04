@@ -109,7 +109,7 @@ public final class Locale {
         }
 
         for (String identifier : localeMap.keySet()) {
-            localeMap.get(identifier).setMessage(ChatColor.translateAlternateColorCodes('&', cfg.getString(identifier, "")));
+            localeMap.get(identifier).setMessage(id.naturalsmp.naturalstacker.utils.GeneralUtils.color(cfg.getString(identifier, "")));
             messagesAmount++;
         }
 
@@ -118,7 +118,7 @@ public final class Locale {
     }
 
     public static void sendMessage(CommandSender sender, String message) {
-        sender.sendMessage(ChatColor.translateAlternateColorCodes('&', message));
+        sender.sendMessage(id.naturalsmp.naturalstacker.utils.GeneralUtils.color(message));
     }
 
     public String getMessage(Object... objects) {
