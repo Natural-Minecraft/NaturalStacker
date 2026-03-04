@@ -8,6 +8,7 @@ import org.bukkit.Material;
 import org.bukkit.entity.EntityType;
 import org.bukkit.inventory.ItemStack;
 
+import id.naturalsmp.naturalstacker.utils.GeneralUtils;
 import java.util.List;
 
 public final class WSpawnerUpgrade implements SpawnerUpgrade {
@@ -106,7 +107,7 @@ public final class WSpawnerUpgrade implements SpawnerUpgrade {
 
     @Override
     public void setDisplayName(String displayName) {
-        this.displayName = displayName == null ? "" : id.naturalsmp.naturalstacker.utils.GeneralUtils.color(displayName);
+        this.displayName = displayName == null ? "" : GeneralUtils.color(displayName);
     }
 
     @Override
