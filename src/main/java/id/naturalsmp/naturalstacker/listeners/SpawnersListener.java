@@ -352,7 +352,7 @@ public final class SpawnersListener implements Listener {
         }
 
         int originalAmount = stackedSpawner.getStackAmount();
-        int stackAmount = e.getPlayer().isSneaking() && plugin.getSettings().shiftGetWholeSpawnerStack ? originalAmount : 1;
+        int stackAmount = originalAmount; // The user wants the whole stack to drop by default
 
         handleSpawnerBreak(plugin, stackedSpawner, stackAmount, e.getPlayer(), false);
     }
