@@ -352,9 +352,13 @@ public final class SpawnersListener implements Listener {
         }
 
         int originalAmount = stackedSpawner.getStackAmount();
-        int stackAmount = originalAmount; // The user wants the whole stack to drop by default
+        int breakAmount = 1;
 
-        handleSpawnerBreak(plugin, stackedSpawner, stackAmount, e.getPlayer(), false);
+        if (e.getPlayer().isSneaking()) {
+            breakAmount = originalAmount;
+        }
+
+        handleSpawnerBreak(plugin, stackedSpawner, breakAmount, e.getPlayer(), false);
     }
 
     //Priority is high so it can be fired before SilkSpawners
